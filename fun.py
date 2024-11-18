@@ -1,3 +1,5 @@
+
+import random
 class Node:
     def __init__(self, value):
         self.value = value
@@ -91,7 +93,7 @@ class LinkedList:
 
     def insert(self, index, value):
         if index < 0 or index > self.length - 1:
-            return None
+            return False
         elif index == 0:
             return self.prepend()
         elif index == self.length:
@@ -129,49 +131,86 @@ class LinkedList:
 
 # Test Cases
 def test_linked_list():
-    test_linked_list_constructor()
-    test_linked_list_pop_first()
-    test_linked_list_pop()
-    test_linked_list_prepend()
-    test_linked_list_append()
-    test_linked_list_print()
-    test_linked_list_get()
-    test_linked_list_set()
-    test_linked_list_insert()
-    test_linked_list_remove()
+    test_config = [
+        ["test_linked_list_constructor", test_linked_list_constructor],
+        ["test_linked_list_pop_first", test_linked_list_pop_first],
+        ["test_linked_list_pop", test_linked_list_pop],
+        ["test_linked_list_prepend", test_linked_list_prepend],
+        ["test_linked_list_append", test_linked_list_append],
+        ["test_linked_list_print", test_linked_list_print],
+        ["test_linked_list_get", test_linked_list_get],
+        ["test_linked_list_set", test_linked_list_set],
+        ["test_linked_list_insert", test_linked_list_insert],
+        ["test_linked_list_remove", test_linked_list_remove]
+    ]
+
+    for test_index in range(len(test_config)):
+        test_result = test_config[test_index][1]()
+
+        # Sets test result color for log output  
+        test_result = '\033[32mPass\033[0m'  if test_result else '\033[31mFail\033[0m'
+        print(f'{test_config[test_index][0]}: {test_result}')
 
 # Linked List Tests
+# TODO: cover edge cases like index out of bounds
+def initialize_test_linked_list(is_random=False, num_of_values=10):
+    ll = LinkedList(1)
+    ll.prepend(2)
+    ll.prepend(3)
+
+    if is_random:
+        for _ in range(num_of_values):
+            new_num = random.randint()
+            ll.append(new_num)
+    return ll 
+
 def test_linked_list_constructor():
     ll = LinkedList(1)
-    print(f'test_linked_list: {ll.get(0).value == 1}')
+    return ll.get(0).value == 1 and ll.length == 1
 
 def test_linked_list_pop_first():
-    return
+    ll = initialize_test_linked_list()
+    return ll.pop_first().value == 3 and ll.length == 2
 
 def test_linked_list_pop():
-    return
+    ll = initialize_test_linked_list()
+    return ll.pop().value == 1 and ll.length == 2
 
 def test_linked_list_prepend():
-    return
+    ll = initialize_test_linked_list()
+    ll.prepend(4)
+    return ll.get(0).value == 4 and ll.length == 4
 
 def test_linked_list_append():
-    return
+    ll = initialize_test_linked_list()
+    ll.append(4)
+    return ll.get(3).value == 4 and ll.length == 4
 
+# TODO: this seems annoying, do later
 def test_linked_list_print():
-    return
+    return True
 
 def test_linked_list_get():
-    return
+    ll = initialize_test_linked_list()
+    return ll.get(1).value == 2
 
 def test_linked_list_set():
-    return
+    ll = initialize_test_linked_list()
+    ll.set(2, 5)
+    return ll.get(2).value == 5
 
 def test_linked_list_insert():
-    return
+    ll = initialize_test_linked_list()
+    ll.insert(2, 5)
+    return ll.get(2).value == 5 and ll.length == 4
 
 def test_linked_list_remove():
-    return
+    ll = initialize_test_linked_list()
+    
+    return ll.remove(2).value == 1 and ll.length == 2
 
+def test_linked_list_get_length():
+    return False
 
 # Test Execution
 test_linked_list()
