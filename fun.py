@@ -1,5 +1,16 @@
 
 import random
+
+#  TEST UTILITY FUNCTIONS
+def format_test_result(result):
+    return '\033[32mPass\033[0m' if result else '\033[31mFail\033[0m'
+
+# FUNCTIONS
+def access_index(some_list):
+    for i in range(len(some_list)):
+        print(i) 
+
+# DATA STRUCTURE
 class Node:
     def __init__(self, value):
         self.value = value
@@ -36,7 +47,7 @@ class LinkedList:
         while temp.next:
             prev = temp
             temp = temp.next
-
+        
         if self.length == 1:
             self.head = None
             self.tail = None
@@ -75,7 +86,7 @@ class LinkedList:
     
     def get(self, index):
         if index < 0 or index > self.length-1:
-            return False
+            return None
         
         temp = self.head
 
@@ -112,13 +123,12 @@ class LinkedList:
             return self.pop_first()
         elif index == self.length - 1:
             return self.pop()
-        else:
-            prev = self.get(index-1)
-            temp = prev.next
-            prev.next = temp.next
-            temp.next = None
-            self.length -= 1
-            return temp
+        prev = self.get(index-1)
+        temp = prev.next
+        prev.next = temp.next
+        temp.next = None
+        self.length -= 1
+        return temp
 
     def get_length(self):
         count = 0
@@ -131,7 +141,7 @@ class LinkedList:
 
 # Test Cases
 def test_linked_list():
-    test_config = [
+    test_configs = [
         ["test_linked_list_constructor", test_linked_list_constructor],
         ["test_linked_list_pop_first", test_linked_list_pop_first],
         ["test_linked_list_pop", test_linked_list_pop],
@@ -141,18 +151,16 @@ def test_linked_list():
         ["test_linked_list_get", test_linked_list_get],
         ["test_linked_list_set", test_linked_list_set],
         ["test_linked_list_insert", test_linked_list_insert],
-        ["test_linked_list_remove", test_linked_list_remove]
+        ["test_linked_list_remove", test_linked_list_remove],
+        ["test_linked_list_get_length", test_linked_list_get_length],
+        ["test_linked_list_functions_out_of_bounds", test_linked_list_functions_out_of_bounds]
     ]
 
-    for test_index in range(len(test_config)):
-        test_result = test_config[test_index][1]()
-
-        # Sets test result color for log output  
-        test_result = '\033[32mPass\033[0m'  if test_result else '\033[31mFail\033[0m'
-        print(f'{test_config[test_index][0]}: {test_result}')
+    for test in test_configs:
+        test_result = format_test_result(test[1]())
+        print(f'{test[0]}: {test_result}')
 
 # Linked List Tests
-# TODO: cover edge cases like index out of bounds
 def initialize_test_linked_list(is_random=False, num_of_values=10):
     ll = LinkedList(1)
     ll.prepend(2)
@@ -194,6 +202,49 @@ def test_linked_list_get():
     ll = initialize_test_linked_list()
     return ll.get(1).value == 2
 
+def test_linked_list_functions_out_of_bounds():
+    ll = initialize_test_linked_list()
+    pre_index = -1
+    post_index = 3
+    test_value = 5
+    test_configs = [
+        dict(
+            test_name="test_linked_list_get_out_of_bounds", 
+            linked_list_function=ll.get, 
+            expected_result=None,
+            needs_value=False
+        ),
+        dict(
+            test_name="test_linked_list_set_out_of_bounds",
+            linked_list_function=ll.set, 
+            expected_result=False,
+            needs_value=True
+        ),
+        dict(
+            test_name="test_linked_list_insert_out_of_bounds",
+            linked_list_function=ll.insert,
+            expected_result=False,
+            needs_value=True
+        ),
+        dict(
+            test_name="test_linked_list_remove_out_of_bounds", 
+            linked_list_function=ll.remove, 
+            expected_result=None,
+            needs_value=False    
+        )
+    ]
+
+    for test in test_configs:
+        if test["needs_value"]:
+            test_result = test["linked_list_function"](pre_index, test_value) == test["expected_result"] and test["linked_list_function"](post_index, test_value) == test["expected_result"]
+        else:
+            test_result = test["linked_list_function"](pre_index) == test["expected_result"] and test["linked_list_function"](post_index) == test["expected_result"]
+        
+        print(f'{test["test_name"]}: {format_test_result(test_result)}')
+        if not test_result:
+            return False
+    return True
+
 def test_linked_list_set():
     ll = initialize_test_linked_list()
     ll.set(2, 5)
@@ -210,7 +261,8 @@ def test_linked_list_remove():
     return ll.remove(2).value == 1 and ll.length == 2
 
 def test_linked_list_get_length():
-    return False
+    ll = initialize_test_linked_list()
+    return ll.get_length() == 3
 
 # Test Execution
 test_linked_list()
