@@ -47,7 +47,7 @@ class LinkedList:
         while temp.next:
             prev = temp
             temp = temp.next
-        
+            
         if self.length == 1:
             self.head = None
             self.tail = None
@@ -66,6 +66,7 @@ class LinkedList:
             new_node.next = self.head
         self.head = new_node
         self.length += 1 
+        return True
 
     def append(self, value):
         new_node = Node(value)
@@ -79,22 +80,23 @@ class LinkedList:
         return True
 
     def print(self):
+        if self.length == 0:
+            return
+
         temp = self.head
-        if temp:
+        while temp:
             print(temp.value)
             temp = temp.next
-    
+
     def get(self, index):
-        if index < 0 or index > self.length-1:
+        if index < 0 or index > self.length - 1:
             return None
         
         temp = self.head
-
         for _ in range(index):
             temp = temp.next
-
         return temp
-
+    
     def set(self, index, value):
         temp = self.get(index)
         if temp:
@@ -103,16 +105,16 @@ class LinkedList:
         return False
 
     def insert(self, index, value):
-        if index < 0 or index > self.length - 1:
+        if index < 0 or index > self.length:
             return False
-        elif index == 0:
-            return self.prepend()
-        elif index == self.length:
-            return self.append()
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
         new_node = Node(value)
-        prev = self.get(index - 1)
-        new_node.next = prev.next
-        prev.next = new_node
+        temp = self.get(index-1)
+        new_node.next = temp.next
+        temp.next = new_node
         self.length += 1
         return True
 
@@ -205,7 +207,7 @@ def test_linked_list_get():
 def test_linked_list_functions_out_of_bounds():
     ll = initialize_test_linked_list()
     pre_index = -1
-    post_index = 3
+    post_index = 4
     test_value = 5
     test_configs = [
         dict(
@@ -239,7 +241,6 @@ def test_linked_list_functions_out_of_bounds():
             test_result = test["linked_list_function"](pre_index, test_value) == test["expected_result"] and test["linked_list_function"](post_index, test_value) == test["expected_result"]
         else:
             test_result = test["linked_list_function"](pre_index) == test["expected_result"] and test["linked_list_function"](post_index) == test["expected_result"]
-        
         print(f'{test["test_name"]}: {format_test_result(test_result)}')
         if not test_result:
             return False
@@ -250,10 +251,11 @@ def test_linked_list_set():
     ll.set(2, 5)
     return ll.get(2).value == 5
 
+# TODO: Test first and last insertion cases
 def test_linked_list_insert():
     ll = initialize_test_linked_list()
-    ll.insert(2, 5)
-    return ll.get(2).value == 5 and ll.length == 4
+    ll.insert(1, 5)
+    return ll.get(1).value == 5 and ll.length == 4
 
 def test_linked_list_remove():
     ll = initialize_test_linked_list()
