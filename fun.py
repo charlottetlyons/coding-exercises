@@ -8,7 +8,14 @@ def format_test_result(result):
 # FUNCTIONS
 def access_index(some_list):
     for i in range(len(some_list)):
-        print(i) 
+        print(i)
+
+def max_value(some_list):
+    max_value = 0
+    for i in some_list:
+        if i > max_value:
+            max_value = i
+    return max_value
 
 # DATA STRUCTURE
 class Node:
@@ -142,7 +149,7 @@ class LinkedList:
         return count
 
 # Test Cases
-def test_linked_list():
+def run_all_tests():
     test_configs = [
         ["test_linked_list_constructor", test_linked_list_constructor],
         ["test_linked_list_pop_first", test_linked_list_pop_first],
@@ -155,7 +162,8 @@ def test_linked_list():
         ["test_linked_list_insert", test_linked_list_insert],
         ["test_linked_list_remove", test_linked_list_remove],
         ["test_linked_list_get_length", test_linked_list_get_length],
-        ["test_linked_list_functions_out_of_bounds", test_linked_list_functions_out_of_bounds]
+        ["test_linked_list_functions_out_of_bounds", test_linked_list_functions_out_of_bounds],
+        ["test_max_value", test_max_value]
     ]
 
     for test in test_configs:
@@ -266,5 +274,10 @@ def test_linked_list_get_length():
     ll = initialize_test_linked_list()
     return ll.get_length() == 3
 
+# Array Tests
+def test_max_value():
+    array = [1, 7, 6, 3, 4, 5, 2, 6]
+    return max_value(array) == 7
+
 # Test Execution
-test_linked_list()
+run_all_tests()
