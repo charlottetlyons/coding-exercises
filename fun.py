@@ -148,6 +148,27 @@ class LinkedList:
             temp = temp.next
         return count
 
+    def values(self):
+        values = []
+        temp = self.head
+        while temp:
+            values.append(temp.value)
+            temp = temp.next
+        return values
+
+    def reverse(self):
+        before = None
+        current = self.head
+        self.head = self.tail
+        self.tail = current
+
+        while current:
+            after = current.next
+            current.next = before
+
+            before = current
+            current = after
+
 # Test Cases
 def run_all_tests():
     test_configs = [
@@ -163,7 +184,9 @@ def run_all_tests():
         ["test_linked_list_remove", test_linked_list_remove],
         ["test_linked_list_get_length", test_linked_list_get_length],
         ["test_linked_list_functions_out_of_bounds", test_linked_list_functions_out_of_bounds],
-        ["test_max_value", test_max_value]
+        ["test_max_value", test_max_value],
+        ["test_linked_list_reverse", test_linked_list_reverse]
+        # ["test_linked_list_reverse", test_linked_list_reverse]
     ]
 
     for test in test_configs:
@@ -273,6 +296,27 @@ def test_linked_list_remove():
 def test_linked_list_get_length():
     ll = initialize_test_linked_list()
     return ll.get_length() == 3
+
+def test_linked_list_reverse():
+    ll = LinkedList(7)
+    for num in [3, 6, 2, 6, 1, 4]:
+        ll.append(num)
+    expected_order = [4, 1, 6, 2, 6, 3, 7]
+    ll.reverse()
+    return ll.values() == expected_order
+
+def test_linked_list_sort():
+    # TODO: needed later
+    return
+
+    # ll = LinkedList(7)
+    # for num in [3, 6, 2, 6, 1, 4]:
+    #     ll.append(num)
+    # expected_order = [1, 2, 3, 4, 6, 6, 7]
+    # ll.sort()
+    # print(ll.values())
+    # print(expected_order)
+    # return ll.values() == expected_order
 
 # Array Tests
 def test_max_value():
