@@ -37,8 +37,8 @@ class LinkedList:
         temp = self.head
 
         if self.length == 1:
-            self.tail = None
             self.head = None
+            self.tail = None
         else:
             self.head = temp.next
             temp.next = None
@@ -48,13 +48,13 @@ class LinkedList:
     def pop(self):
         if self.length == 0:
             return None
-        
+
         temp = self.head
 
         while temp.next:
             prev = temp
             temp = temp.next
-            
+        
         if self.length == 1:
             self.head = None
             self.tail = None
@@ -66,13 +66,13 @@ class LinkedList:
 
     def prepend(self, value):
         new_node = Node(value)
-        
+
         if self.length == 0:
             self.tail = new_node
         else:
             new_node.next = self.head
         self.head = new_node
-        self.length += 1 
+        self.length += 1
         return True
 
     def append(self, value):
@@ -169,6 +169,31 @@ class LinkedList:
             before = current
             current = after
 
+    def median_node(self):
+        fast = slow = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+    
+    # TODO: write test
+    def kth_node_from_tail(self, k):
+        if k < 0 or k > self.length - 1:
+            return None
+        
+        slow = fast = self.head
+
+        for _ in range(k):
+            fast = fast.next
+        
+        while fast:
+            fast = fast.next
+            slow = slow.next
+        
+        return slow
+
+        
+
 # Test Cases
 def run_all_tests():
     test_configs = [
@@ -185,7 +210,8 @@ def run_all_tests():
         ["test_linked_list_get_length", test_linked_list_get_length],
         ["test_linked_list_functions_out_of_bounds", test_linked_list_functions_out_of_bounds],
         ["test_max_value", test_max_value],
-        ["test_linked_list_reverse", test_linked_list_reverse]
+        ["test_linked_list_reverse", test_linked_list_reverse],
+        ["test_linked_list_median_node", test_linked_list_median_node]
         # ["test_linked_list_reverse", test_linked_list_reverse]
     ]
 
@@ -290,8 +316,7 @@ def test_linked_list_insert():
 
 def test_linked_list_remove():
     ll = initialize_test_linked_list()
-    
-    return ll.remove(2).value == 1 and ll.length == 2
+    return ll.remove(1).value == 2 and ll.length == 2
 
 def test_linked_list_get_length():
     ll = initialize_test_linked_list()
@@ -317,6 +342,10 @@ def test_linked_list_sort():
     # print(ll.values())
     # print(expected_order)
     # return ll.values() == expected_order
+
+def test_linked_list_median_node():
+    ll = initialize_test_linked_list()
+    return ll.median_node().value == 2
 
 # Array Tests
 def test_max_value():
