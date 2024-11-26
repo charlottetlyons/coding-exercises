@@ -98,18 +98,20 @@ class LinkedList:
     def get(self, index):
         if index < 0 or index > self.length - 1:
             return None
-        
+
         temp = self.head
+
         for _ in range(index):
             temp = temp.next
         return temp
-    
+
     def set(self, index, value):
         temp = self.get(index)
         if temp:
             temp.value = value
             return True
         return False
+
 
     def insert(self, index, value):
         if index < 0 or index > self.length:
@@ -178,21 +180,37 @@ class LinkedList:
     
     # TODO: write test
     def kth_node_from_tail(self, k):
-        if k < 0 or k > self.length - 1:
-            return None
-        
         slow = fast = self.head
-
         for _ in range(k):
+            if not fast.next:
+                return None
             fast = fast.next
-        
+                
         while fast:
             fast = fast.next
             slow = slow.next
-        
         return slow
-
+    
+    # TODO: write test
+    def reverse_between(self, m, n):
+        if self.length == 0:
+            return None
         
+        dummy = Node(0)
+        dummy.next = self.head
+        prev = dummy
+
+        for _ in range(m):
+            prev = prev.next
+            
+        current = prev.next
+        for _ in range(m-n):
+            after = current.next
+            current.next = after.next
+            after.next = prev.next
+            prev.next = after
+        self.head = dummy.next
+
 
 # Test Cases
 def run_all_tests():
