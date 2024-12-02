@@ -54,13 +54,13 @@ class LinkedList:
         while temp.next:
             prev = temp
             temp = temp.next
-        
+
         if self.length == 1:
             self.head = None
             self.tail = None
         else:
             self.tail = prev
-            prev.next = None
+            self.tail.next = None
         self.length -= 1
         return temp
 
@@ -111,7 +111,6 @@ class LinkedList:
             temp.value = value
             return True
         return False
-
 
     def insert(self, index, value):
         if index < 0 or index > self.length:
@@ -211,6 +210,26 @@ class LinkedList:
             prev.next = after
         self.head = dummy.next
 
+    # TODO: write test
+    def partition_list(self, x):
+        current = self.head
+        dummy1 = Node(0)
+        dummy2 = Node(0)
+        prev1 = dummy1
+        prev2 = dummy2
+
+        while current:
+            if current.value < x:
+                prev1.next = current
+                prev1 = prev1.next
+            else:
+                prev2.next = current
+                prev2 = prev2.next
+            current = current.next
+
+        prev2.next = None
+        prev1.next = dummy2.next        
+        self.head = dummy1.next
 
 # Test Cases
 def run_all_tests():
