@@ -1,6 +1,3 @@
-
-import random
-
 #  TEST UTILITY FUNCTIONS
 def format_test_result(result):
     return '\033[32mPass\033[0m' if result else '\033[31mFail\033[0m'
@@ -17,7 +14,7 @@ def max_value(some_list):
             max_value = i
     return max_value
 
-# DATA STRUCTURE
+# DATA STRUCTURES
 class Node:
     def __init__(self, value):
         self.value = value
@@ -177,11 +174,10 @@ class LinkedList:
             fast = fast.next.next
         return slow
     
-    # TODO: write test
     def kth_node_from_tail(self, k):
         slow = fast = self.head
         for _ in range(k):
-            if not fast.next:
+            if not fast:
                 return None
             fast = fast.next
                 
@@ -190,7 +186,6 @@ class LinkedList:
             slow = slow.next
         return slow
     
-    # TODO: write test
     def reverse_between(self, m, n):
         if self.length == 0:
             return None
@@ -203,14 +198,13 @@ class LinkedList:
             prev = prev.next
             
         current = prev.next
-        for _ in range(m-n):
+        for _ in range(n-m):
             after = current.next
             current.next = after.next
             after.next = prev.next
             prev.next = after
         self.head = dummy.next
 
-    # TODO: write test
     def partition_list(self, x):
         current = self.head
         dummy1 = Node(0)
@@ -231,6 +225,20 @@ class LinkedList:
         prev1.next = dummy2.next        
         self.head = dummy1.next
 
+    def remove_duplicates(self):
+        prev = None
+        temp = self.head
+        seen = []
+
+        while temp:
+            if temp.value in seen:
+                prev.next = temp.next
+                self.length -= 1
+            else:
+                seen.append(temp.value)
+                prev = temp
+            temp = temp.next
+
 # Test Cases
 def run_all_tests():
     test_configs = [
@@ -248,8 +256,12 @@ def run_all_tests():
         ["test_linked_list_functions_out_of_bounds", test_linked_list_functions_out_of_bounds],
         ["test_max_value", test_max_value],
         ["test_linked_list_reverse", test_linked_list_reverse],
-        ["test_linked_list_median_node", test_linked_list_median_node]
-        # ["test_linked_list_reverse", test_linked_list_reverse]
+        ["test_linked_list_median_node", test_linked_list_median_node],
+        ["test_linked_list_reverse", test_linked_list_reverse],
+        ["test_linked_list_kth_node_from_tail", test_linked_list_kth_node_from_tail],
+        ["test_linked_list_reverse_between", test_linked_list_reverse_between],
+        ["test_linked_list_partition_list", test_linked_list_partition_list],
+        ["test_linked_list_remove_duplicates", test_linked_list_remove_duplicates]
     ]
 
     for test in test_configs:
@@ -257,15 +269,20 @@ def run_all_tests():
         print(f'{test[0]}: {test_result}')
 
 # Linked List Tests
-def initialize_test_linked_list(is_random=False, num_of_values=10):
+def initialize_test_linked_list(num_of_values=3, is_sorted=True, custom_list=None):
     ll = LinkedList(1)
-    ll.prepend(2)
-    ll.prepend(3)
-
-    if is_random:
-        for _ in range(num_of_values):
-            new_num = random.randint()
-            ll.append(new_num)
+    if custom_list:
+        ll.pop_first()
+        for value in custom_list:
+            ll.append(value)
+    else:
+        if is_sorted:
+            for value in range(2, num_of_values+1):
+                ll.append(value)
+        else:
+            for value in range(num_of_values+1, 2):
+                ll.append(value)
+        
     return ll 
 
 def test_linked_list_constructor():
@@ -274,11 +291,11 @@ def test_linked_list_constructor():
 
 def test_linked_list_pop_first():
     ll = initialize_test_linked_list()
-    return ll.pop_first().value == 3 and ll.length == 2
+    return ll.pop_first().value == 1 and ll.length == 2
 
 def test_linked_list_pop():
     ll = initialize_test_linked_list()
-    return ll.pop().value == 1 and ll.length == 2
+    return ll.pop().value == 3 and ll.length == 2
 
 def test_linked_list_prepend():
     ll = initialize_test_linked_list()
@@ -383,6 +400,34 @@ def test_linked_list_sort():
 def test_linked_list_median_node():
     ll = initialize_test_linked_list()
     return ll.median_node().value == 2
+
+def test_linked_list_kth_node_from_tail():
+    ll = initialize_test_linked_list(num_of_values=5)
+    return (
+        ll.kth_node_from_tail(2).value == 4 
+        and ll.kth_node_from_tail(1).value == 5 
+        and ll.kth_node_from_tail(5).value == 1 
+        and ll.kth_node_from_tail(0) == None 
+        and ll.kth_node_from_tail(6) == None
+    )
+
+def test_linked_list_reverse_between():
+    ll = initialize_test_linked_list(num_of_values=5)
+    ll.reverse_between(1, 3)
+    return ll.values() == [1,4,3,2,5] 
+
+def test_linked_list_partition_list():
+    ll = initialize_test_linked_list(custom_list=[1,3,2,3,1,14])
+    ll.partition_list(3)
+    return ll.values() == [1,2,1,3,3,14]
+    
+def test_linked_list_values():
+    return initialize_test_linked_list().values() == [1, 2, 3, 4, 5]
+
+def test_linked_list_remove_duplicates():
+    ll = initialize_test_linked_list(custom_list=[1, 1, 2, 3, 3, 3])
+    ll.remove_duplicates()
+    return ll.values() == [1, 2, 3]
 
 # Array Tests
 def test_max_value():
