@@ -112,14 +112,14 @@ class LinkedList:
     def insert(self, index, value):
         if index < 0 or index > self.length:
             return False
-        if index == 0:
+        elif index == 0:
             return self.prepend(value)
-        if index == self.length:
+        elif index == self.length:
             return self.append(value)
         new_node = Node(value)
-        temp = self.get(index - 1)
-        new_node.next = temp.next
-        temp.next = new_node
+        prev = self.get(index - 1)
+        new_node.next = prev.next
+        prev.next = new_node
         self.length += 1
         return True
 
@@ -247,19 +247,23 @@ class LinkedList:
         is_sorted = False
 
         while not is_sorted:
+            is_sorted = True
             current = self.head
             compare = current.next
-            is_sorted = True
 
             while compare:
-                if current.value > compare.value:
-                    current.value, compare.value = compare.value, current.value
+                if compare.value < current.value:
                     is_sorted = False
-                
+                    compare.value, current.value = current.value, compare.value
                 current = compare
                 compare = compare.next
 
+class HashTable:
+    def __init__(self, size=7):
+        self.data_map = [None] * size
+
 # Test Cases
+# TODO: make a DataStructureTest Interface if applicable, so the test running logic is reusable
 class LinkedListTest:
     def __init__(self):
         self.test_configs = [
@@ -275,6 +279,7 @@ class LinkedListTest:
             ["test_remove", self.test_remove],
             ["test_get_length", self.test_get_length],
             ["test_functions_out_of_bounds", self.test_functions_out_of_bounds],
+            # TODO: move out of here vvv
             ["test_max_value", test_max_value],
             ["test_reverse", self.test_reverse],
             ["test_median_node", self.test_median_node],
@@ -454,6 +459,25 @@ class LinkedListTest:
         ll.bubble_sort()
         return ll.values() == [1, 2, 2, 3, 4, 5, 6]
 
+class HashTableTest:
+    def __init__(self):
+        self.test_configs = [
+            ["test_constructor", self.test_constructor],
+        ]
+
+    def run_all_tests(self):
+        for test in self.test_configs:
+            test_result = format_test_result(test[1]())
+            print(f"{test[0]}: {test_result}")
+
+    def initialize_test_hash_table(self):
+        ht = HashTable()
+        return ht
+
+    def test_constructor(self):
+        ht = self.initialize_test_hash_table()
+        return len(ht.data_map) == 7
+
 # Array Tests
 def test_max_value():
     array = [1, 7, 6, 3, 4, 5, 2, 6]
@@ -461,4 +485,10 @@ def test_max_value():
 
 # Test Execution
 linked_list_test = LinkedListTest()
+hash_table_test = HashTableTest()
+
+print("Linked List Tests")
 linked_list_test.run_all_tests()
+
+print("Hash Table Tests")
+hash_table_test.run_all_tests()
