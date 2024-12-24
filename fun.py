@@ -2,6 +2,15 @@
 def format_test_result(result):
     return "\033[32mPass\033[0m" if result else "\033[31mFail\033[0m"
 
+def run_all_tests(test_configs):
+    for test in test_configs:
+        try:
+            test_result = (test[1]())
+        except:
+            test_result = False
+        finally:
+            print(f"{test[0]}: {format_test_result(test_result)}")
+
 # FUNCTIONS
 def access_index(some_list):
     for i in range(len(some_list)):
@@ -30,34 +39,31 @@ class LinkedList:
     def pop_first(self):
         if self.length == 0:
             return None
-
+        
         temp = self.head
 
-        if self.length == 1:
-            self.head = None
-            self.tail = None
-        else:
+        if temp.next:
             self.head = temp.next
             temp.next = None
+        else:
+            self.head = None
+            self.tail = None
         self.length -= 1
         return temp
 
     def pop(self):
-        if self.length == 0:
-            return None
-
         temp = self.head
 
         while temp.next:
             prev = temp
             temp = temp.next
-
+        
         if self.length == 1:
             self.head = None
             self.tail = None
         else:
+            prev.next = None
             self.tail = prev
-            self.tail.next = None
         self.length -= 1
         return temp
 
@@ -130,12 +136,13 @@ class LinkedList:
             return self.pop_first()
         elif index == self.length - 1:
             return self.pop()
-        prev = self.get(index - 1)
-        temp = prev.next
-        prev.next = temp.next
-        temp.next = None
-        self.length -= 1
-        return temp
+        else:
+            prev = self.get(index-1)
+            temp = prev.next
+            prev.next = temp.next
+            temp.next = None
+            self.length -= 1
+            return temp
 
     def get_length(self):
         count = 0
@@ -169,27 +176,27 @@ class LinkedList:
 
     def median_node(self):
         fast = slow = self.head
+
         while fast and fast.next:
-            slow = slow.next
             fast = fast.next.next
+            slow = slow.next
         return slow
 
-    def kth_node_from_tail(self, k):
-        slow = fast = self.head
+    def kth_node_from_end(self, k):
+        fast = slow = self.head
+
         for _ in range(k):
-            if not fast:
-                return None
+            if fast is None:
+                return None   
             fast = fast.next
 
         while fast:
-            fast = fast.next
             slow = slow.next
-        return slow
+            fast = fast.next
+
+        return slow 
 
     def reverse_between(self, m, n):
-        if self.length == 0:
-            return None
-
         dummy = Node(0)
         dummy.next = self.head
         prev = dummy
@@ -199,7 +206,7 @@ class LinkedList:
 
         current = prev.next
 
-        for _ in range(n - m):
+        for _ in range(n-m):
             after = current.next
             current.next = after.next
             after.next = prev.next
@@ -216,10 +223,10 @@ class LinkedList:
         while current:
             if current.value < x:
                 prev1.next = current
-                prev1 = current
+                prev1 = prev1.next
             else:
                 prev2.next = current
-                prev2 = current
+                prev2 = prev2.next
             current = current.next
 
         prev2.next = None
@@ -227,23 +234,20 @@ class LinkedList:
         self.head = dummy1.next
 
     def remove_duplicates(self):
-        prev = None
-        temp = self.head
         seen = []
+        before = None
+        current = self.head
 
-        while temp:
-            if temp.value in seen:
-                prev.next = temp.next
+        while current:
+            if current.value in seen:
+                before.next = current.next
                 self.length -= 1
             else:
-                seen.append(temp.value)
-                prev = temp
-            temp = temp.next
+                seen.append(current.value)
+                before = current
+            current = current.next
 
     def bubble_sort(self):
-        if self.length == 0:
-            return None
-
         is_sorted = False
 
         while not is_sorted:
@@ -252,9 +256,9 @@ class LinkedList:
             compare = current.next
 
             while compare:
-                if compare.value < current.value:
+                if current.value > compare.value:
+                    current.value, compare.value = compare.value, current.value
                     is_sorted = False
-                    compare.value, current.value = current.value, compare.value
                 current = compare
                 compare = compare.next
 
@@ -262,8 +266,19 @@ class HashTable:
     def __init__(self, size=7):
         self.data_map = [None] * size
 
+    def set_item(self, key, value):
+        index = self.__hash(key)
+
+        if self.data_map[index] is None:
+            self.data_map[index] = []
+        self.data_map[index].append([key, value])
+
+    def __hash(self, key):
+        return hash(key) % self.size
+
+
 # Test Cases
-# TODO: make a DataStructureTest Interface if applicable, so the test running logic is reusable
+# TODO: make a DataStructureTest Interface/abstract if applicable, so the test running logic is reusable
 class LinkedListTest:
     def __init__(self):
         self.test_configs = [
@@ -284,7 +299,7 @@ class LinkedListTest:
             ["test_reverse", self.test_reverse],
             ["test_median_node", self.test_median_node],
             ["test_reverse", self.test_reverse],
-            ["test_kth_node_from_tail", self.test_kth_node_from_tail],
+            ["test_kth_node_from_end", self.test_kth_node_from_end],
             ["test_reverse_between", self.test_reverse_between],
             ["test_partition_list", self.test_partition_list],
             ["test_remove_duplicates", self.test_remove_duplicates],
@@ -292,9 +307,7 @@ class LinkedListTest:
         ]
 
     def run_all_tests(self):
-        for test in self.test_configs:
-            test_result = format_test_result(test[1]())
-            print(f"{test[0]}: {test_result}")
+        run_all_tests(self.test_configs)
 
     def initialize_test_linked_list(
         self, num_of_values=3, is_sorted=True, custom_list=None
@@ -311,7 +324,6 @@ class LinkedListTest:
             else:
                 for value in range(num_of_values + 1, 2):
                     ll.append(value)
-
         return ll
 
     def test_constructor(self):
@@ -426,14 +438,14 @@ class LinkedListTest:
         ll = self.initialize_test_linked_list()
         return ll.median_node().value == 2
 
-    def test_kth_node_from_tail(self):
+    def test_kth_node_from_end(self):
         ll = self.initialize_test_linked_list(num_of_values=5)
         return (
-            ll.kth_node_from_tail(2).value == 4
-            and ll.kth_node_from_tail(1).value == 5
-            and ll.kth_node_from_tail(5).value == 1
-            and ll.kth_node_from_tail(0) == None
-            and ll.kth_node_from_tail(6) == None
+            ll.kth_node_from_end(2).value == 4
+            and ll.kth_node_from_end(1).value == 5
+            and ll.kth_node_from_end(5).value == 1
+            and ll.kth_node_from_end(0) == None
+            and ll.kth_node_from_end(6) == None
         )
 
     def test_reverse_between(self):
@@ -463,12 +475,11 @@ class HashTableTest:
     def __init__(self):
         self.test_configs = [
             ["test_constructor", self.test_constructor],
+            ["test_set_item", self.test_set_item]
         ]
 
     def run_all_tests(self):
-        for test in self.test_configs:
-            test_result = format_test_result(test[1]())
-            print(f"{test[0]}: {test_result}")
+        run_all_tests(self.test_configs)
 
     def initialize_test_hash_table(self):
         ht = HashTable()
@@ -478,17 +489,23 @@ class HashTableTest:
         ht = self.initialize_test_hash_table()
         return len(ht.data_map) == 7
 
+    def test_set_item(self):
+        return True
+        # TODO: write after get
+
 # Array Tests
 def test_max_value():
     array = [1, 7, 6, 3, 4, 5, 2, 6]
     return max_value(array) == 7
 
 # Test Execution
+# TODO: Test interface with name and test_function properties
 linked_list_test = LinkedListTest()
 hash_table_test = HashTableTest()
 
-print("Linked List Tests")
-linked_list_test.run_all_tests()
+test_suites = [["LinkedList", linked_list_test], ["Hash Table", hash_table_test]]
 
-print("Hash Table Tests")
-hash_table_test.run_all_tests()
+for test_suite in test_suites:
+    print(test_suite[0])
+    test_suite[1].run_all_tests()
+    print("\n")
