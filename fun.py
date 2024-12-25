@@ -184,17 +184,15 @@ class LinkedList:
 
     def kth_node_from_end(self, k):
         fast = slow = self.head
-
         for _ in range(k):
             if fast is None:
-                return None   
+                return None
             fast = fast.next
-
+        
         while fast:
-            slow = slow.next
             fast = fast.next
-
-        return slow 
+            slow = slow.next
+        return slow
 
     def reverse_between(self, m, n):
         dummy = Node(0)
@@ -264,7 +262,18 @@ class LinkedList:
 
 class HashTable:
     def __init__(self, size=7):
+        self.size = size
         self.data_map = [None] * size
+
+    def get_value(self, key):
+        index = self.__hash(key)
+
+        if self.data_map[index] is not None:
+            for i in range(len(self.data_map[index])):
+                if self.data_map[index][i][0] == key:
+                    return self.data_map[index][i][1]
+        return None
+
 
     def set_item(self, key, value):
         index = self.__hash(key)
@@ -475,7 +484,7 @@ class HashTableTest:
     def __init__(self):
         self.test_configs = [
             ["test_constructor", self.test_constructor],
-            ["test_set_item", self.test_set_item]
+            ["test_get_set_value", self.test_get_set_value]
         ]
 
     def run_all_tests(self):
@@ -489,9 +498,10 @@ class HashTableTest:
         ht = self.initialize_test_hash_table()
         return len(ht.data_map) == 7
 
-    def test_set_item(self):
-        return True
-        # TODO: write after get
+    def test_get_set_value(self):
+        ht = self.initialize_test_hash_table()
+        ht.set_item("key1", 4)
+        return ht.get_value("key1") == 4
 
 # Array Tests
 def test_max_value():
