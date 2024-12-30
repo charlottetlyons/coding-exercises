@@ -11,10 +11,12 @@ def run_all_tests(test_configs):
         finally:
             print(f"{test[0]}: {format_test_result(test_result)}")
 
-# FUNCTIONS
-def access_index(some_list):
+# LIST FUNCTIONS
+def access_indices(some_list):
+    indices = []
     for i in range(len(some_list)):
-        print(i)
+        indices.append(i)
+    return indices
 
 def max_value(some_list):
     max_value = 0
@@ -226,7 +228,7 @@ class LinkedList:
                 prev2.next = current
                 prev2 = prev2.next
             current = current.next
-
+        
         prev2.next = None
         prev1.next = dummy2.next
         self.head = dummy1.next
@@ -267,13 +269,11 @@ class HashTable:
 
     def get_value(self, key):
         index = self.__hash(key)
-
         if self.data_map[index] is not None:
-            for i in range(len(self.data_map[index])):
-                if self.data_map[index][i][0] == key:
+            for i in range(len(self.data_map)):
+                if self.data_map[index][i][0] is key:
                     return self.data_map[index][i][1]
         return None
-
 
     def set_item(self, key, value):
         index = self.__hash(key)
@@ -285,9 +285,35 @@ class HashTable:
     def __hash(self, key):
         return hash(key) % self.size
 
+    def keys(self):
+        all_keys = []
+        for i in range(len(self.data_map)):
+            if self.data_map[i] is not None:
+                for j in range(len(self.data_map[i])):
+                    all_keys.append(self.data_map[i][j][0])
+        return all_keys
 
 # Test Cases
 # TODO: make a DataStructureTest Interface/abstract if applicable, so the test running logic is reusable
+class ListTest:
+    def __init__(self):
+        self.test_configs = [
+            ["test_access_indices", self.test_access_indices],
+            ["test_max_value", self.test_max_value]
+        ]
+
+    def run_all_tests(self):
+        run_all_tests(self.test_configs)
+
+
+    def test_access_indices(self):
+        l = [23, 26, 11, 76, 24, 23]
+        return access_indices(l) == [0, 1, 2, 3, 4, 5]
+
+    def test_max_value(self):
+        l = [1, 7, 6, 3, 4, 5, 2, 6]
+        return max_value(l) == 7
+
 class LinkedListTest:
     def __init__(self):
         self.test_configs = [
@@ -304,10 +330,8 @@ class LinkedListTest:
             ["test_get_length", self.test_get_length],
             ["test_functions_out_of_bounds", self.test_functions_out_of_bounds],
             # TODO: move out of here vvv
-            ["test_max_value", test_max_value],
             ["test_reverse", self.test_reverse],
             ["test_median_node", self.test_median_node],
-            ["test_reverse", self.test_reverse],
             ["test_kth_node_from_end", self.test_kth_node_from_end],
             ["test_reverse_between", self.test_reverse_between],
             ["test_partition_list", self.test_partition_list],
@@ -484,7 +508,8 @@ class HashTableTest:
     def __init__(self):
         self.test_configs = [
             ["test_constructor", self.test_constructor],
-            ["test_get_set_value", self.test_get_set_value]
+            ["test_get_set_value", self.test_get_set_value],
+            ["test_keys", self.test_keys]
         ]
 
     def run_all_tests(self):
@@ -500,20 +525,27 @@ class HashTableTest:
 
     def test_get_set_value(self):
         ht = self.initialize_test_hash_table()
-        ht.set_item("key1", 4)
-        return ht.get_value("key1") == 4
 
-# Array Tests
-def test_max_value():
-    array = [1, 7, 6, 3, 4, 5, 2, 6]
-    return max_value(array) == 7
+        result1 = ht.get_value("key1") == None
+        ht.set_item("key1", 4)
+        result2 = ht.get_value("key1") == 4
+        return result1 and result2
+
+    def test_keys(self):
+        ht = HashTable()
+        ht.set_item("key1", 21)
+        ht.set_item("key2", 23)
+        ht.set_item("key3", 12)
+        ht.set_item("key1", 40)
+        return sorted(ht.keys()) == ["key1", "key1", "key2", "key3"]
 
 # Test Execution
 # TODO: Test interface with name and test_function properties
+list_test = ListTest()
 linked_list_test = LinkedListTest()
 hash_table_test = HashTableTest()
 
-test_suites = [["LinkedList", linked_list_test], ["Hash Table", hash_table_test]]
+test_suites = [["List", list_test],["LinkedList", linked_list_test], ["Hash Table", hash_table_test]]
 
 for test_suite in test_suites:
     print(test_suite[0])
