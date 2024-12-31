@@ -18,10 +18,17 @@ class HashTable:
             self.data_map[index] = []
         self.data_map[index].append([key, value])
 
+    def keys(self):
+        keys = []
+
+        for i in range(len(self.data_map)):
+            if self.data_map[i] is not None:
+                for j in range(len(self.data_map[i])):
+                    keys.append(self.data_map[i][j][0])
+        return keys
+
     def __hash(self, key):
         return hash(key) % self.size
-
-    def keys(self):
         all_keys = []
         for i in range(len(self.data_map)):
             if self.data_map[i] is not None:

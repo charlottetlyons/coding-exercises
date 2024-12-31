@@ -8,6 +8,7 @@ class DoublyLinkedListTest:
             ["test_pop", self.test_pop],
             ["test_pop_first", self.test_pop_first],
             ["test_append", self.test_append],
+            ["test_prepend", self.test_prepend],
             ["test_get", self.test_get],
             ["test_remove", self.test_remove]
         ]
@@ -35,6 +36,10 @@ class DoublyLinkedListTest:
         dll.append(10)
         dll.append(15)
         return dll.get(1).value == 10 and dll.get(2).value == 15
+
+    def test_prepend(self):
+        dll = self.initialize_test_doubly_linked_list()
+        return dll.prepend(100) == True and dll.get(0).value == 100 and dll.length == 2
 
     def test_get(self):
         dll = self.initialize_test_doubly_linked_list()

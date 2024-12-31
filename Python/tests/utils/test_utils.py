@@ -6,7 +6,8 @@ def run_all_tests(test_configs):
     for test in test_configs:
         try:
             test_result = (test[1]())
-        except:
+        except Exception as e:
             test_result = False
+            print("Test run into an error: ", e)
         finally:
             print(f"{test[0]}: {format_test_result(test_result)}")

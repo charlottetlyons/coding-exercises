@@ -8,7 +8,9 @@ class MaxHeapTest:
             ["test_left_child", self.test_left_child],
             ["test_right_child", self.test_right_child],
             ["test_parent", self.test_parent],
-            ["test_insert_remove", self.test_insert_remove]
+            ["test_insert_remove", self.test_insert_remove],
+            ["test_swap", self.test_swap],
+            ["test_sink_down", self.test_sink_down]
         ]
 
     def run_all_tests(self):
@@ -37,3 +39,15 @@ class MaxHeapTest:
         mh = self.initialize_test_max_heap()
         mh.insert(4)
         return mh.remove() == 4
+    
+    def test_swap(self):
+        mh = self.initialize_test_max_heap()
+        mh.heap = [5, 2, 7]
+        mh.swap(0, 1)
+        return mh.heap == [2, 5, 7]
+    
+    def test_sink_down(self):
+        mh = self.initialize_test_max_heap()
+        mh.heap = [1, 5, 2, 7]
+        mh._sink_down(0)
+        return mh.heap == [5, 7, 2, 1]

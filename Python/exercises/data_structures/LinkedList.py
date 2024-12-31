@@ -158,14 +158,16 @@ class LinkedList:
 
     def kth_node_from_end(self, k):
         fast = slow = self.head
+
         for _ in range(k):
             if fast is None:
                 return None
             fast = fast.next
-        
+
         while fast:
             fast = fast.next
             slow = slow.next
+
         return slow
 
     def reverse_between(self, m, n):

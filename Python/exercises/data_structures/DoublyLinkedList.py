@@ -35,8 +35,19 @@ class DoublyLinkedList:
         else:
             self.tail.next = new_node
             new_node.prev = self.tail
-        
         self.tail = new_node
+        self.length += 1
+        return True
+
+    def prepend(self, value):
+        new_node = DLLNode(value)
+        
+        if self.length == 0:
+            self.tail = new_node
+        else:
+            self.head.prev = new_node
+            new_node.next = self.head
+        self.head = new_node
         self.length += 1
         return True
 
@@ -57,18 +68,18 @@ class DoublyLinkedList:
         return current
 
     def get(self, index):
-        if index < 0 or index >= self.length:
+        if index < 0 or index > self.length - 1:
             return None
         
-        if index < self.length/2:
-            current = self.head
+        if index < self.length / 2:
+            temp = self.head
             for _ in range(index):
-                current = current.next
+                temp = temp.next
         else:
-            current = self.tail
+            temp = self.tail
             for _ in range(self.length - 1, index, -1):
-                current = current.prev
-        return current
+                temp = temp.prev
+        return temp
 
     def remove(self, index):
         if index < 0 or index > self.length:
