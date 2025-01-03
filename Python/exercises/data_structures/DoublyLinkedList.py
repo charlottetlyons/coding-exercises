@@ -14,18 +14,18 @@ class DoublyLinkedList:
     def pop(self):
         if self.length == 0:
             return None
-        
-        current = self.tail
+
+        temp = self.tail
 
         if self.length == 1:
             self.head = None
             self.tail = None
         else:
-            self.tail = self.tail.prev
+            self.tail = temp.prev
             self.tail.next = None
-            current.prev = None
+            temp.prev = None
         self.length -= 1
-        return current
+        return temp
     
     def append(self, value):
         new_node = DLLNode(value)
@@ -80,6 +80,23 @@ class DoublyLinkedList:
             for _ in range(self.length - 1, index, -1):
                 temp = temp.prev
         return temp
+
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False 
+        elif index == 0:
+            return self.prepend(value)
+        elif index == self.length:
+            return self.append(value)
+        new_node = DLLNode(value)
+        prev = self.get(index-1)
+        next = prev.next
+        new_node.prev = prev
+        new_node.next = next
+        next.prev = new_node
+        prev.next = new_node
+        self.length += 1
+        return True
 
     def remove(self, index):
         if index < 0 or index > self.length:

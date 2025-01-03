@@ -10,6 +10,7 @@ class DoublyLinkedListTest:
             ["test_append", self.test_append],
             ["test_prepend", self.test_prepend],
             ["test_get", self.test_get],
+            ["test_insert", self.test_insert],
             ["test_remove", self.test_remove]
         ]
 
@@ -46,6 +47,16 @@ class DoublyLinkedListTest:
         dll.append(10)
         dll.append(15)
         return dll.get(0).value == 5 and dll.get(1).value == 10 and dll.get(2).value == 15
+
+    def test_insert(self):
+        dll = self.initialize_test_doubly_linked_list()
+        dll.append(10)
+        dll.append(15)
+        result1 = dll.insert(-1, 20)
+        result2 = dll.insert(10, 20)
+        result3 = dll.insert(1, 20)
+        result4 = dll.get(1).value == 20 and dll.get(0).value == 5
+        return not result1 and not result2 and result3 and result4
 
     def test_remove(self):
         dll = self.initialize_test_doubly_linked_list()

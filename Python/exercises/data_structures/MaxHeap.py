@@ -13,11 +13,10 @@ class MaxHeap:
 
     def insert(self, value):
         self.heap.append(value)
-        current = len(self.heap)-1
+        current = len(self.heap) - 1
         while self.heap[current] > self.heap[self._parent(current)]:
             self.swap(current, self._parent(current))
             current = self._parent(current)
-        
 
     # TODO: revise test
     def remove(self):
@@ -36,16 +35,16 @@ class MaxHeap:
             left_index = self._left_child(index)
             right_index = self._right_child(index)
 
-            while left_index < len(self.heap) and self.heap[left_index] > self.heap[max_index]:
+            if left_index < len(self.heap) and self.heap[left_index] > self.heap[max_index]:
                 max_index = left_index
-            while right_index < len(self.heap) and self.heap[right_index] > self.heap[max_index]:
-                max_index = left_index
+            if right_index < len(self.heap) and self.heap[right_index] > self.heap[max_index]:
+                max_index = right_index 
 
             if max_index is not index:
                 self.swap(max_index, index)
                 index = max_index
             else:
                 return
-    
+
     def swap(self, a, b):
         self.heap[a], self.heap[b] = self.heap[b], self.heap[a]

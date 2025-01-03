@@ -24,6 +24,7 @@ class LinkedListTest:
             ["test_partition_list", self.test_partition_list],
             ["test_remove_duplicates", self.test_remove_duplicates],
             ["test_bubble_sort", self.test_bubble_sort],
+            ["test_selection_sort", self.test_selection_sort]
         ]
 
     def run_all_tests(self):
@@ -189,4 +190,9 @@ class LinkedListTest:
     def test_bubble_sort(self):
         ll = self.initialize_test_linked_list(custom_list=[4, 2, 5, 3, 1, 6, 2])
         ll.bubble_sort()
+        return ll.values() == [1, 2, 2, 3, 4, 5, 6]
+    
+    def test_selection_sort(self):
+        ll = self.initialize_test_linked_list(custom_list=[4, 2, 5, 3, 1, 6, 2])
+        ll.selection_sort()
         return ll.values() == [1, 2, 2, 3, 4, 5, 6]
