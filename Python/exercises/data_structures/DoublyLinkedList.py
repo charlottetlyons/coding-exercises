@@ -61,8 +61,8 @@ class DoublyLinkedList:
             self.head = None
             self.tail = None
         else:
-            current.prev.next = current.next
-            current.next.prev = current.prev
+            self.head = self.head.next
+            self.head.prev = None
             current.next = None
         self.length -= 1
         return current
@@ -121,3 +121,36 @@ class DoublyLinkedList:
             values.append(temp.value)
             temp = temp.next
         return values
+    
+    def swap_head_tail(self):
+        if self.head is not self.tail:
+            self.head.value, self.tail.value = self.tail.value, self.head.value
+            return True
+        return False
+    
+    def reverse(self):
+        temp = self.head
+        while temp:
+            temp.next, temp.prev = temp.prev, temp.next
+            temp = temp.prev
+        self.head, self.tail = self.tail, self.head
+    
+    def is_palindrome(self):
+        if self.length <= 1:
+            return True
+
+        front = self.head
+        back = self.tail
+
+        for _ in range(self.length//2):
+            if front.value is not back.value:
+                return False
+            front = front.next
+            back = back.prev
+        return True
+    
+    def swap_values(self):
+        temp = self.head
+        while temp.next:
+            temp.value, temp.next.value = temp.next.value, temp.value
+            temp = temp.next.next
