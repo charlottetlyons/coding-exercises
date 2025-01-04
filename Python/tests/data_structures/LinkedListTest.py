@@ -16,7 +16,6 @@ class LinkedListTest:
             ["test_remove", self.test_remove],
             ["test_get_length", self.test_get_length],
             ["test_functions_out_of_bounds", self.test_functions_out_of_bounds],
-            # TODO: move out of here vvv
             ["test_reverse", self.test_reverse],
             ["test_median_node", self.test_median_node],
             ["test_kth_node_from_end", self.test_kth_node_from_end],
@@ -24,7 +23,8 @@ class LinkedListTest:
             ["test_partition_list", self.test_partition_list],
             ["test_remove_duplicates", self.test_remove_duplicates],
             ["test_bubble_sort", self.test_bubble_sort],
-            ["test_selection_sort", self.test_selection_sort]
+            ["test_selection_sort", self.test_selection_sort],
+            ["test_insertion_sort", self.test_insertion_sort]
         ]
 
     def run_all_tests(self):
@@ -195,4 +195,9 @@ class LinkedListTest:
     def test_selection_sort(self):
         ll = self.initialize_test_linked_list(custom_list=[4, 2, 5, 3, 1, 6, 2])
         ll.selection_sort()
+        return ll.values() == [1, 2, 2, 3, 4, 5, 6]
+
+    def test_insertion_sort(self):
+        ll = self.initialize_test_linked_list(custom_list=[4, 2, 5, 3, 1, 6, 2])
+        ll.insertion_sort()
         return ll.values() == [1, 2, 2, 3, 4, 5, 6]

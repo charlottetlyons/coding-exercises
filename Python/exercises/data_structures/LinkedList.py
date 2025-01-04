@@ -258,3 +258,31 @@ class LinkedList:
                 smallest.value, current.value = current.value, smallest.value
             current = current.next
         self.tail = current
+
+    def insertion_sort(self):
+        if self.length <= 1:
+            return
+        
+        sorted_head = self.head
+        unsorted_head = self.head.next
+        sorted_head.next = None
+        
+        while unsorted_head:
+            current = unsorted_head
+            unsorted_head = unsorted_head.next
+            
+            if current.value < sorted_head.value:
+                current.next = sorted_head
+                sorted_head = current
+            else:
+                search_pointer = sorted_head
+                while search_pointer.next and current.value > search_pointer.next.value:
+                    search_pointer = search_pointer.next
+                current.next = search_pointer.next
+                search_pointer.next = current
+                
+        self.head = sorted_head
+        temp = self.head
+        while temp.next is not None:
+            temp = temp.next
+        self.tail = temp
