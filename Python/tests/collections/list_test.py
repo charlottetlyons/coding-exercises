@@ -11,6 +11,7 @@ class ListTest:
             ["test_bubble_sort", self.test_bubble_sort],
             ["test_selection_sort", self.test_selection_sort],
             ["test_insertion_sort", self.test_insertion_sort],
+            ["test_length_of_max_value", self.test_length_of_max_value]
         ]
 
     def run_all_tests(self):
@@ -38,3 +39,7 @@ class ListTest:
     def test_insertion_sort(self):
         l = self.initialize_list()
         return insertion_sort(l) == self.default_list_sorted
+    
+    def test_length_of_max_value(self):
+        l = self.initialize_list()
+        return length_of_max_value(l) == 2

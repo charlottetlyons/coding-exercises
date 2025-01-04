@@ -190,14 +190,14 @@ class LinkedListTest:
     def test_bubble_sort(self):
         ll = self.initialize_test_linked_list(custom_list=[4, 2, 5, 3, 1, 6, 2])
         ll.bubble_sort()
-        return ll.values() == [1, 2, 2, 3, 4, 5, 6]
+        return ll.values() == [1, 2, 2, 3, 4, 5, 6] and ll.head.value == 1 and ll.tail.value == 6
     
     def test_selection_sort(self):
         ll = self.initialize_test_linked_list(custom_list=[4, 2, 5, 3, 1, 6, 2])
         ll.selection_sort()
-        return ll.values() == [1, 2, 2, 3, 4, 5, 6]
+        return ll.values() == [1, 2, 2, 3, 4, 5, 6] and ll.head.value == 1 and ll.tail.value == 6
 
     def test_insertion_sort(self):
         ll = self.initialize_test_linked_list(custom_list=[4, 2, 5, 3, 1, 6, 2])
         ll.insertion_sort()
-        return ll.values() == [1, 2, 2, 3, 4, 5, 6]
+        return ll.values() == [1, 2, 2, 3, 4, 5, 6] and ll.head.value == 1 and ll.tail.value == 6

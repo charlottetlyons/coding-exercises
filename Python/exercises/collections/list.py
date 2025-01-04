@@ -12,13 +12,15 @@ def max_value(some_list):
             max_value = i
     return max_value
 
+def length_of_max_value(some_list):
+    return len(str(max(some_list)))
+
 def bubble_sort(some_list):
     for i in range(len(some_list) - 1):
         for j in range(i+1, len(some_list)):
             if some_list[i] > some_list[j]:
                 some_list[i], some_list[j] = some_list[j], some_list[i]
     return some_list
-
 
 def selection_sort(some_list):
     for i in range(len(some_list) - 1):

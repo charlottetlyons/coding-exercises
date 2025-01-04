@@ -55,17 +55,16 @@ class DoublyLinkedList:
         if self.length == 0:
             return None
         
-        current = self.head
+        temp = self.head
 
         if self.length == 1:
             self.head = None
             self.tail = None
         else:
-            self.head = self.head.next
-            self.head.prev = None
-            current.next = None
+            self.head = temp.next
+            temp.next = None
         self.length -= 1
-        return current
+        return temp
 
     def get(self, index):
         if index < 0 or index > self.length - 1:
@@ -105,14 +104,14 @@ class DoublyLinkedList:
             return self.pop_first()
         elif index == self.length - 1:
             return self.pop()
-        current = self.get(index)
-        current.next.prev = current.prev
-        current.prev.next = current.next
-        current.prev = None
-        current.next = None
+        temp = self.get(index)
+        temp.prev.next = temp.next
+        temp.next.prev = temp.prev
+        temp.next = None
+        temp.prev = None
         self.length -= 1
-        return current
-    
+        return temp
+
     def values(self):
         values = []
         temp = self.head

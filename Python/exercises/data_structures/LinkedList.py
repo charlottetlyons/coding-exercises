@@ -167,7 +167,6 @@ class LinkedList:
         while fast:
             fast = fast.next
             slow = slow.next
-
         return slow
 
     def reverse_between(self, m, n):
@@ -240,7 +239,7 @@ class LinkedList:
                 compare = compare.next
 
     def selection_sort(self):
-        if self.length < 2:
+        if self.length <= 1:
             return
         
         current = self.head
@@ -253,7 +252,6 @@ class LinkedList:
                 if inner_current.value < smallest.value:
                     smallest = inner_current
                 inner_current = inner_current.next
-            
             if smallest is not current:
                 smallest.value, current.value = current.value, smallest.value
             current = current.next
