@@ -244,7 +244,7 @@ class LinkedList:
         
         current = self.head
 
-        while current.next:
+        while current:
             smallest = current
             inner_current = current.next
 
@@ -252,10 +252,10 @@ class LinkedList:
                 if inner_current.value < smallest.value:
                     smallest = inner_current
                 inner_current = inner_current.next
+
             if smallest is not current:
                 smallest.value, current.value = current.value, smallest.value
             current = current.next
-        self.tail = current
 
     def insertion_sort(self):
         if self.length <= 1:
