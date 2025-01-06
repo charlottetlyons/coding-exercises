@@ -20,7 +20,7 @@ class MaxHeap:
             if left_index < len(self.heap) and self.heap[left_index] > self.heap[max_index]:
                 max_index = left_index
             if right_index < len(self.heap) and self.heap[right_index] > self.heap[max_index]:
-                max_index = right_index 
+                max_index = right_index
 
             if max_index is not index:
                 self.swap(max_index, index)

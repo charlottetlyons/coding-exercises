@@ -1,7 +1,6 @@
 package src.designpatterns.behavioral.state;
 
 public class Context {
-
     private State state;
 
     public Context(State s) {
@@ -12,7 +11,7 @@ public class Context {
         this.state = s;
     };
 
-        public int doThing() {
-        return state.handle();
+    public int doThing() {
+        return this.state.handle();
     };
 }

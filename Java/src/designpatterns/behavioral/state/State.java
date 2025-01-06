@@ -1,5 +1,5 @@
 package src.designpatterns.behavioral.state;
 
-public interface State { 
+public interface State {
     int handle();
 }

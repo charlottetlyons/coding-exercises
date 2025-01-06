@@ -4,6 +4,7 @@ from tests.data_structures.DoublyLinkedListTest import DoublyLinkedListTest
 from tests.data_structures.QueueTest import QueueTest
 from tests.data_structures.HashTableTest import HashTableTest
 from tests.data_structures.MaxHeapTest import MaxHeapTest 
+from tests.data_structures.BST import BSTTest
 
 # Test Cases
 # TODO: make a DataStructureTest Interface/abstract if applicable, so the test running logic is reusable
@@ -14,6 +15,7 @@ doubly_linked_list_test = DoublyLinkedListTest()
 hash_table_test = HashTableTest()
 max_heap_test = MaxHeapTest()
 queue_test = QueueTest()
+bst_test = BSTTest()
 
 test_suites = [
     ["List", list_test],
@@ -21,7 +23,8 @@ test_suites = [
     ["DoublyLinkedListTest", doubly_linked_list_test],
     ["Hash Table", hash_table_test],
     ["Max Heap", max_heap_test],
-    ["Queue", queue_test]
+    ["Queue", queue_test],
+    ["Binary Search Tree", bst_test]
 ]
 
 for test_suite in test_suites:

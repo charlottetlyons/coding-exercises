@@ -80,6 +80,13 @@ class DoublyLinkedList:
                 temp = temp.prev
         return temp
 
+    def set(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
     def insert(self, index, value):
         if index < 0 or index > self.length:
             return False 
@@ -130,10 +137,10 @@ class DoublyLinkedList:
     def reverse(self):
         temp = self.head
         while temp:
-            temp.next, temp.prev = temp.prev, temp.next
+            temp.prev, temp.next = temp.next, temp.prev
             temp = temp.prev
         self.head, self.tail = self.tail, self.head
-    
+
     def is_palindrome(self):
         if self.length <= 1:
             return True

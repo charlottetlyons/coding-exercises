@@ -15,7 +15,8 @@ class DoublyLinkedListTest:
             ["test_swap_head_tail", self.test_swap_head_tail],
             ["test_reverse", self.test_reverse],
             ["test_is_palindrome", self.test_is_palindrome],
-            ["test_swap_pairs", self.test_swap_pairs]
+            ["test_swap_pairs", self.test_swap_pairs],
+            ["test_set", self.test_set]
         ]
 
     def run_all_tests(self):
@@ -51,6 +52,10 @@ class DoublyLinkedListTest:
     def test_get(self):
         dll = self.initialize_test_doubly_linked_list()
         return dll.get(0).value == 5 and dll.get(1).value == 10 and dll.get(2).value == 15
+
+    def test_set(self):
+        dll = self.initialize_test_doubly_linked_list()
+        return dll.set(1, 100) and dll.get(1).value == 100
 
     def test_insert(self):
         dll = self.initialize_test_doubly_linked_list()
