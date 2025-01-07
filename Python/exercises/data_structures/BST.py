@@ -6,8 +6,7 @@ class BSTNode:
 
 class BST:
     def __init__(self, value):
-        new_node = BSTNode(value)
-        self.root = new_node
+        self.root = BSTNode(value)
 
     def insert(self, value):
         new_node = BSTNode(value)

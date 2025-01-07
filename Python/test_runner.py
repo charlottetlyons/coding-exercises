@@ -5,12 +5,14 @@ from tests.data_structures.QueueTest import QueueTest
 from tests.data_structures.HashTableTest import HashTableTest
 from tests.data_structures.MaxHeapTest import MaxHeapTest
 from tests.data_structures.MinHeapTest import MinHeapTest
+from tests.data_structures.GraphTest import GraphTest
 from tests.data_structures.BSTTest import BSTTest
 from tests.data_structures.rBSTTest import rBSTTest
 
 # Test Cases
 # TODO: make a DataStructureTest Interface/abstract if applicable, so the test running logic is reusable
 # TODO: Test interface with name and test_function properties
+# TODO: integrate a python testing library
 list_test = ListTest()
 linked_list_test = LinkedListTest()
 doubly_linked_list_test = DoublyLinkedListTest()
@@ -18,6 +20,7 @@ hash_table_test = HashTableTest()
 max_heap_test = MaxHeapTest()
 min_heap_test = MinHeapTest()
 queue_test = QueueTest()
+graph_test = GraphTest()
 bst_test = BSTTest()
 rbst_test = rBSTTest()
 
@@ -29,6 +32,7 @@ test_suites = [
     ["Max Heap", max_heap_test],
     ["Min Heap", min_heap_test],
     ["Queue", queue_test],
+    ["Graph", graph_test],
     ["Binary Search Tree", bst_test],
     ["Recursive Binary Search Tree", rbst_test]
 ]

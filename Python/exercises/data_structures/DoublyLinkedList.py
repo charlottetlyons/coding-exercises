@@ -11,22 +11,6 @@ class DoublyLinkedList:
         self.tail = new_node
         self.length = 1
 
-    def pop(self):
-        if self.length == 0:
-            return None
-
-        temp = self.tail
-
-        if self.length == 1:
-            self.head = None
-            self.tail = None
-        else:
-            self.tail = temp.prev
-            self.tail.next = None
-            temp.prev = None
-        self.length -= 1
-        return temp
-    
     def append(self, value):
         new_node = DLLNode(value)
 
@@ -66,6 +50,22 @@ class DoublyLinkedList:
         self.length -= 1
         return temp
 
+    def pop(self):
+        if self.length == 0:
+            return None
+
+        temp = self.tail
+
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.tail = temp.prev
+            self.tail.next = None
+            temp.prev = None
+        self.length -= 1
+        return temp
+
     def get(self, index):
         if index < 0 or index > self.length - 1:
             return None
@@ -89,7 +89,7 @@ class DoublyLinkedList:
 
     def insert(self, index, value):
         if index < 0 or index > self.length:
-            return False 
+            return False
         elif index == 0:
             return self.prepend(value)
         elif index == self.length:
@@ -97,8 +97,8 @@ class DoublyLinkedList:
         new_node = DLLNode(value)
         prev = self.get(index-1)
         next = prev.next
-        new_node.prev = prev
         new_node.next = next
+        new_node.prev = prev
         next.prev = new_node
         prev.next = new_node
         self.length += 1
