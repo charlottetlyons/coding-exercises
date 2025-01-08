@@ -13,7 +13,7 @@ class LinkedList:
     def pop_first(self):
         if self.length == 0:
             return None
-        
+
         temp = self.head
 
         if temp.next:
@@ -31,7 +31,7 @@ class LinkedList:
         while temp.next:
             prev = temp
             temp = temp.next
-        
+
         if self.length == 1:
             self.head = None
             self.tail = None
@@ -179,7 +179,7 @@ class LinkedList:
 
         for _ in range(m):
             prev = prev.next 
-        
+
         current = prev.next
 
         for _ in range(n-m):
@@ -204,7 +204,7 @@ class LinkedList:
                 prev2.next = current
                 prev2 = prev2.next
             current = current.next
-        
+
         prev2.next = None
         prev1.next = dummy2.next
         self.head = dummy1.next
@@ -260,15 +260,15 @@ class LinkedList:
     def insertion_sort(self):
         if self.length <= 1:
             return
-        
+
         sorted_head = self.head
         unsorted_head = self.head.next
         sorted_head.next = None
-        
+
         while unsorted_head:
             current = unsorted_head
             unsorted_head = unsorted_head.next
-            
+
             if current.value < sorted_head.value:
                 current.next = sorted_head
                 sorted_head = current
@@ -278,7 +278,7 @@ class LinkedList:
                     search_pointer = search_pointer.next
                 current.next = search_pointer.next
                 search_pointer.next = current
-                
+
         self.head = sorted_head
         temp = self.head
         while temp.next is not None:

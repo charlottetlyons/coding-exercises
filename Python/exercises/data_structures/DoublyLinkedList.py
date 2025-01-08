@@ -25,7 +25,7 @@ class DoublyLinkedList:
 
     def prepend(self, value):
         new_node = DLLNode(value)
-        
+
         if self.length == 0:
             self.tail = new_node
         else:
@@ -38,7 +38,7 @@ class DoublyLinkedList:
     def pop_first(self):
         if self.length == 0:
             return None
-        
+
         temp = self.head
 
         if self.length == 1:
@@ -69,7 +69,7 @@ class DoublyLinkedList:
     def get(self, index):
         if index < 0 or index > self.length - 1:
             return None
-        
+
         if index < self.length / 2:
             temp = self.head
             for _ in range(index):
@@ -99,8 +99,8 @@ class DoublyLinkedList:
         next = prev.next
         new_node.next = next
         new_node.prev = prev
-        next.prev = new_node
         prev.next = new_node
+        next.prev = new_node
         self.length += 1
         return True
 
@@ -127,13 +127,13 @@ class DoublyLinkedList:
             values.append(temp.value)
             temp = temp.next
         return values
-    
+
     def swap_head_tail(self):
         if self.head is not self.tail:
             self.head.value, self.tail.value = self.tail.value, self.head.value
             return True
         return False
-    
+
     def reverse(self):
         temp = self.head
         while temp:
@@ -154,7 +154,7 @@ class DoublyLinkedList:
             front = front.next
             back = back.prev
         return True
-    
+
     def swap_values(self):
         temp = self.head
         while temp.next:

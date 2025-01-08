@@ -27,7 +27,7 @@ class DoublyLinkedListTest:
         dll.append(10)
         dll.append(15)
         return dll
-    
+
     def test_constructor(self):
         dll = self.initialize_test_doubly_linked_list()
         return dll.head.value == 5  and dll.tail.value == 15 and dll.length == 3
@@ -35,7 +35,7 @@ class DoublyLinkedListTest:
     def test_pop(self):
         dll = self.initialize_test_doubly_linked_list()
         return dll.pop().value == 15
-    
+
     def test_pop_first(self):
         dll = self.initialize_test_doubly_linked_list()
         return dll.pop_first().value == 5
@@ -59,16 +59,24 @@ class DoublyLinkedListTest:
 
     def test_insert(self):
         dll = self.initialize_test_doubly_linked_list()
-        result1 = dll.insert(-1, 20)
-        result2 = dll.insert(10, 20)
-        result3 = dll.insert(1, 20)
-        result4 = dll.get(1).value == 20 and dll.get(0).value == 5
-        return not result1 and not result2 and result3 and result4
+        test_left_out_of_bounds = dll.insert(-1, 20)
+        test_right_out_of_bounds = dll.insert(10, 20)
+        test_insert_zero = dll.insert(0, 20)
+        test_insert_at_length = dll.insert(dll.length, 20)
+        test_insert_middle = dll.insert(2, 30)
+
+        return (
+            test_insert_middle
+            and not test_left_out_of_bounds
+            and not test_right_out_of_bounds
+            and test_insert_zero
+            and test_insert_at_length
+        )
 
     def test_remove(self):
         dll = self.initialize_test_doubly_linked_list()
         return dll.remove(1).value == 10 and dll.remove(1).value == 15 and dll.remove(0).value == 5
-    
+
     def test_swap_head_tail(self):
         dll = self.initialize_test_doubly_linked_list()
         return dll.swap_head_tail() and dll.get(2).value == 5 and dll.get(0).value == 15

@@ -11,7 +11,8 @@ class ListTest:
             ["test_bubble_sort", self.test_bubble_sort],
             ["test_selection_sort", self.test_selection_sort],
             ["test_insertion_sort", self.test_insertion_sort],
-            ["test_length_of_max_value", self.test_length_of_max_value]
+            ["test_quick_sort", self.test_quick_sort],
+            ["test_length_of_max_value", self.test_length_of_max_value],
         ]
 
     def run_all_tests(self):
@@ -27,11 +28,11 @@ class ListTest:
     def test_max_value(self):
         l = self.initialize_list()
         return max_value(l) == 10
-    
+
     def test_bubble_sort(self):
         l = self.initialize_list()
         return bubble_sort(l) == self.default_list_sorted
-    
+
     def test_selection_sort(self):
         l = self.initialize_list()
         return selection_sort(l) == self.default_list_sorted
@@ -39,7 +40,15 @@ class ListTest:
     def test_insertion_sort(self):
         l = self.initialize_list()
         return insertion_sort(l) == self.default_list_sorted
+
+    def test_quick_sort(self):
+        l = self.initialize_list()
+        return quick_sort(l) == self.default_list_sorted
     
+    # TODO
+    def test_pivot(self):
+        return True
+
     def test_length_of_max_value(self):
         l = self.initialize_list()
         return length_of_max_value(l) == 2
