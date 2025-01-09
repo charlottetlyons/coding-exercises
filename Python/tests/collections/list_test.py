@@ -19,7 +19,7 @@ class ListTest:
         run_all_tests(self.test_configs)
 
     def initialize_list(self):
-        return self.default_list
+        return self.default_list.copy()
 
     def test_access_indices(self):
         l = self.initialize_list()
