@@ -1,5 +1,15 @@
-import React from "react"
+import React, { useCallback, useState } from "react"
 
-const App = () => <h1>React!</h1>
+const App = () => {
+    const [buttonText, setButtonText] = useState("Thing Doer")
 
+    const buttonClickHandler = useCallback(() => {
+        setButtonText("Thing Done");
+    }, [setButtonText]);
+
+    return <div>
+        <h1>React!</h1>
+        <button onClick={buttonClickHandler}>{buttonText}</button>
+    </div>
+}
 export default App;
