@@ -57,7 +57,7 @@ class LinkedListTest:
 
     def test_pop(self):
         ll = self.initialize_test_linked_list()
-        return ll.pop().value == 3 and ll.length == 2
+        return ll.pop().value == 3 and ll.tail.value == 2 and ll.length == 2
 
     def test_prepend(self):
         ll = self.initialize_test_linked_list()

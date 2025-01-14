@@ -41,10 +41,10 @@ class MinHeap:
             return None
         elif len(self.heap) == 1:
             return self.heap.pop()
-        max_value = self.heap[0]
+        min_value = self.heap[0]
         self.heap[0] = self.heap.pop()
         self._sink_down(0)
-        return max_value
+        return min_value
 
     def swap(self, a, b):
         self.heap[a], self.heap[b] = self.heap[b], self.heap[a]

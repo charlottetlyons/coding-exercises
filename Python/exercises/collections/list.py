@@ -23,6 +23,9 @@ def bubble_sort(some_list):
     return some_list
 
 def selection_sort(some_list):
+    if len(some_list) == 0:
+        return some_list
+    
     for i in range(len(some_list) - 1):
         min_index = i
         for j in range(i + 1, len(some_list)):
@@ -47,7 +50,7 @@ def quick_sort(some_list):
         if left <= right:
             pivot_index = pivot(some_list, left, right)
             quick_sort_helper(some_list, left, pivot_index-1)
-            quick_sort_helper(some_list,  pivot_index + 1, right)
+            quick_sort_helper(some_list, pivot_index+1, right)
         return some_list
     return quick_sort_helper(some_list, 0, len(some_list)-1)
 
