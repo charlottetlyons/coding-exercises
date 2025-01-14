@@ -13,8 +13,8 @@ it('should say React!', () => {
 it('should click button', () => {
     render(<App/>);
 
-    const buttonElement = screen.getByRole('button', { name: /Thing Doer/i })
-    fireEvent.click(buttonElement)
+    const buttonElement = screen.getByRole('button', { name: /Thing Doer/i });
+    fireEvent.click(buttonElement);
 
-    expect(buttonElement).toHaveTextContent(/Thing Done/i)
+    expect(buttonElement).toHaveTextContent(/Thing Done/i);
 });
