@@ -43,4 +43,4 @@ test_suites = [
 for test_suite in test_suites:
     print(test_suite[0])
     test_suite[1].run_all_tests()
-    print("\n")
+    print()
