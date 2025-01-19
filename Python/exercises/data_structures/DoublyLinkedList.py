@@ -95,17 +95,17 @@ class DoublyLinkedList:
         elif index == self.length:
             return self.append(value)
         new_node = DLLNode(value)
-        prev = self.get(index-1)
+        prev = self.get(index - 1)
         next = prev.next
-        new_node.next = next
         new_node.prev = prev
+        new_node.next = next
         prev.next = new_node
         next.prev = new_node
         self.length += 1
         return True
 
     def remove(self, index):
-        if index < 0 or index > self.length:
+        if index < 0 or index >= self.length:
             return None
         elif index == 0:
             return self.pop_first()

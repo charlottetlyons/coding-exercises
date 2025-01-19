@@ -1,4 +1,5 @@
-from tests.collections.list_test import ListTest
+from tests.collections.StringTest import StringTest
+from tests.collections.ListTest import ListTest
 from tests.data_structures.LinkedListTest import LinkedListTest
 from tests.data_structures.DoublyLinkedListTest import DoublyLinkedListTest
 from tests.data_structures.QueueTest import QueueTest
@@ -13,6 +14,7 @@ from tests.data_structures.rBSTTest import rBSTTest
 # TODO: make a DataStructureTest Interface/abstract if applicable, so the test running logic is reusable
 # TODO: Test interface with name and test_function properties
 # TODO: integrate a python testing library
+string_test = StringTest()
 list_test = ListTest()
 linked_list_test = LinkedListTest()
 doubly_linked_list_test = DoublyLinkedListTest()
@@ -25,6 +27,7 @@ bst_test = BSTTest()
 rbst_test = rBSTTest()
 
 test_suites = [
+    ["String", string_test],
     ["List", list_test],
     ["LinkedList", linked_list_test],
     ["DoublyLinkedListTest", doubly_linked_list_test],
