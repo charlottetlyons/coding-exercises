@@ -31,8 +31,8 @@ def selection_sort(some_list):
         for j in range(i + 1, len(some_list)):
             if some_list[j] < some_list[min_index]:
                 min_index = j
-        if min_index != i:
-            some_list[i], some_list[min_index] = some_list[min_index], some_list[i]
+        if min_index is not i:
+            swap(some_list, min_index, i)
     return some_list
 
 def insertion_sort(some_list):
