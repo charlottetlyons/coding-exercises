@@ -5,7 +5,7 @@ import React from 'react';
 it('should say React!', () => {
     render(<App/>);
 
-    const appElement = screen.getByText("React!")
+    const appElement = screen.getByText(/React!/);
 
-    expect(appElement).toBeInTheDocument()
+    expect(appElement).toBeInTheDocument();
 });

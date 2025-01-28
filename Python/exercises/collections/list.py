@@ -28,7 +28,7 @@ def selection_sort(some_list):
     
     for i in range(len(some_list) - 1):
         min_index = i
-        for j in range(i + 1, len(some_list)):
+        for j in range(i+1, len(some_list)):
             if some_list[j] < some_list[min_index]:
                 min_index = j
         if min_index is not i:

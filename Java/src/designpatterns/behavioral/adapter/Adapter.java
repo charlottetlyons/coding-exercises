@@ -6,9 +6,9 @@ public class Adapter implements Target {
     public Adapter(Adaptee a) {
         this.adaptee = a;
     }
-    
+
     @Override
     public int doThing() {
-        return this.adaptee.doThing();
+        return this.adaptee.doThingComplicated();
     }
 }

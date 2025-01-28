@@ -181,7 +181,7 @@ class LinkedList:
         prev = dummy
 
         for _ in range(m):
-            prev = prev.next 
+            prev = prev.next
 
         current = prev.next
 

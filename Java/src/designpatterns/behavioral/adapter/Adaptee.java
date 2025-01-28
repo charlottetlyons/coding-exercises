@@ -1,7 +1,7 @@
 package src.designpatterns.behavioral.adapter;
 
 public class Adaptee {
-    public int doThing() {
+    public int doThingComplicated() {
         return 1;
     }
 }

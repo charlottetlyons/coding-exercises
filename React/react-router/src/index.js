@@ -5,4 +5,8 @@ import "./styles.css";
 
 const rootNode = document.getElementById("root");
 const root = createRoot(rootNode);
-root.render(<App/>);
+root.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+);
