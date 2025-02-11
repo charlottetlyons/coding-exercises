@@ -13,6 +13,7 @@ class ListTest:
             ["test_insertion_sort", self.test_insertion_sort],
             ["test_quick_sort", self.test_quick_sort],
             ["test_length_of_max_value", self.test_length_of_max_value],
+            ["test_get_digit", self.test_get_digit]
         ]
 
     def run_all_tests(self):
@@ -52,3 +53,10 @@ class ListTest:
     def test_length_of_max_value(self):
         l = self.initialize_list()
         return length_of_max_value(l) == 2
+    
+    # TODO
+    def test_radix_sort(self):
+        return True
+    
+    def test_get_digit(self):
+        return get_digit(100, 1) == 0 and get_digit(1, 0) == 1 and get_digit(2632, 3) == 2 and get_digit(9, 1) == 0 

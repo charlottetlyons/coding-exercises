@@ -23,7 +23,7 @@ def bubble_sort(some_list):
     return some_list
 
 def selection_sort(some_list):
-    if len(some_list) == 0:
+    if len(some_list) <= 1:
         return some_list
     
     for i in range(len(some_list) - 1):
@@ -52,7 +52,7 @@ def quick_sort(some_list):
             quick_sort_helper(some_list, left, pivot_index-1)
             quick_sort_helper(some_list, pivot_index+1, right)
         return some_list
-    return quick_sort_helper(some_list, 0, len(some_list)-1)
+    return quick_sort_helper(some_list, 0, len(some_list) - 1)
 
 def pivot(some_list, pivot_index, end_index):
     swap_index = pivot_index
@@ -65,3 +65,9 @@ def pivot(some_list, pivot_index, end_index):
 
 def swap(some_list, a, b):
     some_list[a], some_list[b] = some_list[b], some_list[a]
+
+def radix_sort(some_list):
+    return
+
+def get_digit(num, digit_pos):
+    return (abs(num) // 10 ** digit_pos) % 10

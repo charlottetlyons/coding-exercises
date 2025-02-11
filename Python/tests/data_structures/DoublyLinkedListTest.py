@@ -76,7 +76,9 @@ class DoublyLinkedListTest:
 
     def test_remove(self):
         dll = self.initialize_test_doubly_linked_list()
-        return dll.remove(3) == None and dll.remove(2).value == 15 and dll.remove(1).value == 10 and dll.remove(0).value == 5
+        dll.append(20)
+        dll.append(25)
+        return dll.remove(0).value == 5 and dll.remove(3).value == 25 and dll.remove(1).value == 15 and dll.get(0).next is not None and dll.get(1).prev is not None
 
     def test_swap_head_tail(self):
         dll = self.initialize_test_doubly_linked_list()
@@ -105,4 +107,4 @@ class DoublyLinkedListTest:
 
     def test_first_last(self):
         dll = self.initialize_test_doubly_linked_list()
-        return dll.swap_head_tail and dll.head.value == 15 and dll.tail.value == 5
+        return dll.swap_head_tail() and dll.head.value == 15 and dll.tail.value == 5
