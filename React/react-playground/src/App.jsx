@@ -6,6 +6,7 @@ const App = () => (
   <div>
     <h1>React!</h1>
     <RefExample />
+    <bdo dir="rtl">React!</bdo>
     <ConditionalRender />
   </div>
 );
