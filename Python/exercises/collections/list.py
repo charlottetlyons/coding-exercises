@@ -70,4 +70,4 @@ def radix_sort(some_list):
     return
 
 def get_digit(num, digit_pos):
-    return (abs(num) // 10 ** digit_pos) % 10
+    return (abs(num) // (10 ** digit_pos) % 10)

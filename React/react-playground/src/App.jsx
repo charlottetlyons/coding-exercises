@@ -1,10 +1,11 @@
 import React from "react";
 import ConditionalRender from "./components/ConditionalRender";
 import RefExample from "./components/RefExample";
+import { StyledH1 } from './components/StyledH1';
 
 const App = () => (
   <div>
-    <h1>React!</h1>
+    <StyledH1>React!</StyledH1>
     <RefExample />
     <bdo dir="rtl">React!</bdo>
     <ConditionalRender />
