@@ -7,5 +7,5 @@ public class ConcreteStateA implements State {
     @Override
     public int handle() {
         return 10;
-    }
+    };
 }

@@ -6,10 +6,10 @@ function createH1() {
     return document.createElement("h1");
 }
 
-function fetch_post(body) {
-    fetch("url", {
+function fetch_post(url, body) {
+    fetch(url, {
         method: "POST",
         body: JSON.stringify(body),
         headers: {}
-    });
+    })
 }
