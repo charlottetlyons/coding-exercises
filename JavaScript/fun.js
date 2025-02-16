@@ -6,7 +6,7 @@ function createH1() {
     return document.createElement("h1");
 }
 
-function fetch_post(url, body) {
+function fetchPost(url, body) {
     fetch(url, {
         method: "POST",
         body: JSON.stringify(body),

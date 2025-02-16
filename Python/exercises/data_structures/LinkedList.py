@@ -160,7 +160,7 @@ class LinkedList:
         return slow
 
     def kth_node_from_end(self, k):
-        fast = slow = self.head
+        slow = fast = self.head
 
         for _ in range(k):
             if fast is None:
