@@ -1,4 +1,4 @@
-package com.spring_playground.spring_playground.examples;
+package com.spring_playground.spring_playground.examples.ioc.component;
 
 import org.springframework.stereotype.Component;
 

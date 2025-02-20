@@ -1,6 +1,8 @@
-package com.spring_playground.spring_playground.examples;
+package com.spring_playground.spring_playground.examples.ioc.service;
 
 import org.springframework.stereotype.Service;
+
+import com.spring_playground.spring_playground.examples.ioc.component.SpringIoCBean;
 
 @Service
 public class SpringIoCService {
