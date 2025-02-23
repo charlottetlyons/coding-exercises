@@ -49,8 +49,11 @@ test_suites = [
     ["Binary Search Tree", bst_test],
     ["Recursive Binary Search Tree", rbst_test]
 ]
+count = 0
 
 for test_suite in test_suites:
+    count += 1
     print(test_suite[0])
     test_suite[1].run_all_tests()
     print()
+print("Ran", count, ("test suite" if count < 2 else "test suites"))
