@@ -4,7 +4,7 @@ import Button from "./Button";
 const App = () => {
     return <div>
         <h1>React!</h1>
-        <Button/>
+        <Button>Thing Doer</Button>
     </div>
 }
 

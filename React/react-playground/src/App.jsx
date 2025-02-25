@@ -9,7 +9,6 @@ import ContextComponent from "./components/ContextComponent";
 
 const App = () => {
   const [contextState,  setContextState] = useState("poached eggs");
-  const ref = useRef("");
 
   return <AppContext.Provider value={{contextState, setContextState}}>
     <StyledH1>React!</StyledH1>

@@ -1,4 +1,4 @@
-package com.spring_playground.spring_playground.examples.external_configuration;
+package com.spring_playground.spring_playground.external_configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

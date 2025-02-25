@@ -1,9 +1,9 @@
-package com.spring_playground.spring_playground.examples.external_configuration;
+package com.spring_playground.spring_playground.external_configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.spring_playground.spring_playground.examples.external_configuration.ExternalConfiguration;
+import com.spring_playground.spring_playground.external_configuration.ExternalConfiguration;
 
 @RestController
 public class ExternalConfigurationController {
