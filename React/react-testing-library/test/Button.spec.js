@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 
 it("should click button", () => {
-  render(<Button />);
+  render(<Button>Thing Doer</Button>);
 
   const buttonElement = screen.getByRole("button", { name: /Thing Doer/i });
   fireEvent.click(buttonElement);

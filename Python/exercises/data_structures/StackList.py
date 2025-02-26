@@ -7,5 +7,5 @@ class StackList:
 
     def pop(self):
         if len(self.stack) == 0:
-            return
+            return None
         return self.stack.pop()

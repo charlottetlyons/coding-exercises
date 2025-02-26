@@ -41,12 +41,13 @@ class DoublyLinkedList:
 
         temp = self.head
 
-        if self.length == 1:
+        if temp.next:
+            self.head = temp.next
+            self.head.prev = None
+            temp.next = None
+        else:
             self.head = None
             self.tail = None
-        else:
-            self.head = temp.next
-            temp.next = None
         self.length -= 1
         return temp
 

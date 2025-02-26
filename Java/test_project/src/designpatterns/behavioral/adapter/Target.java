@@ -1,4 +1,4 @@
-package src.designpatterns.behavioral.adapter;
+package designpatterns.behavioral.adapter;
 
 public interface Target {
     int doThing();

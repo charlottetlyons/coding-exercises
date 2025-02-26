@@ -1,6 +1,7 @@
-package src.designpatterns.behavioral.adapter;
+package designpatterns.behavioral.adapter;
 
 public class Adapter implements Target {
+    
     private Adaptee adaptee;
 
     public Adapter(Adaptee a) {

@@ -49,8 +49,8 @@ def quick_sort(some_list):
     def quick_sort_helper(some_list, left, right):
         if left <= right:
             pivot_index = pivot(some_list, left, right)
-            quick_sort_helper(some_list, left, pivot_index-1)
-            quick_sort_helper(some_list, pivot_index+1, right)
+            quick_sort_helper(some_list, left, pivot_index - 1)
+            quick_sort_helper(some_list, pivot_index + 1, right)
         return some_list
     return quick_sort_helper(some_list, 0, len(some_list) - 1)
 
