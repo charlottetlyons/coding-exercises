@@ -139,7 +139,7 @@ class DoublyLinkedList:
     def reverse(self):
         temp = self.head
         while temp:
-            temp.prev, temp.next = temp.next, temp.prev
+            temp.next, temp.prev = temp.prev, temp.next
             temp = temp.prev
         self.head, self.tail = self.tail, self.head
 

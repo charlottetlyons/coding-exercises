@@ -1,4 +1,4 @@
-package designpatterns.behavioral.adapter;
+package src.designpatterns.behavioral.adapter;
 
 public class Adapter implements Target {
     

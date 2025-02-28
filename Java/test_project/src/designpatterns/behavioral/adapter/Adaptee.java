@@ -1,6 +1,6 @@
-package designpatterns.behavioral.adapter;
+package src.designpatterns.behavioral.adapter;
 
-public class Target {
+public class Adaptee {
     public int doThingComplicated() {
         return 1;
     }
