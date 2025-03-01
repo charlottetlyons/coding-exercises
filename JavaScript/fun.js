@@ -13,3 +13,7 @@ function fetchPost(url, body) {
         headers: {}
     })
 }
+
+function reverse_words(string) {
+    return string.split(' ').reverse().join(" ")
+}
