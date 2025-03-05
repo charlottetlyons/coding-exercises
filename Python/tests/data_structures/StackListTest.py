@@ -8,6 +8,7 @@ class StackListTest:
             ["test_constructor", self.test_constructor],
             ["test_push", self.test_push],
             ["test_pop", self.test_pop],
+            ["test_peek", self.test_peek]
         ]
 
     def run_all_tests(self):
@@ -28,3 +29,7 @@ class StackListTest:
     def test_pop(self):
         s = self.initialize_test_stack()
         return s.pop() == 0 and s.pop() == None
+
+    def test_peek(self):
+        s = self.initialize_test_stack()
+        return s.peek() == 0 and s.pop() == 0

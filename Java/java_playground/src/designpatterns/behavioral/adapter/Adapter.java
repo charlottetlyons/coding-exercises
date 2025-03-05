@@ -8,7 +8,7 @@ public class Adapter implements Target {
     }
     
     @Override
-    public doThing() {
+    public int doThing() {
         return this.adaptee.doThingComplicated();
     }
 }
