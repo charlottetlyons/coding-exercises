@@ -8,14 +8,17 @@ class StackListTest:
             ["test_constructor", self.test_constructor],
             ["test_push", self.test_push],
             ["test_pop", self.test_pop],
-            ["test_peek", self.test_peek]
+            ["test_peek", self.test_peek],
+            ["test_sort_stack", self.test_sort_stack]
         ]
 
     def run_all_tests(self):
         run_all_tests(self.test_configs)
 
     def initialize_test_stack(self):
-        return StackList(0)
+        s = StackList()
+        s.push(0)
+        return s
 
     def test_constructor(self):
         s = self.initialize_test_stack()
@@ -33,3 +36,14 @@ class StackListTest:
     def test_peek(self):
         s = self.initialize_test_stack()
         return s.peek() == 0 and s.pop() == 0
+    
+    def test_sort_stack(self):
+        result = []
+        s = self.initialize_test_stack()
+        s.push(3)
+        s.push(5)
+        s.push(2)
+        s.sort_stack()
+        for _ in range(4):
+            result.append(s.pop())
+        return result == [0, 2, 3, 5]
