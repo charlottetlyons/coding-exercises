@@ -178,18 +178,18 @@ class LinkedList:
 
         dummy = Node(0)
         dummy.next = self.head
-        prev = dummy
+        before = dummy
 
         for _ in range(m):
-            prev = prev.next
+            before = before.next
 
-        current = prev.next
+        current = before.next
 
         for _ in range(n-m):
             after = current.next
             current.next = after.next
-            after.next = prev.next
-            prev.next = after
+            after.next = before.next
+            before.next = after
         self.head = dummy.next
 
     def partition_list(self, x):
