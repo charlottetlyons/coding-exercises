@@ -6,7 +6,7 @@ def square_root(x):
 def is_armstrong_number(number):
     total = 0
     num_string = str(number)
-    for digit_char in num_string:
-        digit = int(digit_char)
-        total = total + digit ** len(num_string)
+    digits = len(num_string)
+    for num_char in num_string:
+        total = total + (int(num_char)**digits)
     return total == number

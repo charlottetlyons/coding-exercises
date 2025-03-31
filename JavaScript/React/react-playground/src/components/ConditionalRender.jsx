@@ -9,7 +9,7 @@ const ConditionalRender = () => {
 
   return (
     <>
-      {show && <h1>THis is the conditrionnal rednere</h1>}
+      {show && <h1>THIS is rendered conditionally!</h1>}
       <button onClick={clickHandler}>{ show ? "Hide" : "Show"}</button>
     </>
   );

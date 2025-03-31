@@ -24,9 +24,7 @@ module.exports = {
         extensions: [".js", ".jsx"]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: "./public/index.html"
-        })
+        new HtmlWebpackPlugin({ template: "./public/index.html" })
     ],
     devServer: {
         static: path.join(__dirname, "dist"),

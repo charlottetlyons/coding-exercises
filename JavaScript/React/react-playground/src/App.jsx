@@ -8,6 +8,7 @@ import { AppContext } from "./context/AppContext";
 import ContextComponent from "./components/ContextComponent";
 import ErrorBoundary from "./components/ErrorBoundary";
 import TextDecorationExample from "./components/TextDecorationExample";
+import ParallaxComponent from "./components/ParallaxComponent";
 import AppKiller from "./components/AppKiller";
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <TextDecorationExample />
         <VerticalWriting>Here we are</VerticalWriting>
         <ContextComponent />
+        <ParallaxComponent/>
       </ErrorBoundary>
     </AppContext.Provider>
   );
