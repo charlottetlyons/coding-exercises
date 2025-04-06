@@ -9,6 +9,8 @@ import ContextComponent from "./components/ContextComponent";
 import ErrorBoundary from "./components/ErrorBoundary";
 import TextDecorationExample from "./components/TextDecorationExample";
 import ParallaxComponent from "./components/ParallaxComponent";
+import BlurredEdgesElement from "./components/BlurredEdgesElement";
+import DrawerComponent from "./components/DrawerComponent";
 import AppKiller from "./components/AppKiller";
 
 const App = () => {
@@ -25,6 +27,8 @@ const App = () => {
         <TextDecorationExample />
         <VerticalWriting>Here we are</VerticalWriting>
         <ContextComponent />
+        <BlurredEdgesElement />
+        <DrawerComponent />
         <ParallaxComponent/>
       </ErrorBoundary>
     </AppContext.Provider>
