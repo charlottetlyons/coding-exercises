@@ -12,13 +12,17 @@ import ParallaxComponent from "./components/ParallaxComponent";
 import BlurredEdgesElement from "./components/BlurredEdgesElement";
 import DrawerComponent from "./components/DrawerComponent";
 import AppKiller from "./components/AppKiller";
+import useInputValidation from "./hooks/useTestHook"
 
 const App = () => {
   const [contextState, setContextState] = useState("poached eggs");
 
+  const { validate } = useInputValidation();
+
   return (
     <AppContext.Provider value={{ contextState, setContextState }}>
       <ErrorBoundary>
+        <input onChange={(event) => validate(event.target.value)}/>
         {/* <AppKiller/> */}
         <StyledH1>React!</StyledH1>
         <RefExample />
