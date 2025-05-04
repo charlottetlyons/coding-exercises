@@ -39,7 +39,7 @@ class DoublyLinkedListTest:
 
     def test_pop_first(self):
         dll = self.initialize_test_doubly_linked_list()
-        return dll.pop_first().value == 5
+        return dll.pop_first().value == 5 and dll.head.prev == None
 
     def test_append(self):
         dll = self.initialize_test_doubly_linked_list()
