@@ -13,9 +13,9 @@ class BST:
         if self.root is None:
             self.root = new_node
             return True
-    
+
         temp = self.root
-    
+
         while True:
             if new_node.value == temp.value:
                 return False
@@ -29,7 +29,7 @@ class BST:
                     temp.right = new_node
                     return True
                 temp = temp.right
-    
+
     def contains(self, value):
         if self.root is not None:
             temp = self.root
@@ -56,14 +56,11 @@ class BST:
 
         while stack:
             current = stack.pop()
-            
             result.append(current.value)
             if current.right:
                 stack.append(current.right)
-
             if current.left:
                 stack.append(current.left)
-
         return result
 
     def inorder_search(self):
@@ -75,7 +72,7 @@ class BST:
 
         while stack:
             current = stack.pop()
-            
+
             if current.right:
                 stack.append(current.right)
             result.append(current.value)
