@@ -27,3 +27,11 @@ function countOccurrences(string, char) {
     }
     return count
 }
+
+async function asyncFunction(func) {
+    try {
+        await func()
+    } catch (error) {
+        // 
+    }
+}
