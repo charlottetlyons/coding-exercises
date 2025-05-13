@@ -7,3 +7,5 @@ class MemberVariableExample {
 type Alias = {
   property: any;
 };
+
+enum EnumType { TypeA, TypeB, TypeC }
