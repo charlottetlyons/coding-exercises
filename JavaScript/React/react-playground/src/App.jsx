@@ -11,6 +11,7 @@ import TextDecorationExample from "./components/TextDecorationExample";
 import ParallaxComponent from "./components/ParallaxComponent";
 import BlurredEdgesElement from "./components/BlurredEdgesElement";
 import DrawerComponent from "./components/DrawerComponent";
+import AnimatedBox from "./components/AnimatedBox";
 import AppKiller from "./components/AppKiller";
 import useInputValidation from "./hooks/useTestHook"
 
@@ -24,6 +25,7 @@ const App = () => {
       <ErrorBoundary>
         <input onChange={(event) => validate(event.target.value)}/>
         {/* <AppKiller/> */}
+        <AnimatedBox />
         <StyledH1>React!</StyledH1>
         <RefExample />
         <ReverseWriting />
