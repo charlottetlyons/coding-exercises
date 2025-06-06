@@ -227,6 +227,9 @@ class LinkedList:
             current = current.next
 
     def bubble_sort(self):
+        if self.length == 0:
+            return None
+
         is_sorted = False
 
         while not is_sorted:
@@ -244,7 +247,7 @@ class LinkedList:
     def selection_sort(self):
         if self.length <= 1:
             return
-        
+
         current = self.head
 
         while current:
