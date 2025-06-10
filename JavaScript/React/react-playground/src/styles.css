@@ -15,6 +15,10 @@
 }
 
 #animated-box {
-  animation: animate 2s ease-in-out 0s infinite alternate;
-  background-color: rgb(13, 127, 227);
+  animation: animate 1s ease-in-out 0s infinite alternate;
+  background-color: cornflowerblue;
+}
+
+select {
+  width: 100px;
 }
