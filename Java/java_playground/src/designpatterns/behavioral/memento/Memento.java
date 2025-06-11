@@ -7,7 +7,7 @@ public class Memento {
         this.state = s;
     }
 
-    public getState() {
+    public String getState() {
         return this.state;
     }
 }

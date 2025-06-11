@@ -1,13 +1,15 @@
 package designpatterns.behavioral.memento;
 
-public class Caretaker {
-    private List mementos = new ArrayList();
+import java.util.List;
 
-    public saveMemento(String state) {
-        this.mementos.add(new Memento(state));
+public class Caretaker {
+    private List<Memento> mementos = new ArrayList();
+
+    public void saveMemento(Memento m) {
+        mementos.add(m);
     }
 
-    public Memento get(int index) {
+    public Memento getMemento(int index) {
         this.mementos.get(index);
     }
 }

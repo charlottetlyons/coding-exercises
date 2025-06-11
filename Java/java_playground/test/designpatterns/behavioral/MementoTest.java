@@ -13,8 +13,8 @@ public class AdapterTest implements Test {
         Caretaker caretaker = new Caretaker();
         
         originator.setState("test1");
-        caretaker.saveMemento(originator.saveState());
-        originator.saveState("test2");
+        caretaker.saveMemento(originator.saveStateMemento());
+        originator.setState("test2");
         boolean result1 = originator.getState() == "test2";
         originator.restoreState(caretaker.get(0));
         return result1 && originator.getState() == "test1";
