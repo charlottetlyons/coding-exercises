@@ -1,3 +1,9 @@
+const crypto = require("crypto");
+
+function generateSecret() {
+    crypto.randomBytes(64).toString("hex");
+}
+
 async function sleep() {
     await new Promise(r => setTimeout(r, 1000));
 }
