@@ -1,4 +1,4 @@
-package designpatterns.behavioral.memento;
+package java_playground.src.designpatterns.behavioral.memento;
 
 public class Originator {
     private String state;

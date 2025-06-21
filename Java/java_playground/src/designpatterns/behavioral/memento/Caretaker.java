@@ -1,5 +1,6 @@
-package designpatterns.behavioral.memento;
+package java_playground.src.designpatterns.behavioral.memento;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Caretaker {
@@ -10,6 +11,6 @@ public class Caretaker {
     }
 
     public Memento getMemento(int index) {
-        this.mementos.get(index);
+        return this.mementos.get(index);
     }
 }
