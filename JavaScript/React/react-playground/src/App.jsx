@@ -10,11 +10,11 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import TextDecorationExample from "./components/TextDecorationExample";
 import ParallaxComponent from "./components/ParallaxComponent";
 import BlurredEdgesElement from "./components/BlurredEdgesElement";
-import DrawerComponent from "./components/DrawerComponent";
 import AnimatedBox from "./components/AnimatedBox";
 import SelectBox from "./components/SelectBox";
 import AppKiller from "./components/AppKiller";
-import useInputValidation from "./hooks/useTestHook"
+import useInputValidation from "./hooks/useTestHook";
+import Form from "./components/Form";
 
 const App = () => {
   const [contextState, setContextState] = useState("poached eggs");
@@ -24,8 +24,9 @@ const App = () => {
   return (
     <AppContext.Provider value={{ contextState, setContextState }}>
       <ErrorBoundary>
-        <input onChange={(event) => validate(event.target.value)}/>
+        <input onChange={(event) => validate(event.target.value)} />
         {/* <AppKiller/> */}
+        <Form />
         <StyledH1>React!</StyledH1>
         <SelectBox></SelectBox>
         <AnimatedBox />
@@ -36,8 +37,7 @@ const App = () => {
         <VerticalWriting>Here we are</VerticalWriting>
         <ContextComponent />
         <BlurredEdgesElement />
-        <DrawerComponent />
-        <ParallaxComponent/>
+        <ParallaxComponent />
       </ErrorBoundary>
     </AppContext.Provider>
   );
