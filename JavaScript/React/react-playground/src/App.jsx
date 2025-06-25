@@ -12,6 +12,7 @@ import ParallaxComponent from "./components/ParallaxComponent";
 import BlurredEdgesElement from "./components/BlurredEdgesElement";
 import AnimatedBox from "./components/AnimatedBox";
 import SelectBox from "./components/SelectBox";
+import SVG from "./components/SVG";
 import AppKiller from "./components/AppKiller";
 import useInputValidation from "./hooks/useTestHook";
 import Form from "./components/Form";
@@ -29,15 +30,16 @@ const App = () => {
         <Form />
         <StyledH1>React!</StyledH1>
         <SelectBox></SelectBox>
-        <AnimatedBox />
         <RefExample />
         <ReverseWriting />
         <ConditionalRender />
+        <SVG />
         <TextDecorationExample />
         <VerticalWriting>Here we are</VerticalWriting>
         <ContextComponent />
         <BlurredEdgesElement />
         <ParallaxComponent />
+        <AnimatedBox />
       </ErrorBoundary>
     </AppContext.Provider>
   );

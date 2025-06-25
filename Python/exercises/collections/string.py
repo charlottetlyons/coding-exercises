@@ -9,6 +9,14 @@ def first_unique_character(string):
             return char
     return None
 
+def count_occurrences(x, string):
+    counts = {}
+    for char in string:
+        if counts[char] is None:
+            counts[char] = 0
+        counts[char] += 1
+    return counts
+
 def is_anagrams(string_a, string_b):
     cleaned_a = string_a.replace(" ", "").lower()
     cleaned_b = string_b.replace(" ", "").lower()
