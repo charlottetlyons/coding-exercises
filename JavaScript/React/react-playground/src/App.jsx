@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ConditionalRender from "./components/ConditionalRender";
 import RefExample from "./components/RefExample";
 import { StyledH1 } from "./components/StyledH1";
+import ClassBased from "./components/ClassBased";
 import VerticalWriting from "./components/VerticalWriting";
 import ReverseWriting from "./components/ReverseWriting";
 import { AppContext } from "./context/AppContext";
@@ -27,6 +28,7 @@ const App = () => {
       <ErrorBoundary>
         <input onChange={(event) => validate(event.target.value)} />
         {/* <AppKiller/> */}
+        <ClassBased />
         <Form />
         <StyledH1>React!</StyledH1>
         <SelectBox></SelectBox>
