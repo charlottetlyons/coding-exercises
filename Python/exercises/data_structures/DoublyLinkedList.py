@@ -156,12 +156,6 @@ class DoublyLinkedList:
             back = back.prev
         return True
 
-    def swap_head_tail(self):
-        if self.head is not self.tail:
-            self.head.value, self.tail.value = self.tail.value, self.head.value
-            return True
-        return False
-
     def swap_pairs(self):
         temp = self.head
         while temp and temp.next:
