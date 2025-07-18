@@ -4,7 +4,9 @@ from ..utils.test_utils import *
 class GraphTest:
     def __init__(self):
         self.test_configs = [
-            ["test_constructor", self.test_constructor]
+            ["test_constructor", self.test_constructor],
+            ["test_add_vertex", self.test_add_vertex],
+            ["test_add_edge", self.test_add_edge]
         ]
 
     def run_all_tests(self):
@@ -19,11 +21,20 @@ class GraphTest:
     
     # TODO
     def test_add_vertex(self):
-        return True
+        g = self.initialize_test_graph()
+        emptyResult = g.add_vertex(1)
+        errorResult = g.add_vertex(1)
+        return len(g.adj_list[1]) == 0 and emptyResult == True and errorResult == False
 
     # TODO
     def test_add_edge(self):
-        return True
+        g = self.initialize_test_graph()
+        g.add_vertex(1)
+        g.add_vertex(2)
+        emptyResult = g.add_edge(1, 2)
+        errorResult = g.add_edge(1, 3)
+        return len(g.adj_list[1]) == 1 and len(g.adj_list[2]) == 1 and emptyResult == True and errorResult == False
+
 
     # TODO
     def test_remove_vertex(self):
