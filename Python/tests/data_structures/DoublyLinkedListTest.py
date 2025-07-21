@@ -87,7 +87,10 @@ class DoublyLinkedListTest:
     def test_reverse(self):
         dll = self.initialize_test_doubly_linked_list()
         dll.reverse()
-        return dll.values() == [15, 10, 5]
+        result1 = dll.values() == [15, 10, 5]
+        result2 = dll.head.value == 15
+        result3 = dll.tail.value == 5
+        return result1 and result2 and result3
 
     def test_is_palindrome(self):
         dll = DoublyLinkedList(5)

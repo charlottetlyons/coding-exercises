@@ -27,6 +27,7 @@ const App = () => {
     <AppContext.Provider value={{ contextState, setContextState }}>
       <ErrorBoundary>
         <input onChange={(event) => validate(event.target.value)} />
+        <area shape="" coords="" alt="" href=""></area>
         {/* <AppKiller/> */}
         <ClassBased />
         <Form />

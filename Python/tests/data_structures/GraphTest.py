@@ -6,7 +6,9 @@ class GraphTest:
         self.test_configs = [
             ["test_constructor", self.test_constructor],
             ["test_add_vertex", self.test_add_vertex],
-            ["test_add_edge", self.test_add_edge]
+            ["test_add_edge", self.test_add_edge],
+            ["test_add_vertex", self.test_remove_vertex],
+            ["test_add_edge", self.test_remove_edge]
         ]
 
     def run_all_tests(self):
@@ -38,8 +40,22 @@ class GraphTest:
 
     # TODO
     def test_remove_vertex(self):
-        return True
+        g = self.initialize_test_graph()
+        g.add_vertex(1)
+        g.add_vertex(2)
+        g.add_edge(1, 2)
+        g.remove_vertex(1)
+        result1 = len(g.adj_list) == 1
+        result2 = len(g.adj_list[2]) == 0
+        return result1 and result2
 
     # TODO
     def test_remove_edge(self):
-        return True
+        g = self.initialize_test_graph()
+        g.add_vertex(1)
+        g.add_vertex(2)
+        g.add_edge(1, 2)
+        g.remove_edge(1, 2)
+        result1 = len(g.adj_list[1]) == 0
+        result2 = len(g.adj_list[2]) == 0
+        return result1 and result2
