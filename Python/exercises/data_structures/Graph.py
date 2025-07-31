@@ -24,7 +24,7 @@ class Graph:
         return False
     
     def remove_edge(self, vertex1, vertex2):
-        if vertex1 in self.adj_list.keys() and vertex2 and self.adj_list.keys():
+        if vertex1 in self.adj_list.keys() and vertex2 in self.adj_list.keys():
             try:
                 self.adj_list[vertex1].remove(vertex2)
                 self.adj_list[vertex2].remove(vertex1)
