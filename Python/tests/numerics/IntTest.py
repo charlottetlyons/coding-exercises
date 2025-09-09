@@ -1,4 +1,4 @@
-from exercises.numerics.Int import *
+from exercises.numerics.int import *
 from ..utils.test_utils import *
 
 

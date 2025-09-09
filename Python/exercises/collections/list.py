@@ -61,7 +61,24 @@ def partition(some_list, left, right, pivot_value):
 
 # TODO: Implement and test
 def median_of_three(some_list, left, right):
-    return
+    mid = (left - right) // 2
+    a, b, c = some_list[left], some_list[mid], some_list[right]
+
+    if a > b:
+        if a < c:
+            pivot_value = a
+        elif b > c:
+            pivot_value = b
+        else:
+            pivot_value = c
+    else:
+        if a > c:
+            pivot_value = a
+        elif b < c:
+            pivot_value = b
+        else:
+            pivot_value = c
+    return pivot_value
 
 # TODO: Write test
 def median_of_three_quick_sort(some_list, left, right):

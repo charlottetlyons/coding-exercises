@@ -28,7 +28,7 @@ class LinkedList:
     def pop(self):
         if self.length == 0:
             return None
-        
+
         temp = self.head
 
         while temp.next:

@@ -7,7 +7,7 @@ class Graph:
             self.adj_list[vertex] = []
             return True
         return False
-    
+
     def add_edge(self, vertex1, vertex2):
         if vertex1 in self.adj_list.keys() and vertex2 in self.adj_list.keys():
             self.adj_list[vertex1].append(vertex2)
@@ -22,7 +22,7 @@ class Graph:
             del self.adj_list[vertex]
             return True
         return False
-    
+
     def remove_edge(self, vertex1, vertex2):
         if vertex1 in self.adj_list.keys() and vertex2 in self.adj_list.keys():
             try:
