@@ -61,7 +61,7 @@ def partition(some_list, left, right, pivot_value):
 
 # TODO: Implement and test
 def median_of_three(some_list, left, right):
-    mid = (left - right) // 2
+    mid = (left + right) // 2
     a, b, c = some_list[left], some_list[mid], some_list[right]
 
     if a > b:
@@ -94,7 +94,7 @@ def randomized_pivot(some_list, left, right):
     return
 
 # TODO: Write test
-def randomized_pivot_quick_sort(some_list, right, left):
+def randomized_pivot_quick_sort(some_list, left, right):
     if left < right:
         pivot_value = randomized_pivot(some_list, left, right)
         pivot_index = partition(some_list, left, right, pivot_value)
