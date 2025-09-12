@@ -45,21 +45,29 @@ def insertion_sort(some_list):
             position -= 1
     return some_list
 
-def quick_sort_helper(some_list, left, right):
+def quick_sort(some_list):
+    def quick_sort_helper(some_list, left, right):
         if left <= right:
             pivot_index = pivot(some_list, left, right)
             quick_sort_helper(some_list, left, pivot_index - 1)
             quick_sort_helper(some_list, pivot_index + 1, right)
         return some_list
-
-def quick_sort(some_list):
     return quick_sort_helper(some_list, 0, len(some_list) - 1)
 
-# TODO: Implement and test
+# TODO: Test
 def partition(some_list, left, right, pivot_value):
-    return
+    while left <= right:
+        while some_list[left] < pivot_value:
+            left += 1
+        while some_list[right] > pivot_value:
+            right -= 1
+        if left <= right:
+            some_list[left], some_list[right] = some_list[right], some_list[left]
+            left += 1
+            right -= 1
+    return left
 
-# TODO: Implement and test
+# TODO: Test
 def median_of_three(some_list, left, right):
     mid = (left + right) // 2
     a, b, c = some_list[left], some_list[mid], some_list[right]
@@ -80,27 +88,32 @@ def median_of_three(some_list, left, right):
             pivot_value = c
     return pivot_value
 
-# TODO: Write test
-def median_of_three_quick_sort(some_list, left, right):
-    if left < right:
-        pivot_value = median_of_three(some_list, left, right)
-        pivot_index = partition(some_list, left, right, pivot_value)
-        quick_sort_helper(some_list, left, pivot_index - 1)
-        quick_sort_helper(some_list, pivot_index, right)
-    return some_list
+def median_of_three_quick_sort(some_list):
+    def quick_sort_helper(some_list, left, right):
+        if left < right:
+            pivot_value = median_of_three(some_list, left, right)
+            pivot_index = partition(some_list, left, right, pivot_value)
+            quick_sort_helper(some_list, left, pivot_index - 1)
+            quick_sort_helper(some_list, pivot_index, right)
+        return some_list
+    return quick_sort_helper(some_list, 0, len(some_list) - 1)
+
+    
 
 # TODO: Implement and test
 def randomized_pivot(some_list, left, right):
     return
 
-# TODO: Write test
-def randomized_pivot_quick_sort(some_list, left, right):
-    if left < right:
-        pivot_value = randomized_pivot(some_list, left, right)
-        pivot_index = partition(some_list, left, right, pivot_value)
-        quick_sort_helper(some_list, left, pivot_index - 1)
-        quick_sort_helper(some_list, pivot_index, right)
-    return some_list
+# TODO: Enable test
+def randomized_pivot_quick_sort(some_list):
+    def quick_sort_helper(some_list, left, right):
+        if left < right:
+            pivot_value = randomized_pivot(some_list, left, right)
+            pivot_index = partition(some_list, left, right, pivot_value)
+            quick_sort_helper(some_list, left, pivot_index - 1)
+            quick_sort_helper(some_list, pivot_index, right)
+        return some_list
+    return quick_sort_helper(some_list, 0, len(some_list) - 1)
 
 def pivot(some_list, pivot_index, end_index):
     swap_index = pivot_index

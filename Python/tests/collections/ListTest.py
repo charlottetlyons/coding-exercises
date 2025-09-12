@@ -12,6 +12,8 @@ class ListTest:
             ["test_selection_sort", self.test_selection_sort],
             ["test_insertion_sort", self.test_insertion_sort],
             ["test_quick_sort", self.test_quick_sort],
+            ["test_median_of_three_quick_sort", self.test_median_of_three_quick_sort],
+            ["test_randomized_pivot_quick_sort", self.test_randomized_pivot_quick_sort],
             ["test_length_of_max_value", self.test_length_of_max_value],
             ["test_get_digit", self.test_get_digit]
         ]
@@ -46,6 +48,15 @@ class ListTest:
         l = self.initialize_list()
         return quick_sort(l) == self.default_list_sorted
     
+    def test_median_of_three_quick_sort(self):
+        l = self.initialize_list()
+        return median_of_three_quick_sort(l) == self.default_list_sorted
+
+    def test_randomized_pivot_quick_sort(self):
+        return True
+        # l = self.initialize_list()
+        # return randomized_pivot_quick_sort(l) == self.default_list_sorted
+
     # TODO
     def test_pivot(self):
         return True
