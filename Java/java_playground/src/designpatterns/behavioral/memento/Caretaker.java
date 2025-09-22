@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Caretaker {
-    private List<Memento> mementos = new ArrayList();
+    private List<Memento> mementos = new ArrayList<Memento>();
 
     public void saveMemento(Memento m) {
-        mementos.add(m);
+        this.mementos.add(m);
     }
 
     public Memento getMemento(int index) {

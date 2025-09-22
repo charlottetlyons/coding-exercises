@@ -11,11 +11,11 @@ public class Originator {
         this.state = s;
     }
 
-    public Memento saveStateMemento() {
+    public Memento saveMemento() {
         return new Memento(this.state);
     }
 
-    public void restoreState(Memento m) {
+    public void restoreMemento(Memento m) {
         this.state = m.getState();
     }
 }

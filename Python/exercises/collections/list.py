@@ -98,8 +98,6 @@ def median_of_three_quick_sort(some_list):
         return some_list
     return quick_sort_helper(some_list, 0, len(some_list) - 1)
 
-    
-
 # TODO: Implement and test
 def randomized_pivot(some_list, left, right):
     return
