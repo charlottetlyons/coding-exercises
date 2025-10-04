@@ -11,3 +11,9 @@ def is_armstrong_number(number):
         digit = int(digit_char)
         total = total + (digit ** number_of_digits)
     return total == number
+
+def swap_without_third(a, b):
+    a = a + b
+    b = a - b
+    a = a - b
+    return a, b

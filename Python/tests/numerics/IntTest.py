@@ -1,4 +1,4 @@
-from exercises.numerics.Int import *
+from exercises.numerics.int import *
 from ..utils.test_utils import *
 
 
@@ -7,6 +7,7 @@ class IntTest:
         self.test_configs = [
             ["test_square_root", self.test_square_root],
             ["test_is_armstrong_number", self.test_is_armstrong_number],
+            ["test_swap_without_third", self.test_swap_without_third],
         ]
 
     def run_all_tests(self):
@@ -17,3 +18,6 @@ class IntTest:
 
     def test_is_armstrong_number(self):
         return is_armstrong_number(153) == True and is_armstrong_number(152) == False
+
+    def test_swap_without_third(self):
+        return swap_without_third(1, 2) == 2, 1

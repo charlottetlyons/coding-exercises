@@ -15,7 +15,7 @@ class Queue:
             self.last.next = new_node
         self.last = new_node
         self.length += 1
-    
+
     def dequeue(self):
         temp = self.first
         if temp.next:
