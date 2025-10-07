@@ -287,6 +287,6 @@ class LinkedList:
 
         self.head = sorted_head
         temp = self.head
-        while temp.next is not None:
+        while temp.next:
             temp = temp.next
         self.tail = temp
