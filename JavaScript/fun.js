@@ -41,3 +41,10 @@ async function asyncFunction(func) {
     //
   }
 }
+
+function reducer(prev, dispatch) {
+  return {
+    ...prev,
+    new: dispatch.value
+  }
+} 
