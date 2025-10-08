@@ -64,38 +64,42 @@ class BST:
         return result
 
     def inorder_search(self):
-        result = []
         if not self.root:
-            return result
+            return []
 
-        stack = [self.root]
+        result = []
+        stack = []
+        current = self.root
 
-        while stack:
+        while stack or current:
+            while current:
+                stack.append(current)
+                current = current.left
             current = stack.pop()
-
-            if current.right:
-                stack.append(current.right)
             result.append(current.value)
-            if current.left:
-                stack.append(current.left)
-
+            current = current.right
         return result
 
     def postorder_search(self):
-        result = []
         if not self.root:
-            return result
+            return []
 
-        stack = [self.root]
+        result = []
+        stack = []
+        prev = None
+        current = self.root
 
-        while stack:
-            current = stack.pop()
+        while stack or current:
+            while current:
+                stack.append(current)
+                current = current.left
+            current = stack[-1]
 
-            if current.right:
-                stack.append(current.right)
-            if current.left:
-                stack.append(current.left)
-
-            result.append(current.value)
-
+            if current.right and current.right is not prev:
+                current = current.right
+            else:
+                result.append(current.value)
+                prev = current
+                stack.pop()
+                current = None
         return result
