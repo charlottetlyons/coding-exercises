@@ -3,6 +3,12 @@
   color: rgb(214, 214, 214);
 }
 
+@media (max-with: 100px) {
+  * {
+    height: 1000%;
+  }
+}
+
 @keyframes animate {
   0% {
     height: 50px;
