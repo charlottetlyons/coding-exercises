@@ -12,4 +12,3 @@ public class ExternalConfiguration {
         System.out.println("Application running: " + applicationName);
     }
 }
-
