@@ -47,4 +47,4 @@ function reducer(prev, dispatch) {
     ...prev,
     new: dispatch.value
   }
-} 
+}
