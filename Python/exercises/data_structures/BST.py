@@ -31,21 +31,20 @@ class BST:
                 temp = temp.right
 
     def contains(self, value):
-        if self.root is not None:
+        if self.root:
             temp = self.root
             while True:
-                if value == temp.value:
+                if temp.value == value:
                     return temp
-                elif value < temp.value:
-                    if temp.left == None:
+                elif temp.value > value:
+                    if not temp.left:
                         return False
                     temp = temp.left
                 else:
-                    if temp.right == None:
+                    if not temp.right:
                         return False
                     temp = temp.right
-        else:
-            return False
+        return False
 
     def preorder_search(self):
         result = []
