@@ -17,3 +17,8 @@ def swap_without_third(a, b):
     b = a - b
     a = a - b
     return a, b
+
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)

@@ -8,6 +8,7 @@ class BSTTest:
         self.test_configs = [
             ["test_constructor", self.test_constructor],
             ["test_insert", self.test_insert],
+            ["test_delete", self.test_delete],
             ["test_contains", self.test_contains],
             ["test_preorder_search", self.test_preorder_search],
             ["test_inorder_search", self.test_inorder_search],
@@ -34,6 +35,14 @@ class BSTTest:
         bst = self.initialize_test_bst()
         bst.insert(10)
         return bst.inorder_search() == [8, 10]
+
+    def test_delete(self):
+        bst = self.initialize_test_bst()
+        bst.insert(10)
+        bst.insert(11)
+        bst.insert(12)
+        bst.delete(10)
+        return bst.inorder_search() == [8, 11, 12]
 
     def test_contains(self):
         bst = self.initialize_test_bst(fill=True)

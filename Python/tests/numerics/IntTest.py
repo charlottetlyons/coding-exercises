@@ -7,6 +7,7 @@ class IntTest:
             ["test_square_root", self.test_square_root],
             ["test_is_armstrong_number", self.test_is_armstrong_number],
             ["test_swap_without_third", self.test_swap_without_third],
+            ["test_factorial", self.test_factorial],
         ]
 
     def run_all_tests(self):
@@ -20,3 +21,6 @@ class IntTest:
 
     def test_swap_without_third(self):
         return swap_without_third(1, 2) == 2, 1
+
+    def test_factorial(self):
+        return factorial(8) == 40320

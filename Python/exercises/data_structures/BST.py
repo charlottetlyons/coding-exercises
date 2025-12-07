@@ -30,6 +30,41 @@ class BST:
                     return True
                 temp = temp.right
 
+    def delete(self, value):
+        if not self.root:
+            return False
+        parent, current = None, self.root
+        while current and current.value is not value:
+            parent = current
+            if current.value > value:
+                current = current.left
+            else:
+                current = current.right
+
+        if not current:
+            return self.root
+
+        if current.left and current.right:
+            successor_parent, successor = current, current.right
+            while successor.left:
+                successor_parent, successor = successor, successor.left
+            current.value = successor.value
+            current, parent = successor, successor_parent
+
+        if current.left:
+            child = current.left 
+        else: 
+            child = current.right
+        if parent is None:
+            return child
+
+        if parent.left is current:
+            parent.left = child
+        else:
+            parent.right = child
+
+        return True
+
     def contains(self, value):
         if self.root:
             temp = self.root
