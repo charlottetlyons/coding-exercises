@@ -19,9 +19,9 @@ class rBST:
         self.__r_insert(self.root, value)  
 
     def min_value(self, current_node):
-        while (current_node.left is not None):
+        while current_node.left:
             current_node = current_node.left
-        return current_node.value 
+        return current_node.value
 
     def delete_node(self, value):
         return self.__delete_node(self.root, value)
