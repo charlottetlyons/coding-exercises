@@ -10,22 +10,22 @@ class BST:
 
     def insert(self, value):
         new_node = BSTNode(value)
-        if self.root is None:
+        if not self.root:
             self.root = new_node
             return True
 
         temp = self.root
 
         while True:
-            if new_node.value == temp.value:
+            if temp.value == value:
                 return False
-            elif new_node.value < temp.value:
-                if temp.left is None:
+            elif temp.value > value:
+                if not temp.left:
                     temp.left = new_node
                     return True
                 temp = temp.left
             else:
-                if temp.right is None:
+                if not temp.right:
                     temp.right = new_node
                     return True
                 temp = temp.right
