@@ -52,10 +52,10 @@ class BST:
             current, parent = successor, successor_parent
 
         if current.left:
-            child = current.left 
-        else: 
+            child = current.left
+        else:
             child = current.right
-        if parent is None:
+        if not parent:
             return child
 
         if parent.left is current:

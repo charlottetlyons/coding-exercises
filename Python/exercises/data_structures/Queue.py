@@ -17,9 +17,13 @@ class Queue:
         self.length += 1
 
     def dequeue(self):
+        if self.first is None:
+            return None
+
         temp = self.first
         if temp.next:
             self.first = temp.next
+            temp.next = None
         else:
             self.first = None
             self.last = None
