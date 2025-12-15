@@ -151,6 +151,15 @@ class LinkedList:
             before = current
             current = after
 
+    def has_loop(self):
+        fast = slow = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if fast == slow:
+                return True
+        return False
+
     def median_node(self):
         fast = slow = self.head
 

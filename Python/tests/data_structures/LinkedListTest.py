@@ -17,6 +17,7 @@ class LinkedListTest:
             ["test_get_length", self.test_get_length],
             ["test_functions_out_of_bounds", self.test_functions_out_of_bounds],
             ["test_reverse", self.test_reverse],
+            ["test_has_loop", self.test_has_loop],
             ["test_median_node", self.test_median_node],
             ["test_kth_node_from_end", self.test_kth_node_from_end],
             ["test_reverse_between", self.test_reverse_between],
@@ -146,6 +147,13 @@ class LinkedListTest:
     def test_get_length(self):
         ll = self.initialize_test_linked_list()
         return ll.get_length() == 3
+
+    def test_has_loop(self):
+        ll = self.initialize_test_linked_list()
+        result1 = not ll.has_loop()
+        ll.tail.next = ll.head
+        result2 = ll.has_loop()
+        return result1 and result2
 
     def test_reverse(self):
         ll = LinkedList(7)
