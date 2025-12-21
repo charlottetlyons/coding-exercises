@@ -25,7 +25,7 @@ class rBST:
 
     def delete_node(self, value):
         return self.__delete_node(self.root, value)
-    
+
     def __delete_node(self, current, value):
         if current is None:
             return None
@@ -45,10 +45,10 @@ class rBST:
                 current.value = sub_tree_min
                 current.right = self.__delete_node(current.right, sub_tree_min)
         return current
-    
+
     def r_contains(self, value):
         return self.__r_contains(self.root, value)
-        
+
     def __r_contains(self, current, value):
         if current == None:
             return False
@@ -58,42 +58,42 @@ class rBST:
             return self.__r_contains(current.left, value)
         else:
             return self.__r_contains(current.right, value)
-        
+
     def pre_order_dfs(self):
         results = []
-        
+
         def traverse(current):
             results.append(current.value)
             if current.left is not None:
                 traverse(current.left)
             if current.right is not None:
                 traverse(current.right)
-        
+
         traverse(self.root)
         return results
-    
+
     def in_order_dfs(self):
         results = []
-        
+
         def traverse(current):
             if current.left is not None:
                 traverse(current.left)
             results.append(current.value)
             if current.right is not None:
                 traverse(current.right)
-        
+
         traverse(self.root)
         return results
-    
+
     def post_order_dfs(self):
         results = []
-        
+
         def traverse(current):
             if current.left is not None:
                 traverse(current.left)
             if current.right is not None:
                 traverse(current.right)
             results.append(current.value)
-        
+
         traverse(self.root)
         return results

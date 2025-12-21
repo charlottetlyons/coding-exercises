@@ -11,11 +11,12 @@ class ListTest:
             ["test_bubble_sort", self.test_bubble_sort],
             ["test_selection_sort", self.test_selection_sort],
             ["test_insertion_sort", self.test_insertion_sort],
+            ["test_merge_sort", self.test_merge_sort],
             ["test_quick_sort", self.test_quick_sort],
             ["test_median_of_three_quick_sort", self.test_median_of_three_quick_sort],
             ["test_randomized_pivot_quick_sort", self.test_randomized_pivot_quick_sort],
             ["test_length_of_max_value", self.test_length_of_max_value],
-            ["test_get_digit", self.test_get_digit]
+            ["test_get_digit", self.test_get_digit],
         ]
 
     def run_all_tests(self):
@@ -44,10 +45,14 @@ class ListTest:
         l = self.initialize_list()
         return insertion_sort(l) == self.default_list_sorted
 
+    def test_merge_sort(self):
+        l = self.initialize_list()
+        return merge_sort(l) == self.default_list_sorted
+
     def test_quick_sort(self):
         l = self.initialize_list()
         return quick_sort(l) == self.default_list_sorted
-    
+
     def test_median_of_three_quick_sort(self):
         l = self.initialize_list()
         return median_of_three_quick_sort(l) == self.default_list_sorted
@@ -64,10 +69,10 @@ class ListTest:
     def test_length_of_max_value(self):
         l = self.initialize_list()
         return length_of_max_value(l) == 2
-    
+
     # TODO
     def test_radix_sort(self):
         return True
-    
+
     def test_get_digit(self):
         return get_digit(100, 1) == 0 and get_digit(1, 0) == 1 and get_digit(2632, 3) == 2 and get_digit(9, 1) == 0 
