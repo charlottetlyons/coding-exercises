@@ -46,7 +46,7 @@ def insertion_sort(some_list):
     return some_list
 
 def merge_sort(some_list):
-    if len(some_list) == 1:
+    if len(some_list) <= 1:
         return some_list
 
     mid_index = len(some_list) // 2

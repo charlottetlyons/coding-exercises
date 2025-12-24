@@ -50,9 +50,9 @@ class rBST:
         return self.__r_contains(self.root, value)
 
     def __r_contains(self, current, value):
-        if current == None:
+        if not current:
             return False
-        if current.value == value:
+        elif current.value == value:
             return True
         elif current.value > value:
             return self.__r_contains(current.left, value)
