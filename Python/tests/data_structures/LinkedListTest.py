@@ -161,7 +161,7 @@ class LinkedListTest:
             ll.append(num)
         expected_order = [4, 1, 6, 2, 6, 3, 7]
         ll.reverse()
-        return ll.values() == expected_order
+        return ll.values() == expected_order and ll.head.value == 4 and ll.tail.value == 7
 
     def test_median_node(self):
         ll = self.initialize_test_linked_list()
