@@ -17,6 +17,7 @@ class ListTest:
             ["test_randomized_pivot_quick_sort", self.test_randomized_pivot_quick_sort],
             ["test_length_of_max_value", self.test_length_of_max_value],
             ["test_get_digit", self.test_get_digit],
+            ["test_pairs_equal_to_n", self.test_pairs_equal_to_n],
         ]
 
     def run_all_tests(self):
@@ -76,3 +77,8 @@ class ListTest:
 
     def test_get_digit(self):
         return get_digit(100, 1) == 0 and get_digit(1, 0) == 1 and get_digit(2632, 3) == 2 and get_digit(9, 1) == 0 
+
+    def test_pairs_equal_to_n(self):
+        l = [2, 1, 2, 3, 4, 0]
+        expected = [[2, 2], [1, 3], [4, 0]]
+        return expected == pairs_equal_to_n(l, 4)
