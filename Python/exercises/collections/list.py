@@ -1,3 +1,5 @@
+from random import randint
+
 # LIST FUNCTIONS
 def access_indices(some_list):
     indices = []
@@ -129,7 +131,9 @@ def median_of_three_quick_sort(some_list):
 
 # TODO: Implement and test
 def randomized_pivot(some_list, left, right):
-    return
+    rand_index = randint(left, right)
+    some_list[left], some_list[rand_index] = some_list[rand_index], some_list[left]
+    return some_list[left]
 
 # TODO: Enable test
 def randomized_pivot_quick_sort(some_list):
@@ -161,6 +165,9 @@ def get_digit(num, digit_pos):
     return (abs(num) // (10 ** digit_pos)) % 10
 
 def pairs_equal_to_n(some_list, n):
+    if len(some_list) <= 1:
+        return []
+
     seen = set()
     pairs = set()
 
