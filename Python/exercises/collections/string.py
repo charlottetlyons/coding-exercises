@@ -51,3 +51,13 @@ def max_char(string):
             max_index = char
             max_value = counts.get(char)
     return max_index
+
+def only_digits(string):
+    if len(string) == 0:
+        return False
+
+    for char in string:
+        char_unicode = ord(char)
+        if char_unicode < 48 or char_unicode > 57:
+            return False
+    return True

@@ -160,15 +160,13 @@ def radix_sort(some_list):
 def get_digit(num, digit_pos):
     return (abs(num) // (10 ** digit_pos)) % 10
 
-
-#  TODO: Revise so it uses O(n) solution using 'seen' set
 def pairs_equal_to_n(some_list, n):
-    pairs = []
-    if len(some_list) <= 1:
-        return pairs
+    seen = set()
+    pairs = set()
 
-    for i in range(len(some_list)):
-        for j in range(i + 1, len(some_list)):
-            if some_list[i] + some_list[j] == n:
-                pairs.append([some_list[i], some_list[j]])
-    return pairs
+    for element in some_list:
+        pair_value = n - element
+        if pair_value in seen:
+            pairs.add((min(element, pair_value), max(element, pair_value)))
+        seen.add(element)
+    return list(pairs)

@@ -59,9 +59,8 @@ class ListTest:
         return median_of_three_quick_sort(l) == self.default_list_sorted
 
     def test_randomized_pivot_quick_sort(self):
-        return True
-        # l = self.initialize_list()
-        # return randomized_pivot_quick_sort(l) == self.default_list_sorted
+        l = self.initialize_list()
+        return randomized_pivot_quick_sort(l) == self.default_list_sorted
 
     # TODO
     def test_pivot(self):
@@ -80,5 +79,5 @@ class ListTest:
 
     def test_pairs_equal_to_n(self):
         l = [2, 1, 2, 3, 4, 0]
-        expected = [[2, 2], [1, 3], [4, 0]]
+        expected = [(1, 3), (0, 4), (2, 2)]
         return expected == pairs_equal_to_n(l, 4)

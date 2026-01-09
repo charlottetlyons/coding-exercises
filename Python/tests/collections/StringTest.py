@@ -8,6 +8,7 @@ class StringTest:
             ["test_is_anagrams", self.test_is_anagrams],
             ["test_count_occurrences", self.test_count_occurrences],
             ["test_max_char", self.test_max_char],
+            ["test_only_digits", self.test_only_digits],
         ]
 
     def run_all_tests(self):
@@ -57,4 +58,17 @@ class StringTest:
             and max_char("aabc") == "a"
             and max_char("abbc") == "b"
             and max_char("aabccc") == "c"
+        )
+
+    def test_only_digits(self):
+        string1 = "53245"
+        string2 = "14533s"
+        string3 = "1e533"
+        string4 = ""
+
+        return (
+            only_digits(string1) == True
+            and only_digits(string2) == False
+            and only_digits(string3) == False
+            and only_digits(string4) == False
         )
