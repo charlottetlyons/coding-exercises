@@ -2,6 +2,7 @@
 def format_test_result(result):
     return "\033[32mPass\033[0m" if result else "\033[31mFail\033[0m"
 
+# TODO: output number of failed tests
 def run_all_tests(test_configs):
     for test in test_configs:
         try:

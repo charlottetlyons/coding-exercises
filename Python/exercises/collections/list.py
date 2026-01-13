@@ -129,13 +129,12 @@ def median_of_three_quick_sort(some_list):
         return some_list
     return quick_sort_helper(some_list, 0, len(some_list) - 1)
 
-# TODO: Implement and test
+# TODO: Test
 def randomized_pivot(some_list, left, right):
-    rand_index = randint(left, right)
-    some_list[left], some_list[rand_index] = some_list[rand_index], some_list[left]
+    random_index = randint(left, right)
+    some_list[left], some_list[random_index] = some_list[random_index], some_list[left]
     return some_list[left]
 
-# TODO: Enable test
 def randomized_pivot_quick_sort(some_list):
     def quick_sort_helper(some_list, left, right):
         if left < right:
