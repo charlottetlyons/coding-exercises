@@ -18,7 +18,7 @@ class StackList:
     def sort_stack(self):
         sorted_stack = StackList()
 
-        while (len(self.stack)) is not 0:
+        while len(self.stack) is not 0:
             temp = self.pop()
 
             while not len(sorted_stack.stack) == 0 and sorted_stack.peek() > temp:

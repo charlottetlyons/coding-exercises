@@ -176,3 +176,10 @@ def pairs_equal_to_n(some_list, n):
             pairs.add((min(element, pair_value), max(element, pair_value)))
         seen.add(element)
     return list(pairs)
+
+def missing_of_n(int_list, n):
+    expected = n * (n + 1) // 2
+    total = 0
+    for num in int_list:
+        total = total + num
+    return expected - total

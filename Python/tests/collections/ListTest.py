@@ -18,6 +18,7 @@ class ListTest:
             ["test_length_of_max_value", self.test_length_of_max_value],
             ["test_get_digit", self.test_get_digit],
             ["test_pairs_equal_to_n", self.test_pairs_equal_to_n],
+            ["test_missing_of_n", self.test_missing_of_n]
         ]
 
     def run_all_tests(self):
@@ -81,3 +82,11 @@ class ListTest:
         l = [2, 1, 2, 3, 4, 0]
         expected = [(1, 3), (0, 4), (2, 2)]
         return expected == pairs_equal_to_n(l, 4)
+
+    def test_missing_of_n(self):
+        random_int = randint(1, 100)
+        int_list = []
+        for num in range(1, 101):
+            if num != random_int:
+                int_list.append(num)
+        return missing_of_n(int_list, 100) == random_int
