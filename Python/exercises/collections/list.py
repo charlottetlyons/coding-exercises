@@ -181,5 +181,5 @@ def missing_of_n(int_list, n):
     expected = n * (n + 1) // 2
     total = 0
     for num in int_list:
-        total = total + num
+        total += num
     return expected - total
