@@ -1,4 +1,4 @@
-package designpatterns.behavioral.adapter;
+package java_playground.src.designpatterns.behavioral.adapter;
 
 public class Adaptee {
     public int doThingComplicated() {

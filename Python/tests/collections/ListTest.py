@@ -1,6 +1,7 @@
 from exercises.collections.list import *
 from ..utils.test_utils import *
 
+
 class ListTest:
     def __init__(self):
         self.default_list = [2, 3, 5, 6, 8, 10, 1, 4, 9, 7]
@@ -18,7 +19,8 @@ class ListTest:
             ["test_length_of_max_value", self.test_length_of_max_value],
             ["test_get_digit", self.test_get_digit],
             ["test_pairs_equal_to_n", self.test_pairs_equal_to_n],
-            ["test_missing_of_n", self.test_missing_of_n]
+            ["test_missing_of_n", self.test_missing_of_n],
+            ["test_remove_duplicates", self.test_remove_duplicates],
         ]
 
     def run_all_tests(self):
@@ -76,7 +78,12 @@ class ListTest:
         return True
 
     def test_get_digit(self):
-        return get_digit(100, 1) == 0 and get_digit(1, 0) == 1 and get_digit(2632, 3) == 2 and get_digit(9, 1) == 0 
+        return (
+            get_digit(100, 1) == 0
+            and get_digit(1, 0) == 1
+            and get_digit(2632, 3) == 2
+            and get_digit(9, 1) == 0
+        )
 
     def test_pairs_equal_to_n(self):
         l = [2, 1, 2, 3, 4, 0]
@@ -85,8 +92,24 @@ class ListTest:
 
     def test_missing_of_n(self):
         random_int = randint(1, 100)
-        int_list = []
+        l = []
         for num in range(1, 101):
             if num != random_int:
-                int_list.append(num)
-        return missing_of_n(int_list, 100) == random_int
+                l.append(num)
+        return missing_of_n(l, 100) == random_int
+
+    def test_remove_duplicates(self):
+        empty = []
+        oneElement = [1]
+        multipleNonAdjacentElements = [1, 2, 1, 3, 4, 4, 15, 15, 20]
+        noDuplicates = [1, 2, 3, 4, 15, 20]
+        onlyDuplicates = [1, 1, 2, 2, 3, 3, 4, 4, 15, 15, 20, 20]
+        multipleDuplicates = [1, 1, 1, 2, 1, 3, 4, 4]
+        return (
+            remove_duplicates(empty) == []
+            and remove_duplicates(oneElement) == [1]
+            and remove_duplicates(multipleNonAdjacentElements) == [1, 2, 3, 4, 15, 20]
+            and remove_duplicates(onlyDuplicates) == [1, 2, 3, 4, 15, 20]
+            and remove_duplicates(noDuplicates) == [1, 2, 3, 4, 15, 20]
+            and remove_duplicates(multipleDuplicates) == [1, 2, 3, 4]
+        )

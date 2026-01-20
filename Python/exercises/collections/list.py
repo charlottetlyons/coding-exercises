@@ -183,3 +183,12 @@ def missing_of_n(int_list, n):
     for num in int_list:
         total += num
     return expected - total
+
+def remove_duplicates(some_list):
+    seen = set()
+    result = []
+    for element in some_list:
+        if element not in seen:
+            result.append(element)
+            seen.add(element)
+    return result

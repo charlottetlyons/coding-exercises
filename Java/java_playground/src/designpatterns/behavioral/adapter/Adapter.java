@@ -1,6 +1,4 @@
-package designpatterns.behavioral.adapter;
-
-import src.designpatterns.behavioral.adapter.Target;
+package java_playground.src.designpatterns.behavioral.adapter;
 
 public class Adapter implements Target {
     private Adaptee adaptee;
