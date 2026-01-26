@@ -22,3 +22,12 @@ def factorial(n):
     if n == 0:
         return 1
     return n * factorial(n - 1)
+
+def is_odd_even(n):
+    if not isinstance(n, int) or isinstance(n, bool):
+        return "non-integer"
+
+    if n & 1:
+        return "odd"
+    else:
+        return "even"

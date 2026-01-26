@@ -8,6 +8,7 @@ class IntTest:
             ["test_is_armstrong_number", self.test_is_armstrong_number],
             ["test_swap_without_third", self.test_swap_without_third],
             ["test_factorial", self.test_factorial],
+            ["test_odd_or_even", self.test_odd_or_even],
         ]
 
     def run_all_tests(self):
@@ -24,3 +25,10 @@ class IntTest:
 
     def test_factorial(self):
         return factorial(8) == 40320
+
+    def test_odd_or_even(self):
+        testOdd = is_odd_even(3) == "odd"
+        testEven = is_odd_even(2) == "even"
+        testNonInteger = is_odd_even("string") == "non-integer"
+        testBoolean = is_odd_even(True) == "non-integer"
+        return testOdd and testEven and testNonInteger and testBoolean
