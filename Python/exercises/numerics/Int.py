@@ -31,3 +31,16 @@ def is_odd_even(n):
         return "odd"
     else:
         return "even"
+
+def is_prime(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    limit = int(n**0.5) + 1
+    for factor in range(3, limit, 2):
+        if n % factor == 0:
+            return False
+    return True

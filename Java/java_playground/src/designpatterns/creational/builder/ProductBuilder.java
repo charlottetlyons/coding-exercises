@@ -1,7 +1,6 @@
 package designpatterns.creational.builder;
 
 public class ProductBuilder implements IBuilder {
-    
     private String name = "DEFAULT";
     private int value = 0;
 
@@ -10,16 +9,16 @@ public class ProductBuilder implements IBuilder {
         this.name = 0;
     }
 
-    public ProductBuilder setName(String name) {
+    public ProductBuilder name(String name) {
         this.name = name;
         return this;
     }
 
-    public ProductBuilder setValue(int value) {
+    public ProductBuilder value(int value) {
         this.value = value;
         return this;
     }
-    
+
     @Override
     public Product build() {
         return new Product(this.name, this.value);

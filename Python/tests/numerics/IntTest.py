@@ -9,6 +9,7 @@ class IntTest:
             ["test_swap_without_third", self.test_swap_without_third],
             ["test_factorial", self.test_factorial],
             ["test_odd_or_even", self.test_odd_or_even],
+            ["test_is_prime", self.test_is_prime],
         ]
 
     def run_all_tests(self):
@@ -32,3 +33,13 @@ class IntTest:
         testNonInteger = is_odd_even("string") == "non-integer"
         testBoolean = is_odd_even(True) == "non-integer"
         return testOdd and testEven and testNonInteger and testBoolean
+    
+    def test_is_prime(self):
+        test_zero = is_prime(0) 
+        test_one = is_prime(1)
+        test_even = is_prime(2)
+        test_prime3 = is_prime(3)
+        test_prime7 = is_prime(7)
+        test_prime13 = is_prime(13)
+        test_not_prime = is_prime(24)
+        return test_zero == False and test_one == False and test_even == True and test_prime3 == True and test_prime7 == True and test_prime13 == True and test_not_prime == False

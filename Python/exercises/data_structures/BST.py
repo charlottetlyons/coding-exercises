@@ -137,3 +137,15 @@ class BST:
                 stack.pop()
                 current = None
         return result
+
+    def print_leaves(self):
+        def __r_print_leaves(current):
+            if current is None:
+                return
+            if current.left is None and current.right is None:
+                print(current.value)
+            else:
+                __r_print_leaves(current.left)
+                __r_print_leaves(current.right)
+
+        __r_print_leaves(self.root)
