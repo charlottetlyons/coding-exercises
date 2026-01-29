@@ -149,8 +149,8 @@ class DoublyLinkedList:
         front = self.head
         back = self.tail
 
-        for _ in range(self.length//2):
-            if front.value is not back.value:
+        while front is not back:
+            if front.value != back.value:
                 return False
             front = front.next
             back = back.prev

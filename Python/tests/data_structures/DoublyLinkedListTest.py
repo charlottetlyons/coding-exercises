@@ -23,14 +23,15 @@ class DoublyLinkedListTest:
     def run_all_tests(self):
         run_all_tests(self.test_configs)
 
-    def initialize_test_doubly_linked_list(self):
-        dll = DoublyLinkedList(5)
-        dll.append(10)
-        dll.append(15)
+    def initialize_test_doubly_linked_list(self, values = [5, 10, 15]):
+        dll = DoublyLinkedList(values[0])
+        for i in range(1, len(values)):
+            dll.append(values[i])
         return dll
 
     def test_constructor(self):
         dll = self.initialize_test_doubly_linked_list()
+        print(dll.values())
         return dll.head.value == 5  and dll.tail.value == 15 and dll.length == 3
 
     def test_pop(self):

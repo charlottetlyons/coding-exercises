@@ -39,7 +39,7 @@ def is_prime(n):
         return True
     if n % 2 == 0:
         return False
-    limit = int(n**0.5) + 1
+    limit = int(n ** .5) + 1
     for factor in range(3, limit, 2):
         if n % factor == 0:
             return False
