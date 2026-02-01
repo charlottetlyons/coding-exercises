@@ -193,11 +193,10 @@ def remove_duplicates(some_list):
             seen.add(element)
     return result
 
-def share_values(list1, list2):
+def shares_value(list1, list2):
     values = {}
     for i in list1:
         values[i] = True
-    
     for j in list2:
         if j in values:
             return True

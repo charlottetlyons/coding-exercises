@@ -4,18 +4,15 @@ public class ProductBuilder implements IBuilder {
     private String name = "DEFAULT";
     private int value = 0;
 
-    public void clear() {
-        this.name = "DEFAULT";
-        this.name = 0;
-    }
+    public ProductBuilder() {};
 
-    public ProductBuilder name(String name) {
-        this.name = name;
+    public ProductBuilder name(String n) {
+        this.name = n;
         return this;
     }
 
-    public ProductBuilder value(int value) {
-        this.value = value;
+    public ProductBuilder value(int v) {
+        this.value = v;
         return this;
     }
 
