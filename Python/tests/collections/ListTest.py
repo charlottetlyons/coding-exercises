@@ -120,4 +120,4 @@ class ListTest:
         multiple = [3, 6, 4, 5]
         shared = [2, 2, 3, 6, 6, 5]
         noShared = [1, 9, 7]
-        return share_values(empty, multiple) == False and share_values(multiple, empty) == False and share_values(multiple, shared) == True and share_values(multiple, noShared) == False
+        return shares_value(empty, multiple) == False and shares_value(multiple, empty) == False and shares_value(multiple, shared) == True and share_values(multiple, noShared) == False

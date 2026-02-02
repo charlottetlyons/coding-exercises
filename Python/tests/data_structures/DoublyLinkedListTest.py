@@ -31,7 +31,6 @@ class DoublyLinkedListTest:
 
     def test_constructor(self):
         dll = self.initialize_test_doubly_linked_list()
-        print(dll.values())
         return dll.head.value == 5  and dll.tail.value == 15 and dll.length == 3
 
     def test_pop(self):
