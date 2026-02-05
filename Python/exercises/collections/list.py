@@ -193,6 +193,15 @@ def remove_duplicates(some_list):
             seen.add(element)
     return result
 
+def remove_occurrences(some_list, x):
+    index = 0
+    while index < len(some_list):
+        if some_list[index] == x:
+            some_list.pop(index)
+        else:
+            index += 1
+    return len(some_list)
+
 def shares_value(list1, list2):
     values = {}
     for i in list1:
