@@ -10,6 +10,7 @@ class IntTest:
             ["test_factorial", self.test_factorial],
             ["test_odd_or_even", self.test_odd_or_even],
             ["test_is_prime", self.test_is_prime],
+            ["test_is_palindrome", self.test_is_palindrome],
         ]
 
     def run_all_tests(self):
@@ -43,3 +44,9 @@ class IntTest:
         test_prime13 = is_prime(13)
         test_not_prime = is_prime(24)
         return test_zero == False and test_one == False and test_even == True and test_prime3 == True and test_prime7 == True and test_prime13 == True and test_not_prime == False
+
+    def test_is_palindrome(self):
+        test_not_palindrome = is_palindrome(234)
+        test_is_palindrome_even = is_palindrome(121)
+        test_is_palindrome_odd = is_palindrome(12321)
+        return not test_not_palindrome and test_is_palindrome_even and test_is_palindrome_odd

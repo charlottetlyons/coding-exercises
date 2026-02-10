@@ -194,7 +194,7 @@ class LinkedList:
 
         current = before.next
 
-        for _ in range(n-m):
+        for _ in range(n - m):
             after = current.next
             current.next = after.next
             after.next = before.next

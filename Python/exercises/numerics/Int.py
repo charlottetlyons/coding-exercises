@@ -1,7 +1,7 @@
-def square_root(x):
-    if x < 0:
+def square_root(n):
+    if n < 0:
         return None
-    return x ** .5
+    return n ** .5
 
 def is_armstrong_number(number):
     total = 0
@@ -42,5 +42,12 @@ def is_prime(n):
     limit = int(n ** .5) + 1
     for factor in range(3, limit, 2):
         if n % factor == 0:
+            return False
+    return True
+
+def is_palindrome(n):
+    num_string = str(n)
+    for i in range(len(num_string) // 2):
+        if num_string[i] != num_string[len(num_string) - i - 1]:
             return False
     return True
