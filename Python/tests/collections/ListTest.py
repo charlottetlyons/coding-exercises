@@ -20,6 +20,7 @@ class ListTest:
             ["test_get_digit", self.test_get_digit],
             ["test_pairs_equal_to_n", self.test_pairs_equal_to_n],
             ["test_missing_of_n", self.test_missing_of_n],
+            ["test_find_duplicates", self.test_find_duplicates],
             ["test_remove_duplicates", self.test_remove_duplicates],
             ["test_remove_occurrences", self.test_remove_occurrences],
             ["test_shares_value", self.test_shares_value],
@@ -99,6 +100,18 @@ class ListTest:
             if num != random_int:
                 l.append(num)
         return missing_of_n(l, 100) == random_int
+
+    def test_find_duplicates(self):
+        empty = []
+        no_duplicates = [1, 2, 3]
+        one_duplicate = [1, 2, 2, 3]
+        several_duplicates = [1, 1, 2, 2, 3]
+        return (
+            find_duplicates(empty) == [] 
+            and find_duplicates(no_duplicates) == [] 
+            and find_duplicates(one_duplicate) == [2] 
+            and find_duplicates(several_duplicates) == [1, 2]
+        )
 
     def test_remove_duplicates(self):
         empty = []
