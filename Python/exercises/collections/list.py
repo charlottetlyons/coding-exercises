@@ -219,3 +219,15 @@ def shares_value(list1, list2):
         if j in values:
             return True
     return False
+
+def longest_of_strings(strings):
+    if len(strings) == 0:
+        return None
+    
+    longest_string = ""
+
+    for string in strings:
+        string_length = len(string)
+        if string_length  > len(longest_string):
+            longest_string = string
+    return longest_string

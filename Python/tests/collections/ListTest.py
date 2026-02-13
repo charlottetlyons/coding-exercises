@@ -24,6 +24,7 @@ class ListTest:
             ["test_remove_duplicates", self.test_remove_duplicates],
             ["test_remove_occurrences", self.test_remove_occurrences],
             ["test_shares_value", self.test_shares_value],
+            ["test_longest_of_strings", self.test_longest_of_strings],
         ]
 
     def run_all_tests(self):
@@ -146,3 +147,9 @@ class ListTest:
         shared = [2, 2, 3, 6, 6, 5]
         noShared = [1, 9, 7]
         return shares_value(empty, multiple) == False and shares_value(multiple, empty) == False and shares_value(multiple, shared) == True and shares_value(multiple, noShared) == False
+    
+    def test_longest_of_strings(self):
+        empty = []
+        oneString = ["string"]
+        multipleStrings = ["short", "looooong", "string"]
+        return longest_of_strings(empty) == None and longest_of_strings(oneString) == "string" and longest_of_strings(multipleStrings) == "looooong"
