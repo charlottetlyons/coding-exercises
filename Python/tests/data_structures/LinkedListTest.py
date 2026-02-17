@@ -1,3 +1,4 @@
+import tests.utils.test_utils as test_utils
 from exercises.data_structures.LinkedList import *
 from ..utils.test_utils import *
 
@@ -35,13 +36,13 @@ class LinkedListTest:
         self, num_of_values=3, is_sorted=True, custom_list=None
     ):
         ll = LinkedList(1)
-        if custom_list:
-            ll.pop_first()
+        ll.pop()
+        if custom_list is not None:
             for value in custom_list:
                 ll.append(value)
         else:
             if is_sorted:
-                for value in range(2, num_of_values + 1):
+                for value in range(1, num_of_values + 1):
                     ll.append(value)
             else:
                 for value in range(num_of_values + 1, 2):
@@ -196,21 +197,10 @@ class LinkedListTest:
         return ll.values() == [1, 2, 3]
 
     def test_bubble_sort(self):
-        ll = LinkedList(0)
-        ll.pop()
-        ll.bubble_sort()
-        result1 = ll.values()
-        ll = self.initialize_test_linked_list(custom_list=[4, 2, 5, 3, 1, 6, 2])
-        ll.bubble_sort()
-        result2 = ll.values()
-        return result1 == [] and result2 == [1, 2, 2, 3, 4, 5, 6] and ll.head.value == 1 and ll.tail.value == 6
+        return test_utils.test_sort(self.initialize_test_linked_list, "bubble_sort")
 
     def test_selection_sort(self):
-        ll = self.initialize_test_linked_list(custom_list=[4, 2, 5, 3, 1, 6, 2])
-        ll.selection_sort()
-        return ll.values() == [1, 2, 2, 3, 4, 5, 6] and ll.head.value == 1 and ll.tail.value == 6
+        return test_utils.test_sort(self.initialize_test_linked_list, "selection_sort")
 
     def test_insertion_sort(self):
-        ll = self.initialize_test_linked_list(custom_list=[4, 2, 5, 3, 1, 6, 2])
-        ll.insertion_sort()
-        return ll.values() == [1, 2, 2, 3, 4, 5, 6] and ll.head.value == 1 and ll.tail.value == 6
+        return test_utils.test_sort(self.initialize_test_linked_list, "insertion_sort")
