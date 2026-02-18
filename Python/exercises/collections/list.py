@@ -14,6 +14,18 @@ def max_value(some_list):
             max_value = i
     return max_value
 
+def min_max_tuple(some_list):
+    if len(some_list) == 0:
+        return None
+
+    min, max = some_list[0], some_list[0]
+    for num in some_list:
+        if num < min:
+            min = num
+        if num > max:
+            max = num
+    return (min, max)
+
 def length_of_max_value(some_list):
     return len(str(max(some_list)))
 

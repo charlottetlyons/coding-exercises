@@ -38,7 +38,7 @@ async function asyncFunction(func) {
   try {
     await func();
   } catch (error) {
-    //
+    console.log(error);
   }
 }
 

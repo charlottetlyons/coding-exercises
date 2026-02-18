@@ -25,6 +25,7 @@ class ListTest:
             ["test_remove_occurrences", self.test_remove_occurrences],
             ["test_shares_value", self.test_shares_value],
             ["test_longest_of_strings", self.test_longest_of_strings],
+            ["test_min_max_tuple", self.test_min_max_tuple],
         ]
 
     def run_all_tests(self):
@@ -40,6 +41,19 @@ class ListTest:
     def test_max_value(self):
         l = self.initialize_list()
         return max_value(l) == 10
+
+    def test_min_max_tuple(self):
+        empty = []
+        one_element = [5]
+        multiple_elements = [3, 10, 1, 2]
+        same_value = [2, 2]
+        return (
+            min_max_tuple(empty) == None
+            and min_max_tuple(one_element) == (5, 5)
+            and min_max_tuple(multiple_elements) == (1, 10)
+            and min_max_tuple(same_value) == (2, 2)
+        )
+
 
     def test_bubble_sort(self):
         l = self.initialize_list()
