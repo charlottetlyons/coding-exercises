@@ -89,6 +89,16 @@ def merge(list1, list2):
     return combined
 
 def quick_sort(some_list):
+    def pivot(some_list, pivot_index, end_index):
+        swap_index = pivot_index
+        for i in range(pivot_index + 1, end_index + 1):
+            if some_list[i] < some_list[pivot_index]:
+                swap_index += 1
+                swap(some_list, swap_index, i)
+        swap(some_list, pivot_index, swap_index)
+        return swap_index
+
+
     def quick_sort_helper(some_list, left, right):
         if left <= right:
             pivot_index = pivot(some_list, left, right)
@@ -156,15 +166,6 @@ def randomized_pivot_quick_sort(some_list):
             quick_sort_helper(some_list, pivot_index, right)
         return some_list
     return quick_sort_helper(some_list, 0, len(some_list) - 1)
-
-def pivot(some_list, pivot_index, end_index):
-    swap_index = pivot_index
-    for i in range(pivot_index + 1, end_index + 1):
-        if some_list[i] < some_list[pivot_index]:
-            swap_index += 1
-            swap(some_list, swap_index, i)
-    swap(some_list, pivot_index, swap_index)
-    return swap_index
 
 def swap(some_list, a, b):
     some_list[a], some_list[b] = some_list[b], some_list[a]

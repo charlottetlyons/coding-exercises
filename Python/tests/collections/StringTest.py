@@ -9,6 +9,7 @@ class StringTest:
             ["test_count_occurrences", self.test_count_occurrences],
             ["test_max_char", self.test_max_char],
             ["test_only_digits", self.test_only_digits],
+            ["test_recursive_reverse", self.test_recursive_reverse],
         ]
 
     def run_all_tests(self):
@@ -72,3 +73,6 @@ class StringTest:
             and only_digits(string3) == False
             and only_digits(string4) == False
         )
+
+    def test_recursive_reverse(self):
+        return recursive_reverse("asdfg") == "gfdsa"

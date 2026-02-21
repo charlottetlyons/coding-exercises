@@ -61,3 +61,10 @@ def only_digits(string):
         if char_unicode < 48 or char_unicode > 57:
             return False
     return True
+
+def recursive_reverse(string):
+    def recursive_reverse_helper(string, index):
+        if index < 0:
+            return ""
+        return string[index] + recursive_reverse_helper(string, index - 1)
+    return recursive_reverse_helper(string, len(string) - 1)

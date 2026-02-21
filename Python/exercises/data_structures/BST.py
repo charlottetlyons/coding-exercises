@@ -144,8 +144,6 @@ class BST:
                 return
             if current.left is None and current.right is None:
                 print(current.value)
-            else:
-                __r_print_leaves(current.left)
-                __r_print_leaves(current.right)
-
+            __r_print_leaves(current.left)
+            __r_print_leaves(current.right)
         __r_print_leaves(self.root)
