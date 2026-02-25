@@ -215,14 +215,14 @@ def remove_duplicates(some_list):
             seen.add(element)
     return result
 
-def remove_occurrences(some_list, x):
+def remove_occurrences(some_list, value):
     index = 0
     while index < len(some_list):
-        if some_list[index] == x:
+        if some_list[index] == value:
             some_list.pop(index)
         else:
             index += 1
-    return len(some_list)
+    return some_list
 
 def shares_value(list1, list2):
     values = {}

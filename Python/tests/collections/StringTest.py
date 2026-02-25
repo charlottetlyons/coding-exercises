@@ -10,6 +10,7 @@ class StringTest:
             ["test_max_char", self.test_max_char],
             ["test_only_digits", self.test_only_digits],
             ["test_recursive_reverse", self.test_recursive_reverse],
+            ["test_vowels_and_consonants", self.test_vowels_and_consonants],
         ]
 
     def run_all_tests(self):
@@ -76,3 +77,15 @@ class StringTest:
 
     def test_recursive_reverse(self):
         return recursive_reverse("asdfg") == "gfdsa"
+
+    def test_vowels_and_consonants(self):
+        empty_string = ""
+        no_vowels = "cdng"
+        no_consonants = "aeuoi"
+        mixed_string = "coding"
+        return (
+            vowels_and_consonants(empty_string) == [0, 0]
+            and vowels_and_consonants(no_vowels) == [0, 4]
+            and vowels_and_consonants(no_consonants) == [5, 0]
+            and vowels_and_consonants(mixed_string) == [2, 4]
+        )

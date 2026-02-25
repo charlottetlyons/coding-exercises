@@ -113,13 +113,12 @@ class LinkedList:
             return self.pop_first()
         elif index == self.length - 1:
             return self.pop()
-        else:
-            prev = self.get(index - 1)
-            temp = prev.next
-            prev.next = temp.next
-            temp.next = None
-            self.length -= 1
-            return temp
+        prev = self.get(index - 1)
+        temp = prev.next
+        prev.next = temp.next
+        temp.next = None
+        self.length -= 1
+        return temp
 
     def get_length(self):
         count = 0
@@ -238,7 +237,7 @@ class LinkedList:
     def bubble_sort(self):
         if self.length <= 1:
             return
-        
+
         is_sorted = False
 
         while not is_sorted:

@@ -68,3 +68,12 @@ def recursive_reverse(string):
             return ""
         return string[index] + recursive_reverse_helper(string, index - 1)
     return recursive_reverse_helper(string, len(string) - 1)
+
+def vowels_and_consonants(string):
+    all_vowels = ["a", "e", "i", "o", "u"]
+    vowel_count = 0
+    for char in string:
+        if char in all_vowels:
+            vowel_count += 1
+    consonant_count = len(string) - vowel_count
+    return [vowel_count, consonant_count]

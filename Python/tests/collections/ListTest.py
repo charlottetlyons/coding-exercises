@@ -54,7 +54,6 @@ class ListTest:
             and min_max_tuple(same_value) == (2, 2)
         )
 
-
     def test_bubble_sort(self):
         l = self.initialize_list()
         return bubble_sort(l) == self.default_list_sorted
@@ -143,16 +142,16 @@ class ListTest:
             and remove_duplicates(noDuplicates) == [1, 2, 3, 4, 15, 20]
             and remove_duplicates(multipleDuplicates) == [1, 2, 3, 4]
         )
-    
+
     def test_remove_occurrences(self):
         empty = []
         some_elements = [1, 2, 3, 3, 4]
         no_occurrences = [1, 2, 4]
 
         return (
-            remove_occurrences(empty, 3) == 0 and
-            remove_occurrences(some_elements, 3) == 3 and
-            remove_occurrences(no_occurrences, 3) == 3
+            remove_occurrences(empty, 3) == []
+            and remove_occurrences(some_elements, 3) == [1, 2, 4]
+            and remove_occurrences(no_occurrences, 3) == [1, 2, 4]
         )
 
     def test_shares_value(self):
@@ -161,7 +160,7 @@ class ListTest:
         shared = [2, 2, 3, 6, 6, 5]
         noShared = [1, 9, 7]
         return shares_value(empty, multiple) == False and shares_value(multiple, empty) == False and shares_value(multiple, shared) == True and shares_value(multiple, noShared) == False
-    
+
     def test_longest_of_strings(self):
         empty = []
         oneString = ["string"]
