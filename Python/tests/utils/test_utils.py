@@ -9,7 +9,7 @@ def run_all_tests(test_configs):
             test_result = (test[1]())
         except Exception as e:
             test_result = False
-            print("Test run into an error: ", e)
+            print("Test run into an error: ", e.with_traceback())
         finally:
             print(f"{test[0]}: {format_test_result(test_result)}")
 

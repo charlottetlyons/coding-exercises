@@ -31,7 +31,7 @@ class rBSTTest:
     def test_insert(self):
         bst = self.initialize_test_bst()
         bst.r_insert(10)
-        return bst.pre_order_dfs() == [1, 10]
+        return bst.preorder_dfs() == [1, 10]
     
     def test_delete(self):
         bst = self.initialize_test_bst(num_of_values=2)
@@ -43,15 +43,14 @@ class rBSTTest:
         bst = self.initialize_test_bst(num_of_values=3)
         return bst.r_contains(1) and bst.r_contains(2) and bst.r_contains(3) and not bst.r_contains(4)
 
-    
     def test_preorder_search(self):
         bst = self.initialize_test_bst(num_of_values=5)
-        return bst.pre_order_dfs() == [1, 2, 3, 4, 5]
-    
+        return bst.preorder_dfs() == [1, 2, 3, 4, 5]
+
     def test_inorder_search(self):
         bst = self.initialize_test_bst(num_of_values=5)
-        return bst.in_order_dfs() == [1, 2, 3, 4, 5]
-    
+        return bst.inorder_dfs() == [1, 2, 3, 4, 5]
+
     def test_postorder_search(self):
         bst = self.initialize_test_bst(num_of_values=5)
-        return bst.post_order_dfs() == [5, 4, 3, 2, 1]
+        return bst.postorder_dfs() == [5, 4, 3, 2, 1]

@@ -1,6 +1,7 @@
 from exercises.numerics.Int import *
 from ..utils.test_utils import *
 
+
 class IntTest:
     def __init__(self):
         self.test_configs = [
@@ -11,6 +12,7 @@ class IntTest:
             ["test_odd_or_even", self.test_odd_or_even],
             ["test_is_prime", self.test_is_prime],
             ["test_is_palindrome", self.test_is_palindrome],
+            ["test_prime_factors", self.test_prime_factors],
         ]
 
     def run_all_tests(self):
@@ -34,19 +36,45 @@ class IntTest:
         testNonInteger = is_odd_even("string") == "non-integer"
         testBoolean = is_odd_even(True) == "non-integer"
         return testOdd and testEven and testNonInteger and testBoolean
-    
+
     def test_is_prime(self):
-        test_zero = is_prime(0) 
+        test_zero = is_prime(0)
         test_one = is_prime(1)
         test_even = is_prime(2)
         test_prime3 = is_prime(3)
         test_prime7 = is_prime(7)
         test_prime13 = is_prime(13)
         test_not_prime = is_prime(24)
-        return test_zero == False and test_one == False and test_even == True and test_prime3 == True and test_prime7 == True and test_prime13 == True and test_not_prime == False
+        return (
+            test_zero == False
+            and test_one == False
+            and test_even == True
+            and test_prime3 == True
+            and test_prime7 == True
+            and test_prime13 == True
+            and test_not_prime == False
+        )
 
     def test_is_palindrome(self):
         test_not_palindrome = is_palindrome(234)
         test_is_palindrome_even = is_palindrome(121)
         test_is_palindrome_odd = is_palindrome(12321)
-        return not test_not_palindrome and test_is_palindrome_even and test_is_palindrome_odd
+        return (
+            not test_not_palindrome
+            and test_is_palindrome_even
+            and test_is_palindrome_odd
+        )
+
+    def test_prime_factors(self):
+        test_prime = 47
+        test_factors = 18
+        test_one = 1
+        test_zero = 0
+        test_null = None
+        return (
+            prime_factors(test_prime) == [47]
+            and prime_factors(test_factors) == [2, 3, 3]
+            and prime_factors(test_zero) == None
+            and prime_factors(test_one) == None
+            and prime_factors(test_null) == None
+        )

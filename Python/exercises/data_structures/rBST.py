@@ -14,7 +14,7 @@ class rBST:
         return current
 
     def r_insert(self, value):
-        if self.root is None:
+        if not self.root:
             self.root = BSTNode(value)
         self.__r_insert(self.root, value)
 
@@ -59,7 +59,7 @@ class rBST:
         else:
             return self.__r_contains(current.right, value)
 
-    def pre_order_dfs(self):
+    def preorder_dfs(self):
         results = []
 
         def traverse(current):
@@ -72,7 +72,7 @@ class rBST:
         traverse(self.root)
         return results
 
-    def in_order_dfs(self):
+    def inorder_dfs(self):
         results = []
 
         def traverse(current):
@@ -85,7 +85,7 @@ class rBST:
         traverse(self.root)
         return results
 
-    def post_order_dfs(self):
+    def postorder_dfs(self):
         results = []
 
         def traverse(current):

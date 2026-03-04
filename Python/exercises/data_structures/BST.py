@@ -139,11 +139,11 @@ class BST:
         return result
 
     def print_leaves(self):
-        def __r_print_leaves(current):
+        def print_leaves_helper(current):
             if current is None:
                 return
             if current.left is None and current.right is None:
                 print(current.value)
-            __r_print_leaves(current.left)
-            __r_print_leaves(current.right)
-        __r_print_leaves(self.root)
+            print_leaves_helper(current.left)
+            print_leaves_helper(current.right)
+        print_leaves_helper(self.root)

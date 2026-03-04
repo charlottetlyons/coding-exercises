@@ -51,3 +51,23 @@ def is_palindrome(n):
         if num_string[i] != num_string[len(num_string) - i - 1]:
             return False
     return True
+
+def prime_factors(n):
+    if n is None or n < 2:
+        return None
+
+    factors = []
+    
+    while n % 2 == 0:
+        factors.append(2)
+        n = n // 2
+
+    for factor in range(3, int(n ** .5) + 1, 2):
+        while n % factor == 0:
+            factors.append(factor)
+            n = n // factor
+    
+    if n > 2:
+        factors.append(n)
+    return factors
+
