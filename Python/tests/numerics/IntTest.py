@@ -13,6 +13,7 @@ class IntTest:
             ["test_is_prime", self.test_is_prime],
             ["test_is_palindrome", self.test_is_palindrome],
             ["test_prime_factors", self.test_prime_factors],
+            ["test_get_digit", self.test_get_digit],
         ]
 
     def run_all_tests(self):
@@ -34,7 +35,7 @@ class IntTest:
         testOdd = is_odd_even(3) == "odd"
         testEven = is_odd_even(2) == "even"
         testNonInteger = is_odd_even("string") == "non-integer"
-        testBoolean = is_odd_even(True) == "non-integer"
+        testBoolean = is_odd_even(True) == "odd"
         return testOdd and testEven and testNonInteger and testBoolean
 
     def test_is_prime(self):
@@ -77,4 +78,12 @@ class IntTest:
             and prime_factors(test_zero) == None
             and prime_factors(test_one) == None
             and prime_factors(test_null) == None
+        )
+
+    def test_get_digit(self):
+        return (
+            get_digit(100, 1) == 0
+            and get_digit(1, 0) == 1
+            and get_digit(2632, 3) == 2
+            and get_digit(9, 1) == 0
         )

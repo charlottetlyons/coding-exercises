@@ -81,7 +81,7 @@ class BST:
                     temp = temp.right
         return False
 
-    def preorder_search(self):
+    def preorder_dfs(self):
         result = []
         if not self.root:
             return result
@@ -97,10 +97,7 @@ class BST:
                 stack.append(current.left)
         return result
 
-    def inorder_search(self):
-        if not self.root:
-            return []
-
+    def inorder_dfs(self):
         result = []
         stack = []
         current = self.root
@@ -114,10 +111,7 @@ class BST:
             current = current.right
         return result
 
-    def postorder_search(self):
-        if not self.root:
-            return []
-
+    def postorder_dfs(self):
         result = []
         stack = []
         prev = None

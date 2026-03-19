@@ -5,6 +5,7 @@ import random
 
 class BSTTest:
     def __init__(self):
+        # TODO: redo BST and rBST search tests
         self.test_configs = [
             ["test_constructor", self.test_constructor],
             ["test_insert", self.test_insert],
@@ -34,7 +35,7 @@ class BSTTest:
     def test_insert(self):
         bst = self.initialize_test_bst()
         bst.insert(10)
-        return bst.inorder_search() == [8, 10]
+        return bst.inorder_dfs() == [8, 10]
 
     def test_delete(self):
         bst = self.initialize_test_bst()
@@ -42,7 +43,7 @@ class BSTTest:
         bst.insert(11)
         bst.insert(12)
         bst.delete(10)
-        return bst.inorder_search() == [8, 11, 12]
+        return bst.inorder_dfs() == [8, 11, 12]
 
     def test_contains(self):
         bst = self.initialize_test_bst(fill=True)
@@ -50,12 +51,12 @@ class BSTTest:
 
     def test_preorder_search(self):
         bst = self.initialize_test_bst(fill=True)
-        return bst.preorder_search() == [8, 3, 1, 6, 4, 7, 10, 14, 13]
+        return bst.preorder_dfs() == [8, 3, 1, 6, 4, 7, 10, 14, 13]
 
     def test_inorder_search(self):
         bst = self.initialize_test_bst(fill=True)
-        return bst.inorder_search() == [1, 3, 4, 6, 7, 8, 10, 13, 14]
+        return bst.inorder_dfs() == [1, 3, 4, 6, 7, 8, 10, 13, 14]
 
     def test_postorder_search(self):
         bst = self.initialize_test_bst(fill=True)
-        return bst.postorder_search() == [1, 4, 7, 6, 3, 13, 14, 10, 8]
+        return bst.postorder_dfs() == [1, 4, 7, 6, 3, 13, 14, 10, 8]

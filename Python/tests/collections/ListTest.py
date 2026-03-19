@@ -17,7 +17,6 @@ class ListTest:
             ["test_median_of_three_quick_sort", self.test_median_of_three_quick_sort],
             ["test_randomized_pivot_quick_sort", self.test_randomized_pivot_quick_sort],
             ["test_length_of_max_value", self.test_length_of_max_value],
-            ["test_get_digit", self.test_get_digit],
             ["test_pairs_equal_to_n", self.test_pairs_equal_to_n],
             ["test_missing_of_n", self.test_missing_of_n],
             ["test_find_duplicates", self.test_find_duplicates],
@@ -93,14 +92,6 @@ class ListTest:
     # TODO
     def test_radix_sort(self):
         return True
-
-    def test_get_digit(self):
-        return (
-            get_digit(100, 1) == 0
-            and get_digit(1, 0) == 1
-            and get_digit(2632, 3) == 2
-            and get_digit(9, 1) == 0
-        )
 
     def test_pairs_equal_to_n(self):
         l = [2, 1, 2, 3, 4, 0]

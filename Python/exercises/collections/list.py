@@ -98,7 +98,6 @@ def quick_sort(some_list):
         swap(some_list, pivot_index, swap_index)
         return swap_index
 
-
     def quick_sort_helper(some_list, left, right):
         if left <= right:
             pivot_index = pivot(some_list, left, right)
@@ -172,9 +171,6 @@ def swap(some_list, a, b):
 
 def radix_sort(some_list):
     return
-
-def get_digit(num, digit_pos):
-    return (abs(num) // (10 ** digit_pos)) % 10
 
 def pairs_equal_to_n(some_list, n):
     if len(some_list) <= 1:

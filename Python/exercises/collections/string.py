@@ -1,3 +1,18 @@
+def count_occurrences_of_n(string, n):
+    count = 0
+    for char in string:
+        if char is n:
+            count += 1
+    return count
+
+def count_occurrences(string):
+    counts = {}
+    for char in string:
+        if counts.get(char, None) is None:
+            counts[char] = 0
+        counts[char] += 1
+    return counts
+
 def first_unique_character(string):
     count = {}
 
@@ -8,14 +23,6 @@ def first_unique_character(string):
         if count[char] == 1:
             return char
     return None
-
-def count_occurrences(string):
-    counts = {}
-    for char in string:
-        if counts.get(char, None) is None:
-            counts[char] = 0
-        counts[char] += 1
-    return counts
 
 def is_anagrams(string_a, string_b):
     cleaned_a = string_a.replace(" ", "").lower()

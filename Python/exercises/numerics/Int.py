@@ -24,13 +24,12 @@ def factorial(n):
     return n * factorial(n - 1)
 
 def is_odd_even(n):
-    if not isinstance(n, int) or isinstance(n, bool):
+    if not isinstance(n, int):
         return "non-integer"
 
     if n & 1:
         return "odd"
-    else:
-        return "even"
+    return "even"
 
 def is_prime(n):
     if n < 2:
@@ -71,3 +70,5 @@ def prime_factors(n):
         factors.append(n)
     return factors
 
+def get_digit(num, digit_pos):
+    return abs(num) // (10 ** digit_pos) % 10

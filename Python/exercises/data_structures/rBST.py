@@ -32,7 +32,7 @@ class rBST:
         elif value < current.value:
             current.left = self.__delete_node(current.left, value)
         elif value > current.value:
-            current.right = self.__delete_node(current.right, value) 
+            current.right = self.__delete_node(current.right, value)
         else:
             if current.left is None and current.right is None:
                 return None
