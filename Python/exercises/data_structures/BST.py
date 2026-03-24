@@ -1,3 +1,5 @@
+from exercises.data_structures.Queue import *
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -130,6 +132,24 @@ class BST:
                 prev = current
                 stack.pop()
                 current = None
+        return result
+
+    def bfs(self):
+        if self.root is None:
+            return None
+
+        result = []
+        queue = Queue()
+        queue.enqueue(self.root)
+
+        while queue.length > 0:
+            current = queue.dequeue().value
+            result.append(current.value)
+
+            if current.left is not None:
+                queue.enqueue(current.left)
+            if current.right is not None:
+                queue.enqueue(current.right)
         return result
 
     def print_leaves(self):

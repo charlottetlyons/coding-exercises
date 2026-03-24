@@ -1,12 +1,10 @@
 from exercises.data_structures.LinkedList import *
 
-
 class Queue:
-    def __init__(self, value):
-        new_node = Node(value)
-        self.first = new_node
-        self.last = new_node
-        self.length = 1
+    def __init__(self):
+        self.first = None
+        self.last = None
+        self.length = 0
 
     def enqueue(self, value):
         new_node = Node(value)

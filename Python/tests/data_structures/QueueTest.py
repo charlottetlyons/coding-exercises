@@ -8,24 +8,26 @@ class QueueTest:
             ["test_enqueue", self.test_enqueue],
             ["test_dequeue", self.test_dequeue]
         ]
-    
+
     def run_all_tests(self):
         run_all_tests(self.test_configs)
 
     def initialize_test_queue(self):
-        return Queue(0)
+        return Queue()
 
     def test_constructor(self):
         q = self.initialize_test_queue()
-        return q.first.value == 0 and q.last.value == 0 and q.length == 1
-    
+        return q.first == None and q.last == None and q.length == 0
+
     def test_enqueue(self):
         q = self.initialize_test_queue()
         q.enqueue(100)
-        return q.last.value == 100 and q.length == 2
-    
+        q.enqueue(1)
+        return q.first.value == 100 and q.last.value == 1 and q.length == 2
+
     def test_dequeue(self):
         q = self.initialize_test_queue()
+        q.enqueue(0)
         q.enqueue(1)
         result1 = q.dequeue()
         result2 = q.dequeue()
