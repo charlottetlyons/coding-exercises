@@ -1,6 +1,6 @@
-package designpatterns.creational.builder;
+package java_playground.src.designpatterns.creational.builder;
 
-public class ProductBuilder implements IBuilder {
+public class ProductBuilder implements IProductBuilder {
     private String name = "DEFAULT";
     private int value = 0;
 

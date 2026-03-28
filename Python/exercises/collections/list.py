@@ -194,13 +194,15 @@ def missing_of_n(int_list, n):
     return expected - total
 
 def find_duplicates(some_list):
-	seen = set() 
-	duplicates = set() 
-	for element in some_list: 
-		if element in seen: 
-			duplicates.add(element) 
-		seen.add(element)
-	return list(duplicates)
+    seen = set()
+    duplicates = set()
+
+    for element in some_list:
+        if element in seen:
+            duplicates.add(element)
+        else:
+            seen.add(element)
+    return list(duplicates)
 
 def remove_duplicates(some_list):
     seen = set()
@@ -232,9 +234,7 @@ def shares_value(list1, list2):
 def longest_of_strings(strings):
     if len(strings) == 0:
         return None
-    
     longest_string = ""
-
     for string in strings:
         string_length = len(string)
         if string_length  > len(longest_string):

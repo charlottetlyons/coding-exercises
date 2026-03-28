@@ -1,4 +1,4 @@
-package designpatterns.creational.builder;
+package java_playground.src.designpatterns.creational.builder;
 
 public class Director {
     public void runBuilder() {

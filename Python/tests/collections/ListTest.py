@@ -81,10 +81,6 @@ class ListTest:
         l = self.initialize_list()
         return randomized_pivot_quick_sort(l) == self.default_list_sorted
 
-    # TODO
-    def test_pivot(self):
-        return True
-
     def test_length_of_max_value(self):
         l = self.initialize_list()
         return length_of_max_value(l) == 2

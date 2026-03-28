@@ -97,9 +97,11 @@ class StringTest:
         no_vowels = "cdng"
         no_consonants = "aeuoi"
         mixed_string = "coding"
+        capitalize_string = "ABeeb"
         return (
             vowels_and_consonants(empty_string) == [0, 0]
             and vowels_and_consonants(no_vowels) == [0, 4]
             and vowels_and_consonants(no_consonants) == [5, 0]
             and vowels_and_consonants(mixed_string) == [2, 4]
+            and vowels_and_consonants(capitalize_string) == [3, 2]
         )

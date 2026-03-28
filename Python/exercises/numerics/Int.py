@@ -56,7 +56,6 @@ def prime_factors(n):
         return None
 
     factors = []
-    
     while n % 2 == 0:
         factors.append(2)
         n = n // 2
@@ -65,7 +64,6 @@ def prime_factors(n):
         while n % factor == 0:
             factors.append(factor)
             n = n // factor
-    
     if n > 2:
         factors.append(n)
     return factors
