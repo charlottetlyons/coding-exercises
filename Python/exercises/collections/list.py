@@ -60,33 +60,31 @@ def insertion_sort(some_list):
     return some_list
 
 def merge_sort(some_list):
-    if len(some_list) <= 1:
-        return some_list
+    def merge(list1, list2):
+        combined = []
+        i = j = 0
+        while i < len(list1) and j < len(list2):
+            if list1[i] < list2[j]:
+                combined.append(list1[i])
+                i += 1
+            else:
+                combined.append(list2[j])
+                j += 1
 
-    mid_index = len(some_list) // 2
-    left = merge_sort(some_list[:mid_index])
-    right = merge_sort(some_list[mid_index:])
-
-    return merge(left, right)
-
-def merge(list1, list2):
-    combined = []
-    i = j = 0
-    while i < len(list1) and j < len(list2):
-        if list1[i] < list2[j]:
+        while i < len(list1):
             combined.append(list1[i])
             i += 1
-        else:
+        while j < len(list2):
             combined.append(list2[j])
             j += 1
+        return combined
 
-    while i < len(list1):
-        combined.append(list1[i])
-        i += 1
-    while j < len(list2):
-        combined.append(list2[j])
-        j += 1
-    return combined
+    if len(some_list) <= 1:
+        return some_list
+    mid = len(some_list) // 2
+    left = merge_sort(some_list[:mid])
+    right = merge_sort(some_list[mid:])
+    return merge(left, right)
 
 def quick_sort(some_list):
     def pivot(some_list, pivot_index, end_index):

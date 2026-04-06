@@ -1,7 +1,6 @@
 package designpatterns.creational.prototype;
-
 public interface Prototype {
-    Prototype clone() ;
+    Prototype clone();
 }
 
 class ConcretePrototype implements Prototype {
