@@ -1,6 +1,10 @@
 package java_playground.src.designpatterns.behavioral.adapter;
 
-public class Adapter implements Target {
+interface Target {
+    void execute();
+}
+
+class Adapter extends Target {
     private Adaptee adaptee;
 
     public Adapter(Adaptee a) {
@@ -8,7 +12,13 @@ public class Adapter implements Target {
     }
 
     @Override
-    public int doThing() {
-        return this.adaptee.doThingComplicated();
+    void execute() {
+        this.adaptee.doTHing
+    }
+}
+
+class Adaptee {
+    public void doThingComplicated() {
+        System.err.println("something");
     }
 }

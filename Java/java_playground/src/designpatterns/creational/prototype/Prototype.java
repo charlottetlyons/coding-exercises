@@ -1,5 +1,6 @@
-package designpatterns.creational.prototype;
-public interface Prototype {
+package java_playground.src.designpatterns.creational.prototype;
+
+interface Prototype {
     Prototype clone();
 }
 

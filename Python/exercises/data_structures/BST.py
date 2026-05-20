@@ -68,20 +68,17 @@ class BST:
         return True
 
     def contains(self, value):
-        if self.root:
-            temp = self.root
-            while True:
-                if temp.value == value:
-                    return temp
-                elif temp.value > value:
-                    if not temp.left:
-                        return False
-                    temp = temp.left
-                else:
-                    if not temp.right:
-                        return False
-                    temp = temp.right
-        return False
+        current = self.root
+
+        while current:
+            if current is None:
+                return False
+            elif current.value == value:
+                return True
+            elif current.value > value:
+                current = current.left
+            else:
+                current = current.right
 
     def preorder_dfs(self):
         result = []

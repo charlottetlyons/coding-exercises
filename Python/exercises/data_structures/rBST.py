@@ -4,19 +4,19 @@ class rBST:
     def __init__(self, value):
         self.root = BSTNode(value)
 
-    def __r_insert(self, current, value):
-        if current is None:
-            return BSTNode(value)
-        if value < current.value:
-            current.left = self.__r_insert(current.left, value)
-        if value > current.value:
-            current.right = self.__r_insert(current.right, value)
-        return current
-
     def r_insert(self, value):
+        def __r_insert(current, value):
+            if current is None:
+                return BSTNode(value)
+            if value < current.value:
+                current.left = __r_insert(current.left, value)
+            if value > current.value:
+                current.right = __r_insert(current.right, value)
+            return current
+        
         if not self.root:
             self.root = BSTNode(value)
-        self.__r_insert(self.root, value)
+        __r_insert(self.root, value)
 
     def min_value(self, current):
         while current.left:
