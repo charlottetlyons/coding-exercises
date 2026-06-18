@@ -1,4 +1,4 @@
-package java_playground.src.designpatterns.creational.singleton;
+package java_playground.src.designpatterns.creational;
 
 public class Singleton {
     private static Singleton instance;

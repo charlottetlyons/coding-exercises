@@ -1,0 +1,48 @@
+package java_playground.src.designpatterns.behavioral;
+
+import java.util.ArrayList;
+import java.util.List;
+
+interface Observer {
+    void update();
+}
+
+interface Subject {
+    void subscribe(Observer o);
+    void unsubscribe(Observer o);
+    void updateAll();
+}
+
+class ObserverA implements Observer {
+    @Override
+    public void update() {
+        System.out.println("Observer A notified");
+    }
+}
+class ObserverB implements Observer {
+    @Override
+    public void update() {
+        System.out.println("Observer A notified");
+    }
+}
+
+class SubjectA implements Subject {
+    private List<Observer> observers = new ArrayList<Observer>();
+
+    @Override
+    public void subscribe(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void unsubscribe(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void updateAll() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    };
+}

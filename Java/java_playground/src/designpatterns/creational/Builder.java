@@ -1,4 +1,4 @@
-package java_playground.src.designpatterns.creational.builder;
+package java_playground.src.designpatterns.creational;
 
 interface IBuilder {
     Product build();

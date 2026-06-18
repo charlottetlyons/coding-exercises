@@ -47,17 +47,16 @@ class rBST:
         return current
 
     def r_contains(self, value):
-        return self.__r_contains(self.root, value)
-
-    def __r_contains(self, current, value):
-        if not current:
-            return False
-        elif current.value == value:
-            return True
-        elif current.value > value:
-            return self.__r_contains(current.left, value)
-        else:
-            return self.__r_contains(current.right, value)
+        def __r_contains(current, value):
+            if current is None:
+                return False
+            elif current.value == value:
+                return True
+            elif current.value > value:
+                return __r_contains(current.left, value)
+            else:
+                return __r_contains(current.right, value)
+        return __r_contains(self.root, value)
 
     def preorder_dfs(self):
         results = []

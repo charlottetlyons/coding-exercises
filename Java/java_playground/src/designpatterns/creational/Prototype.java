@@ -1,4 +1,4 @@
-package java_playground.src.designpatterns.creational.prototype;
+package java_playground.src.designpatterns.creational;
 
 interface Prototype {
     Prototype clone();
@@ -11,7 +11,6 @@ class ConcretePrototype implements Prototype {
         value = v;
     }
 
-    @Override
     public Prototype clone() {
         return new ConcretePrototype(value);
     }

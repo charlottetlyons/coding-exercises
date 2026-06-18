@@ -1,4 +1,4 @@
-package java_playground.src.designpatterns.behavioral.template;
+package java_playground.src.designpatterns.behavioral;
 
 abstract class Template {
     public final void execute() {

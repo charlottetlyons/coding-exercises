@@ -5,11 +5,6 @@ class StackList:
     def push(self, value):
         self.stack.append(value)
 
-    def pop(self):
-        if len(self.stack) == 0:
-            return None
-        return self.stack.pop()
-
     def peek(self):
         if len(self.stack) == 0:
             return None
@@ -27,3 +22,8 @@ class StackList:
 
         while len(sorted_stack.stack) != 0:
             self.push(sorted_stack.pop())
+
+    def pop(self):
+        if len(self.stack) == 0:
+            return None
+        return self.stack.pop()

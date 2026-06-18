@@ -125,7 +125,6 @@ def median_of_three_quick_sort(some_list):
                 pivot_value = c
         return pivot_value
 
-
     def partition(some_list, left, right, pivot_value):
         while left <= right:
             while some_list[left] < pivot_value:
@@ -155,14 +154,18 @@ def randomized_pivot_quick_sort(some_list):
         some_list[left], some_list[rand_index] = some_list[rand_index], some_list[left]
         return some_list[left]
     
-    def partition(some_list, pivot_index, end_index):
-        swap_index = pivot_index
-        for i in range(pivot_index + 1, end_index + 1):
-            if some_list[i] < some_list[pivot_index]:
-                swap_index += 1
-                swap(some_list, swap_index, i)
-        swap(some_list, swap_index, pivot_index)
-        return swap_index
+    def partition(some_list, left, right, pivot_value):
+        while left <= right:
+            while some_list[left] < pivot_value:
+                left += 1
+            while some_list[right] > pivot_value:
+                right -= 1
+
+            if left <= right:
+                swap(some_list, left, right)
+                left += 1
+                right -= 1
+        return left
 
     def quick_sort_helper(some_list, left, right):
         if left < right:
@@ -247,31 +250,3 @@ def longest_of_strings(strings):
         if string_length  > len(longest_string):
             longest_string = string
     return longest_string
-
-def randomized_pivot_quick_sort(some_list):
-    def randomized_pivot(some_list, left, right):
-        rand_index = randint(left, right)
-        some_list[left], some_list[rand_index] = some_list[rand_index], some_list[left]
-        return some_list[left]
-    
-    def partition(some_list, left, right, pivot_value):
-        while left <= right:
-            while some_list[left] < pivot_value:
-                left += 1
-            while some_list[right] > pivot_value:
-                right -= 1
-
-            if left <= right:
-                swap(some_list, left, right)
-                left += 1
-                right -= 1
-        return left
-
-    def quick_sort_helper(some_list, left, right):
-        if left < right:
-            pivot_value = randomized_pivot(some_list, left, right)
-            pivot_index = partition(some_list, left, right, pivot_value)
-            quick_sort_helper(some_list, left, pivot_index - 1)
-            quick_sort_helper(some_list, pivot_index, right)
-        return some_list
-    return quick_sort_helper(some_list, 0, len(some_list) - 1)
