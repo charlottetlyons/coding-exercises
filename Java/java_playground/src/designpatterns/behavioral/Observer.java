@@ -8,8 +8,8 @@ interface Observer {
 }
 
 interface Subject {
-    void subscribe(Observer o);
-    void unsubscribe(Observer o);
+    void attach(Observer o);
+    void detach(Observer o);
     void updateAll();
 }
 
@@ -19,25 +19,26 @@ class ObserverA implements Observer {
         System.out.println("Observer A notified");
     }
 }
+
 class ObserverB implements Observer {
     @Override
     public void update() {
-        System.out.println("Observer A notified");
+        System.out.println("Observer B notified");
     }
 }
 
-class SubjectA implements Subject {
+class ConcreteSubject implements Subject { 
     private List<Observer> observers = new ArrayList<Observer>();
 
     @Override
-    public void subscribe(Observer o) {
+    public void attach(Observer o) {
         observers.add(o);
-    }
+    };
 
     @Override
-    public void unsubscribe(Observer o) {
+    public void detach(Observer o) {
         observers.remove(o);
-    }
+    };
 
     @Override
     public void updateAll() {
