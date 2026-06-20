@@ -1,4 +1,4 @@
-package java_playground.src.designpatterns.creational;
+package src.designpatterns.creational;
 
 interface Prototype {
     Prototype clone();

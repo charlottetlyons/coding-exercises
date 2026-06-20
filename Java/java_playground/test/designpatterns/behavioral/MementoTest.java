@@ -1,22 +1,20 @@
 package test.designpatterns.behavioral;
 
-import designpatterns.behavioral.memento.Caretaker;
-import designpatterns.behavioral.memento.Originator;
-import src.designpatterns.behavioral.adapter.*;
+import src.designpatterns.behavioral.memento.Caretaker;
+import src.designpatterns.behavioral.memento.Originator;
+import test.test.ITest;
 
-import test.Test;
-
-public class AdapterTest implements Test {
+public class MementoTest implements ITest {
     @Override
     public boolean runTest() {
         Originator originator = new Originator();
         Caretaker caretaker = new Caretaker();
         
         originator.setState("test1");
-        caretaker.saveMemento(originator.saveStateMemento());
+        caretaker.saveMemento(originator.saveMemento());
         originator.setState("test2");
         boolean result1 = originator.getState() == "test2";
-        originator.restoreState(caretaker.get(0));
+        originator.restoreMemento(caretaker.getMemento(0));
         return result1 && originator.getState() == "test1";
     }
 };

@@ -1,4 +1,4 @@
-package java_playground.src.designpatterns.structual;
+package src.designpatterns.structual;
 
 class SubsystemA {
     public void operationA() {};

@@ -1,4 +1,4 @@
-package java_playground.src.designpatterns.behavioral;
+package src.designpatterns.behavioral;
 
 import java.util.ArrayList;
 import java.util.List;
