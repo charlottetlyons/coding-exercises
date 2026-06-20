@@ -201,6 +201,9 @@ class LinkedList:
         self.head = dummy.next
 
     def partition_list(self, x):
+        if not self.head:
+            return
+        
         dummy1 = Node(0)
         dummy2 = Node(0)
         prev1 = dummy1
@@ -208,17 +211,23 @@ class LinkedList:
         current = self.head
 
         while current:
+            next = current.next
+            current.next = None
+
             if current.value < x:
                 prev1.next = current
-                prev1 = prev1.next
+                prev1 = current
             else:
                 prev2.next = current
-                prev2 = prev2.next
-            current = current.next
-
-        prev2.next = None
+                prev2 = current
+            current = next
         prev1.next = dummy2.next
         self.head = dummy1.next
+
+        if dummy2.next:
+            self.tail = prev2
+        else:
+            self.tail = prev1
 
     def remove_duplicates(self):
         seen = []

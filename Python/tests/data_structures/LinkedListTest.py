@@ -184,9 +184,27 @@ class LinkedListTest:
         return ll.values() == [1, 4, 3, 2, 5]
 
     def test_partition_list(self):
-        ll = self.initialize_test_linked_list(custom_list=[1, 3, 2, 3, 1, 14])
-        ll.partition_list(3)
-        return ll.values() == [1, 2, 1, 3, 3, 14]
+        empty = self.initialize_test_linked_list(custom_list=[])
+        one_element = self.initialize_test_linked_list(custom_list=[1])
+        mixed_values = self.initialize_test_linked_list(custom_list=[8, 3, 5, 1, 7, 1])
+        all_greater = self.initialize_test_linked_list(custom_list=[5, 4, 6, 8, 5, 6])
+        all_lesser = self.initialize_test_linked_list(custom_list=[5, 4, 6, 2, 5, 6])
+        equal_to_pivot = self.initialize_test_linked_list(custom_list=[4, 6, 2, 8, 5, 6])
+
+        empty.partition_list(3)
+        one_element.partition_list(1)
+        mixed_values.partition_list(2)
+        all_greater.partition_list(2)
+        all_lesser.partition_list(8)
+        equal_to_pivot.partition_list(5)
+
+        return (
+            empty.values() == [] and 
+            one_element.values() == [1] and 
+            mixed_values.values() == [1, 1, 8, 3, 5, 7] and 
+            all_greater.values() == [5, 4, 6, 8, 5, 6] and
+            all_lesser.values() == [5, 4, 6, 2, 5, 6] and
+            equal_to_pivot.values() == [4, 2, 6, 8, 5, 6])
 
     def test_values(self):
         return self.initialize_test_linked_list().values() == [1, 2, 3, 4, 5]
