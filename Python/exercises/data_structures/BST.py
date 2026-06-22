@@ -53,7 +53,7 @@ class BST:
             while successor.left:
                 successor_parent = successor
                 successor = successor.left
-            
+
             current.value = successor.value
             parent = successor_parent
             current = successor

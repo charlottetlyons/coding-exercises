@@ -3,6 +3,7 @@ import java.util.HashMap;
 import test.designpatterns.behavioral.AdapterTest;
 import test.designpatterns.behavioral.MementoTest;
 import test.designpatterns.behavioral.StateTest;
+import test.designpatterns.creational.SingletonTest;
 import test.test.ITest;
 
 public class TestRunner {
@@ -12,10 +13,12 @@ public class TestRunner {
 
         AdapterTest adapterTest = new AdapterTest();
         MementoTest mementoTest = new MementoTest();
+        SingletonTest singletonTest = new SingletonTest();
         StateTest stateTest = new StateTest();
         
         tests.put("Adapter", adapterTest);
         tests.put("Memento", mementoTest);
+        tests.put("Singleton", singletonTest);
         tests.put("State", stateTest);
 
         System.out.println("Running...");
