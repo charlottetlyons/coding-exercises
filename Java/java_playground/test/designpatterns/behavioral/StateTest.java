@@ -3,7 +3,7 @@ package test.designpatterns.behavioral;
 import src.designpatterns.behavioral.state.ConcreteStateA;
 import src.designpatterns.behavioral.state.ConcreteStateB;
 import src.designpatterns.behavioral.state.Context;
-import test.test.ITest;
+import test.ITest;
 
 public class StateTest implements ITest {
     @Override

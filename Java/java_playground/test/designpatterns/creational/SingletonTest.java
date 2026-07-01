@@ -1,7 +1,7 @@
 package test.designpatterns.creational;
 
 import src.designpatterns.creational.Singleton;
-import test.test.ITest;
+import test.ITest;
 
 public class SingletonTest implements ITest {
 

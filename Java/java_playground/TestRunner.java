@@ -1,10 +1,12 @@
 import java.util.HashMap;
 
+import test.ITest;
 import test.designpatterns.behavioral.AdapterTest;
 import test.designpatterns.behavioral.MementoTest;
+import test.designpatterns.behavioral.ObserverTest;
 import test.designpatterns.behavioral.StateTest;
 import test.designpatterns.creational.SingletonTest;
-import test.test.ITest;
+import test.designpatterns.structural.CompositeTest;
 
 public class TestRunner {
     public static void main(String[] args) {
@@ -12,12 +14,16 @@ public class TestRunner {
         HashMap<String, ITest> tests = new HashMap<String, ITest>();
 
         AdapterTest adapterTest = new AdapterTest();
+        CompositeTest compositeTest = new CompositeTest();
         MementoTest mementoTest = new MementoTest();
+        ObserverTest observerTest = new ObserverTest();
         SingletonTest singletonTest = new SingletonTest();
         StateTest stateTest = new StateTest();
         
         tests.put("Adapter", adapterTest);
+        tests.put("Composite", compositeTest);
         tests.put("Memento", mementoTest);
+        tests.put("Observer", observerTest);
         tests.put("Singleton", singletonTest);
         tests.put("State", stateTest);
 

@@ -2,7 +2,7 @@ package test.designpatterns.behavioral;
 
 import src.designpatterns.behavioral.memento.Caretaker;
 import src.designpatterns.behavioral.memento.Originator;
-import test.test.ITest;
+import test.ITest;
 
 public class MementoTest implements ITest {
     @Override
