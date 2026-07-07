@@ -5,6 +5,8 @@ import test.designpatterns.behavioral.AdapterTest;
 import test.designpatterns.behavioral.MementoTest;
 import test.designpatterns.behavioral.ObserverTest;
 import test.designpatterns.behavioral.StateTest;
+import test.designpatterns.behavioral.TemplateTest;
+import test.designpatterns.creational.PrototypeTest;
 import test.designpatterns.creational.SingletonTest;
 import test.designpatterns.structural.CompositeTest;
 
@@ -17,15 +19,19 @@ public class TestRunner {
         CompositeTest compositeTest = new CompositeTest();
         MementoTest mementoTest = new MementoTest();
         ObserverTest observerTest = new ObserverTest();
+        PrototypeTest prototypeTest = new PrototypeTest();
         SingletonTest singletonTest = new SingletonTest();
         StateTest stateTest = new StateTest();
+        TemplateTest templateTest = new TemplateTest();
         
         tests.put("Adapter", adapterTest);
         tests.put("Composite", compositeTest);
         tests.put("Memento", mementoTest);
         tests.put("Observer", observerTest);
+        tests.put("Prototype", prototypeTest);
         tests.put("Singleton", singletonTest);
         tests.put("State", stateTest);
+        tests.put("Template", templateTest);
 
         System.out.println("Running...");
         tests.forEach((name, test) -> {

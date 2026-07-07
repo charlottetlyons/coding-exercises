@@ -153,7 +153,7 @@ def randomized_pivot_quick_sort(some_list):
         rand_index = randint(left, right)
         some_list[left], some_list[rand_index] = some_list[rand_index], some_list[left]
         return some_list[left]
-    
+
     def partition(some_list, left, right, pivot_value):
         while left <= right:
             while some_list[left] < pivot_value:

@@ -13,8 +13,11 @@ public class CompositeTest implements ITest {
 
         root.add(childA);
         root.add(childB);
+        boolean resultA = root.operation() == 20;
+        root.remove(childB);
+        boolean resultB = root.operation() == 10;
 
-        return root.operation() == 20;
+        return resultA && resultB;
     }
     
 }
