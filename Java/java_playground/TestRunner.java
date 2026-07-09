@@ -9,6 +9,7 @@ import test.designpatterns.behavioral.TemplateTest;
 import test.designpatterns.creational.PrototypeTest;
 import test.designpatterns.creational.SingletonTest;
 import test.designpatterns.structural.CompositeTest;
+import test.designpatterns.structural.FacadeTest;
 
 public class TestRunner {
     public static void main(String[] args) {
@@ -17,6 +18,7 @@ public class TestRunner {
 
         AdapterTest adapterTest = new AdapterTest();
         CompositeTest compositeTest = new CompositeTest();
+        FacadeTest facadeTest = new FacadeTest();
         MementoTest mementoTest = new MementoTest();
         ObserverTest observerTest = new ObserverTest();
         PrototypeTest prototypeTest = new PrototypeTest();
@@ -26,6 +28,7 @@ public class TestRunner {
         
         tests.put("Adapter", adapterTest);
         tests.put("Composite", compositeTest);
+        tests.put("Facade", facadeTest);
         tests.put("Memento", mementoTest);
         tests.put("Observer", observerTest);
         tests.put("Prototype", prototypeTest);
