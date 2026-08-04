@@ -1,5 +1,5 @@
-package src.designpatterns.behavioral.state;
+package designpatterns.behavioral.state;
 
 public interface State {
-    int handle();
+    int doThing();
 }

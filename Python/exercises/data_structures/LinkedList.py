@@ -203,7 +203,7 @@ class LinkedList:
     def partition_list(self, x):
         if not self.head:
             return
-        
+
         dummy1 = Node(0)
         dummy2 = Node(0)
         prev1 = dummy1

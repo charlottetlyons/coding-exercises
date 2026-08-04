@@ -1,4 +1,4 @@
-package src.designpatterns.creational;
+package designpatterns.creational.singleton;
 
 public class Singleton {
     private static Singleton instance;

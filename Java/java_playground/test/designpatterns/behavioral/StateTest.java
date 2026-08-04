@@ -1,8 +1,8 @@
 package test.designpatterns.behavioral;
 
-import src.designpatterns.behavioral.state.ConcreteStateA;
-import src.designpatterns.behavioral.state.ConcreteStateB;
-import src.designpatterns.behavioral.state.Context;
+import designpatterns.behavioral.state.ConcreteStateA;
+import designpatterns.behavioral.state.ConcreteStateB;
+import designpatterns.behavioral.state.Context;
 import test.ITest;
 
 public class StateTest implements ITest {

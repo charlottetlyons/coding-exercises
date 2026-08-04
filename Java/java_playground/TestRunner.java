@@ -1,3 +1,4 @@
+import java.lang.module.ModuleDescriptor.Builder;
 import java.util.HashMap;
 
 import test.ITest;
@@ -6,6 +7,7 @@ import test.designpatterns.behavioral.MementoTest;
 import test.designpatterns.behavioral.ObserverTest;
 import test.designpatterns.behavioral.StateTest;
 import test.designpatterns.behavioral.TemplateTest;
+import test.designpatterns.creational.BuilderTest;
 import test.designpatterns.creational.PrototypeTest;
 import test.designpatterns.creational.SingletonTest;
 import test.designpatterns.structural.CompositeTest;
@@ -17,6 +19,7 @@ public class TestRunner {
         HashMap<String, ITest> tests = new HashMap<String, ITest>();
 
         AdapterTest adapterTest = new AdapterTest();
+        BuilderTest builderTest = new BuilderTest();
         CompositeTest compositeTest = new CompositeTest();
         FacadeTest facadeTest = new FacadeTest();
         MementoTest mementoTest = new MementoTest();
@@ -27,6 +30,7 @@ public class TestRunner {
         TemplateTest templateTest = new TemplateTest();
         
         tests.put("Adapter", adapterTest);
+        tests.put("Builder", builderTest);
         tests.put("Composite", compositeTest);
         tests.put("Facade", facadeTest);
         tests.put("Memento", mementoTest);

@@ -1,9 +1,9 @@
 package test.designpatterns.structural;
 
-import src.designpatterns.structual.facade.Facade;
-import src.designpatterns.structual.facade.SubsystemA;
-import src.designpatterns.structual.facade.SubsystemB;
-import src.designpatterns.structual.facade.SubsystemC;
+import designpatterns.structural.facade.Facade;
+import designpatterns.structural.facade.SubsystemA;
+import designpatterns.structural.facade.SubsystemB;
+import designpatterns.structural.facade.SubsystemC;
 import test.ITest;
 
 public class FacadeTest implements ITest {

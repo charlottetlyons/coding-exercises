@@ -1,4 +1,4 @@
-package src.designpatterns.behavioral.memento;
+package designpatterns.behavioral.memento;
 
 import java.util.ArrayList;
 import java.util.List;

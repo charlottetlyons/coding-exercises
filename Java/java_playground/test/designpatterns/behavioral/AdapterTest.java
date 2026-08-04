@@ -1,7 +1,7 @@
 package test.designpatterns.behavioral;
 
-import src.designpatterns.behavioral.adapter.Adaptee;
-import src.designpatterns.behavioral.adapter.Adapter;
+import designpatterns.behavioral.adapter.Adaptee;
+import designpatterns.behavioral.adapter.Adapter;
 import test.ITest;
 
 public class AdapterTest implements ITest {

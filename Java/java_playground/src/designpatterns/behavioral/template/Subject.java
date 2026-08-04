@@ -1,10 +1,11 @@
-package src.designpatterns.behavioral.template;
+package designpatterns.behavioral.template;
 
 public class Subject {
+    Template templateA = new TemplateA();
+    Template templateB = new TemplateB();
+
     public int runTemplates() {
-        TemplateA templateA = new TemplateA();
-        TemplateB templateB = new TemplateB();
         return templateA.execute() + templateB.execute();
-    };
+    }
     
 }

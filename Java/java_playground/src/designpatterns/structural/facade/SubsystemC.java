@@ -1,4 +1,4 @@
-package src.designpatterns.structual.facade;
+package designpatterns.structural.facade;
 
 public class SubsystemC {
     public int operationsC() {

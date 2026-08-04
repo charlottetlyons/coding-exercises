@@ -1,6 +1,6 @@
 package test.designpatterns.structural;
 
-import src.designpatterns.structual.composite.*;
+import designpatterns.structural.composite.*;
 import test.ITest;
 
 public class CompositeTest implements ITest {

@@ -1,4 +1,4 @@
-package src.designpatterns.behavioral.memento;
+package designpatterns.behavioral.memento;
 
 public class Memento {
     private String state;

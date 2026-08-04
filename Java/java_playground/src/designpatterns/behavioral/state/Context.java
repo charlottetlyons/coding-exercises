@@ -1,4 +1,4 @@
-package src.designpatterns.behavioral.state;
+package designpatterns.behavioral.state;
 
 public class Context {
     private State state;
@@ -6,12 +6,12 @@ public class Context {
     public Context(State s) {
         this.state = s;
     }
-
+    
     public void setState(State s) {
         this.state = s;
     }
 
     public int doThing() {
-        return this.state.handle();
+        return this.state.doThing();
     }
 }

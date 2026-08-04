@@ -1,8 +1,8 @@
-package src.designpatterns.behavioral.state;
+package designpatterns.behavioral.state;
 
 public class ConcreteStateB implements State {
     @Override
-    public int handle() {
+    public int doThing() {
         return 20;
     };
 }

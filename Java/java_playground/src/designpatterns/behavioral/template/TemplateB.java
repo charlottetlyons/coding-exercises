@@ -1,4 +1,4 @@
-package src.designpatterns.behavioral.template;
+package designpatterns.behavioral.template;
 
 public class TemplateB extends Template {
 
@@ -16,5 +16,4 @@ public class TemplateB extends Template {
     int stepThree() {
         return 6;
     }
-    
 }

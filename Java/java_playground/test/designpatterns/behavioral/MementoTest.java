@@ -1,7 +1,7 @@
 package test.designpatterns.behavioral;
 
-import src.designpatterns.behavioral.memento.Caretaker;
-import src.designpatterns.behavioral.memento.Originator;
+import designpatterns.behavioral.memento.Caretaker;
+import designpatterns.behavioral.memento.Originator;
 import test.ITest;
 
 public class MementoTest implements ITest {

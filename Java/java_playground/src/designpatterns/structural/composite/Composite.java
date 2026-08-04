@@ -1,26 +1,27 @@
-package src.designpatterns.structual.composite;
+package designpatterns.structural.composite;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Composite implements Component {
+
     private List<Component> children = new ArrayList<Component>();
 
-    @Override
+    @Override 
     public int operation() {
         int total = 0;
-        for (Component child : children) {
+        for(Component child : children) {
             total += child.operation();
         }
         return total;
     }
 
     public void add(Component c) {
-        children.add(c);
+        this.children.add(c);
     }
 
     public void remove(Component c) {
-        children.remove(c);
+        this.children.remove(c);
     }
     
 }

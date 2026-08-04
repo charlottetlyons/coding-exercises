@@ -1,4 +1,4 @@
-package src.designpatterns.behavioral.observer;
+package designpatterns.behavioral.observer;
 
 public class ConcreteObserver implements Observer {
     @Override
