@@ -38,7 +38,7 @@ class BST:
 
         while current and current.value != value:
             parent = current
-            if value < current.value:
+            if current.value > value:
                 current = current.left
             else:
                 current = current.right

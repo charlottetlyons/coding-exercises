@@ -307,3 +307,45 @@ class LinkedList:
         while temp.next:
             temp = temp.next
         self.tail = temp
+
+    def merge_sort(self):
+        def merge(left, right):
+            dummy = Node(0)
+            current = dummy
+
+            while left and right:
+                if left.value <= right.value:
+                    current.next = left
+                    left = left.next
+                else:
+                    current.next = right
+                    right = right.next
+                current = current.next
+
+            if left:
+                current.next = left
+            else:
+                current.next = right
+            return dummy.next
+
+        def merge_sort_helper(head):
+            if not head or not head.next:
+                return head
+
+            slow = head
+            fast = head.next
+
+            while fast and fast.next:
+                slow = slow.next
+                fast = fast.next.next
+            right = slow.next
+            slow.next = None
+            left = merge_sort_helper(head)
+            right = merge_sort_helper(right)
+            return merge(left, right)
+
+        self.head = merge_sort_helper(self.head)
+        self.tail = self.head
+        while self.tail and self.tail.next:
+            self.tail = self.tail.next
+        return self

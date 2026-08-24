@@ -26,7 +26,8 @@ class LinkedListTest:
             ["test_remove_duplicates", self.test_remove_duplicates],
             ["test_bubble_sort", self.test_bubble_sort],
             ["test_selection_sort", self.test_selection_sort],
-            ["test_insertion_sort", self.test_insertion_sort]
+            ["test_insertion_sort", self.test_insertion_sort],
+            ["test_merge_sort", self.test_merge_sort]
         ]
 
     def run_all_tests(self):
@@ -229,3 +230,6 @@ class LinkedListTest:
 
     def test_insertion_sort(self):
         return test_utils.test_sort(self.initialize_test_linked_list, "insertion_sort")
+
+    def test_merge_sort(self):
+        return test_utils.test_sort(self.initialize_test_linked_list, "merge_sort")

@@ -1,6 +1,6 @@
 package test.designpatterns.behavioral;
 
-import designpatterns.behavioral.template.Subject;
+import designpatterns.creational.template.Subject;
 import test.ITest;
 
 public class TemplateTest implements ITest {
