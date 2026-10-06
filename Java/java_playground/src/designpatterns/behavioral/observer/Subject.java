@@ -11,7 +11,7 @@ public class Subject {
         for (Observer observer : observers) {
             total += observer.update();
         }
-        return total;  
+        return total;
     }
 
     public void add(Observer o) {

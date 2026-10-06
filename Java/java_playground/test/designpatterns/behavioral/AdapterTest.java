@@ -9,6 +9,6 @@ public class AdapterTest implements ITest {
     public boolean runTest() {
         Adaptee adaptee = new Adaptee();
         Adapter adapter = new Adapter(adaptee);
-        return adapter.execute() == 89374432;
+        return adapter.execute() == 1;
     }
 };
